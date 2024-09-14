@@ -6,9 +6,9 @@
 
 
 #### Shameless plug
-This course is given to you for free by the Malcore team: https://m4lc.io/course/shellcode/register
+This course is given to you for free by the Malcore team: [https://m4lc.io/course/shellcode/register](https://m4lc.io/course/shellcode/register)
 
-Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can also join our Discord server here: https://m4lc.io/course/shellcode/discord
+Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can also join our Discord server here: [https://m4lc.io/course/shellcode/discord](https://m4lc.io/course/shellcode/register)
 
 We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
 
@@ -181,8 +181,8 @@ The above C code calls the `unsigned char` variable as a function and runs it di
 There is a high probability that this shellcode will not launch calc.exe on your system, that is most likely because the hardcoded address of WinExec (`0x76c76360`) is incorrect. To fix this you will need to perform actions such as `LoadLibraryA` and find the correct location of the addresses. Unfortunately, that is out of scope for this introduction and will need to be shown later. 
 
 Once again, this course is brought to you by the Malcore team for free.
-- Register here: https://m4lc.io/course/shellcode/register
-- Join our Discord here: https://m4lc.io/course/shellcode/discord
-- See how Malcore analyzed the file created from this course here: https://m4lc.io/course/shellcode/upload
+- Register here: [https://m4lc.io/course/shellcode/register](https://m4lc.io/course/shellcode/register)
+- Join our Discord here: [https://m4lc.io/course/shellcode/discord](https://m4lc.io/course/shellcode/register)
+- See how Malcore analyzed the file created from this course here: [https://m4lc.io/course/shellcode/upload](https://m4lc.io/course/shellcode/register)
 
 Please consider registering/joining as it allows us to keep producing free courses for you all.
