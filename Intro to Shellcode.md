@@ -183,6 +183,6 @@ There is a high probability that this shellcode will not launch calc.exe on your
 Once again, this course is brought to you by the Malcore team for free.
 - Register here: [https://m4lc.io/course/shellcode/register](https://m4lc.io/course/shellcode/register)
 - Join our Discord here: [https://m4lc.io/course/shellcode/discord](https://m4lc.io/course/shellcode/register)
-- See how Malcore analyzed the file created from this course here: [https://m4lc.io/course/shellcode/upload](https://m4lc.io/course/shellcode/register)
+- See how Malcore analyzed the file created from this course here: [https://m4lc.io/course/shellcode/upload](https://m4lc.io/course/shellcode/upload)
 
 Please consider registering/joining as it allows us to keep producing free courses for you all.
