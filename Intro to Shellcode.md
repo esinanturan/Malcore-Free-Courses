@@ -85,7 +85,7 @@ It is important to note this explanation will most likely not be able to be comp
 So that you learn correctly it is necessary for us to have a basic overview of assembly code. We will be focusing on x86 assembly in this course, and you will need to know what you are reading and looking at. Think of this as a cheat sheet for the assembly code in this course.
 
 <p align="center">
-<img src=".github/img_1.png"/>
+<img src=".github/img_1.png"
 </p>
 
 
