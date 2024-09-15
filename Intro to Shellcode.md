@@ -84,42 +84,9 @@ It is important to note this explanation will most likely not be able to be comp
 
 So that you learn correctly it is necessary for us to have a basic overview of assembly code. We will be focusing on x86 assembly in this course, and you will need to know what you are reading and looking at. Think of this as a cheat sheet for the assembly code in this course.
 
-<pre><span style="color: black">
-   ┌──────────────┐                                                                                                                                           
-┌──┼<span style="color: red">x86 Registers:</span>│                                                                                                                                           
-│xx├──────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐xx
-├xx┼►<span style="color: chartreuse">eax</span>                                                                                                                                                   │xx
-│xx├─►The <span style="color: blue">`Accumulator`</span> register. This register is used for arithmetic operations and storing results.                                                     │xx
-├xx┼►<span style="color: chartreuse">ebx</span>                                                                                                                                                   │xx
-│xx├─►The <span style="color: blue">`Base`</span> register. This register is usually used to hold pointers of data in memory.                                                               │xx
-├xx┼►<span style="color: chartreuse">ecx</span>                                                                                                                                                   │xx
-│xx├─►The <span style="color: blue">`Counter`</span> register. This register is commonly used in loops and used for counting.                                                               │xx
-├xx┼►<span style="color: chartreuse">edx</span>                                                                                                                                                   │xx
-│xx├─►The <span style="color: blue">`Data`</span> register. This register is usually used for `IO` operations, however it has been used for arithmetic purposes                             │xx
-├xx┼►<span style="color: chartreuse">esi</span>                                                                                                                                                   │xx
-│xx├─►The <span style="color: blue">`Source Index`</span> register. Typically used for sting related operations and pointing to source data in memory.                                      │xx
-├xx┼►<span style="color: chartreuse">edi</span>                                                                                                                                                   │xx
-│xx├─►The <span style="color: blue">`Destination Index`</span> register. This register is also typically used for string operations, also for memory copying. It points to destination data.│xx
-├xx┼►<span style="color: chartreuse">ebp</span>                                                                                                                                                   │xx
-│xx├─►The <span style="color: blue">`Base Pointer`</span> register. This register is used to reference function parameters and local variables on the stack                                 │xx
-└──┼►<span style="color: chartreuse">esp</span>                                                                                                                                                   │xx
-   └┐ The `Stack Pointer` register. This register is used to point to the current location on the stack.                                                   │xx
-    └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘xx
-   ┌──────────────┐ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-┌─┐│<span style="color: red">x86 Mnemonics:</span>│ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                                                      
-│xx┼──────────────┴──────────────────────────────────────────────────────────────────────────────────┐xx                                                      
-├xx┼► <span style="color: chartreuse">xor</span>                                                                                            │xx                                                      
-│xx│ ─►This performs a bitwise xor between two operands. It is usually used to zero out the register.│xx                                                      
-├xx┼► <span style="color: chartreuse">push</span>                                                                                           │xx                                                      
-│xx│ ─►Pushes a value onto the stack                                                                 │xx                                                      
-├xx┼► <span style="color: chartreuse">mov</span>                                                                                            │xx                                                      
-│xx│ ─►Moves a value from one place to another, such as from a memory location to the register.      │xx                                                      
-├xx┼► <span style="color: chartreuse">call</span>                                                                                           │xx                                                      
-│xx│ ─►Calls a function at a specific memory address                                                 │xx                                                      
-└──┼► <span style="color: chartreuse">int</span>                                                                                            │xx                                                      
-   │ ─►Triggers an interrupt                                                                         │xx                                                      
-   └─────────────────────────────────────────────────────────────────────────────────────────────────┘xx                                    <span style="color: crimson">https://malcore.io</span>
-</span></pre>
+<p align="center">
+<img src=".github/img_1.png"/>
+</p>
 
 
 ##### NOTE: It is worth noting that there are more mnemonics, however these are the ones that are used in this course and will be the only ones talked about here.
