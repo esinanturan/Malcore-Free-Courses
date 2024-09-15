@@ -89,7 +89,7 @@ So that you learn correctly it is necessary for us to have a basic overview of a
 </p>
 
 
-##### NOTE: It is worth noting that there are more mnemonics, however these are the ones that are used in this course and will be the only ones talked about here.
+##### NOTE: It is worth noting that there are more mnemonics, however these are the ones that are used in this course and will be the only ones talked about here. If you want to learn more a full list can be found here: [https://www.felixcloutier.com/x86/](https://www.felixcloutier.com/x86/)
 
 # Let's write some shellcode!
 
