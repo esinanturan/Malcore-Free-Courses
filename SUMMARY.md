@@ -2,6 +2,7 @@
 
 * [The Indoctrination](<./The Malware Bible.md>)
   * The Beginning
+    * [Introduction to x86 Assembly](<./The%20Beginning/Introduction to x86 Assembly.md>)
     * [Introduction to Shellcode](<./The%20Beginning/Introduction to Shellcode.md>)
     * [Introduction to Python](<./The%20Beginning/Introduction to Python.md>)
     * [Introduction to File Types](<./The%20Beginning/Introduction to File Types.md>)
