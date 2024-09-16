@@ -4,6 +4,8 @@
 
 <!-- If you're reading this I love you <3 -->
 
+---
+
 
 #### Shameless plug
 This course is given to you for free by the Malcore team: [https://m4lc.io/course/shellcode/register](https://m4lc.io/course/shellcode/register)
@@ -12,15 +14,20 @@ Consider registering, and using Malcore, so we can continue to provide free cont
 
 We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
 
+##### NOTE: This course assumes that you understand the basics of x86 assembly and C code.
+
+---
+
 # What will be covered? 
 - [What the f*ck is shellcode?](#what-the-fck-is-shellcode)
 - [How does it work?](#how-does-shellcode-work)
-- [Overview of x86 ASM](#what-is-assembly)
 - [Let's write some](#lets-write-some-shellcode)
 - [Compiling shellcode](#compiling-it)
 - [Adding it to your executable](#adding-shellcode-to-your-attack)
 - [We out g](#in-closing)
 
+
+---
 
 # What the f*ck is shellcode?
 
@@ -29,6 +36,8 @@ In a nutshell shellcode is a small piece of code used as a payload for exploitat
 Typically, shellcode is written in assembly language and is designed to be injected into memory. Its primary use is arbitrary code execution; however, it can be used for multiple other functions. 
 
 The purpose of using shellcode is to gain control of a system by injecting the said shellcode into the vulnerable process. It is usually carefully constructed and designed specifically for the individual attack it accomplishes. This is important because a lot of the time, shellcode must be refined per system. 
+
+---
 
 # How does Shellcode work?
 
@@ -78,18 +87,9 @@ In theory what would happen is the following:
 - The overwritten EIP address now contains the shellcode address and the shellcode is executed.
 
 
-It is important to note this explanation will most likely not be able to be compiled and most likely will not work. This is a pseudo example designed to explain to you how shellcode works and why it works. 
+It is important to note this explanation will most likely not be able to be compiled and most likely will not work. This is a pseudo example designed to explain to you how shellcode works and why it works.
 
-# What is assembly?
-
-So that you learn correctly it is necessary for us to have a basic overview of assembly code. We will be focusing on x86 assembly in this course, and you will need to know what you are reading and looking at. Think of this as a cheat sheet for the assembly code in this course.
-
-<p align="center">
-<img src="../.github/img_1.png"/>
-</p>
-
-
-##### NOTE: It is worth noting that there are more mnemonics, however these are the ones that are used in this course and will be the only ones talked about here. If you want to learn more a full list can be found here: [https://www.felixcloutier.com/x86/](https://www.felixcloutier.com/x86/)
+---
 
 # Let's write some shellcode!
 
@@ -126,6 +126,8 @@ Now that we have this shellcode what we need to do is compile it. To do so you w
 2. [MinGW](https://www.mingw-w64.org/downloads/) -> MinGW is "Minimalist Gnu for Windows" and provides you with commands like gcc on Windows.
 
 You can download both using Chocolatey or the respective links included above. Once you have these installed make sure to add them both to your ENV Path.
+
+---
 
 # Compiling it!
 
@@ -189,8 +191,12 @@ int main (void) {
 
 The above C code calls the `unsigned char` variable as a function and runs it directly, in a nutshell this part of the function: `(*(void(*)()) code)();` is a type cast to treat the code as a function pointer without any arguments. This allows us to execute the shellcode without need for injection into a vulnerable process.
 
+---
+
 # In closing
-There is a high probability that this shellcode will not launch calc.exe on your system, that is most likely because the hardcoded address of WinExec (`0x76c76360`) is incorrect. To fix this you will need to perform actions such as `LoadLibraryA` and find the correct location of the addresses. Unfortunately, that is out of scope for this introduction and will need to be shown later. 
+This course has provided you with the basics of how shellcode works, how to compile it, and how to launch it from within a C program. This course was designed specifically for starters to understand the basic concepts of shellcode and what it does. We hope you have found this course useful and understand it.
+
+There is a high probability that this shellcode will not launch calc.exe on your system, that is most likely because the hardcoded address of WinExec (`0x76c76360`) is incorrect. To fix this you will need to perform actions such as `LoadLibraryA` and find the correct location of the addresses. Unfortunately, that is out of scope for this introduction and will need to be shown later. We encourage readers to try and figure this out themselves.
 
 Once again, this course is brought to you by the Malcore team for free.
 - Register here: [https://m4lc.io/course/shellcode/register](https://m4lc.io/course/shellcode/register)
