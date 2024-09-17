@@ -146,6 +146,8 @@ gcc -m32 -o test_calc.exe .\test_calc.o "-Wl,-e,_start" -nostdlib
 ```
 What the above commands does is tells the `gcc` compiler to link the output as a 32bit (`-m32`) application, specifies the entrypoint to the `_start` section (`-Wl,_-e,_start`), and prevents us from including standard libraries (`-nostdlib`). Congratulations! You have successfully compiled your own shellcode!
 
+---
+
 # Adding shellcode to your attack
 
 If this is the first time you've done this, you're probably thinking: "Well that's cool but it's not in the normal '\xnn' format I see all the time" and you are completely right! That is because we have not taken our shellcode and turned it into the correct format we need! If you see the above you notice that we compiled the shellcode into an `exe` file at the end which is great and awesome! But we don't need to complete that step in order to get the shellcode. What we need is the `object` file, and the disassembly of that file. We can get this using something like `objdump` on the object file:
