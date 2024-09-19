@@ -21,6 +21,10 @@ Consider registering, and using Malcore, so we can continue to provide free cont
 
 We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
 
+You can also support us by buying us a coffee
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/malcoreio)
+
 ##### NOTE: This course assumes that you are using Linux and have nasm installed.
 
 ---
