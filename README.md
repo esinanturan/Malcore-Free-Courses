@@ -12,4 +12,6 @@ Remember: "To conquer your enemy, walk in the shadow of their thoughts, and let 
 
 ---
 
+Consider supporting these free courses by buying us a coffee
+
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/malcoreio)
