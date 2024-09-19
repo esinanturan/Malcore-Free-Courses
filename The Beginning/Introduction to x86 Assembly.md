@@ -70,7 +70,7 @@ mov ebx, 0x6D616C636F7265 ; loads the memory address 0x6D616C636F7265 into EBX
 ```asm
 mov ecx, 10      ; load 10 in ec
 loop_start:      ; create a loop
-dec ecx          ; remove from ecx
+dec ecx          ; decrement from ecx (ecx = ecx - 1)
 jnz loop_start   ; jump to the start of the loop and remove if ecx != 0
 ```
 - `EDX`
@@ -84,6 +84,9 @@ mov eax, 20       ; loads 20 in eax
 mov edx, 4        ; loads 4 into edx
 mul edx           ; multiply eax by edx
 ```
+
+##### NOTE: It is worth mentioning that 32bit is smaller than 64bit to store which is why sometimes edx, and eax are used together to hold values.
+
 ---
 ### Pointer and index registers
 - `ESI`
