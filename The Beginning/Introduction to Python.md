@@ -4,9 +4,9 @@
 
 **Shameless plug**
 
-This course is given to you for free by the Malcore team: https://m4lc.io/course/python/register
+This course is given to you for free by the Malcore team: [https://m4lc.io/course/python/register](https://m4lc.io/course/python/register)
 
-Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can also join our Discord server here: https://m4lc.io/course/python/discord
+Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can also join our Discord server here: `https://m4lc.io/course/python/discord`
 
 We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
 
@@ -756,8 +756,8 @@ That's all there is to it! You have learned the basics of Python and successfull
 
 Please remember that this course is provided for free by the Malcore team. Please consider following one of the below links:
 
-Register for Malcore: https://m4lc.io/course/python/register
-Join our Discord to discuss: https://m4lc.io/course/python/discord
+Register for Malcore: [https://m4lc.io/course/python/register](https://m4lc.io/course/python/register)
+Join our Discord to discuss: [https://m4lc.io/course/python/discord](https://m4lc.io/course/python/register)
 
 
 
