@@ -757,7 +757,7 @@ That's all there is to it! You have learned the basics of Python and successfull
 Please remember that this course is provided for free by the Malcore team. Please consider following one of the below links:
 
 Register for Malcore: [https://m4lc.io/course/python/register](https://m4lc.io/course/python/register)
-Join our Discord to discuss: [https://m4lc.io/course/python/discord](https://m4lc.io/course/python/register)
+Join our Discord to discuss: [https://m4lc.io/course/python/discord](https://m4lc.io/course/python/discord)
 
 
 
