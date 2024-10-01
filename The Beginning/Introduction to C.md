@@ -2,6 +2,8 @@
     <img src="../.github/img_5.png" height="512" width="512"/>
 </p>
 
+# NOTE: THIS IS A WORK IN PROGRESS AND IS NOT RELEASED YET
+
 **Shameless plug**
 
 This course is given to you for free by the Malcore team: [https://m4lc.io/course/c/register](https://m4lc.io/course/c/register)
