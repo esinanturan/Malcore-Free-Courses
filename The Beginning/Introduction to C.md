@@ -844,7 +844,7 @@ Now that we've been through all you will need to know to start writing in C code
 
 #### The code
 
-```c
+```c 
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
