@@ -86,6 +86,12 @@ int a;
 float b;
 char c;
 ```
+  - It is also possible to initialize a variable upon use
+```c
+int a = 5;
+char c = 'c';
+float b = 1.5;
+```
 - Constants:
   - You can declare a constant using the `const` keyword. IE: `const int AGE = 33;`
   - You can also declare them using `#define`, IE: `#define PI 3.14`
@@ -117,6 +123,9 @@ struct Person {
   int age;
   float height;
 }
+
+// create a person
+struct Person john = {.name = "John", .age = 50, .height = 65.6};
 ```
 - Enumerations (enums):
   - An enumeration (enum) is a way to assign names to integer values. Example:
@@ -276,7 +285,8 @@ When declaring a function in C you use a `prototype`. You must declare a functio
 
 The syntax of a function is: `return type function_name(parameters)`. As an example of a basic function:
 ```c
-int add(int a, int b); // declare the function
+// create a function prototype
+int add(int a, int b);
 ```
 
 Function definitions specify the actual code that is executed within the function when it is called. This is a set of instructions that make up the functions logical body:
@@ -288,7 +298,7 @@ int add(int a, int b) {
 
 Once the function has been declared and defined you can call the function by simply calling its name and passing the required arguments. For example:
 ```c
-int result = add(1, 2)
+int result = add(1, 2);
 // this returns 3
 ```
 
@@ -985,7 +995,7 @@ void logError(const char *message) {
 
 Now you will need to save and compile this file like so:
 ```
-salty@Loki:/tmp$ gcc -otest -Wall test.c 
+salty@Loki:/tmp$ gcc -o test -Wall test.c 
 salty@Loki:/tmp$ ./test
 Enter the size of the array (max size: 100): 8
 Enter 8 integer values:
