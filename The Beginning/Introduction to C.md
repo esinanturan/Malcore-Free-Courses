@@ -174,7 +174,7 @@ int x = 10;
 if (x > 10) {
    printf("x is greater than 10");
 } else if (x > 5) {
-   printf("x is greater than 5 less than 10")
+   printf("x is greater than 5 less than 10");
 } else {
    printf("x is less than 5");
 }
@@ -186,7 +186,7 @@ int day = 2;
 
 switch (day) {
   case 1:
-    printf("Monday);
+    printf("Monday");
   case 2:
     printf("Tuesday");
   case 3:
@@ -251,7 +251,7 @@ start:
     goto start;
   }
 ```
-##### NOTE: it is worth noting that `goto` is usually frowned upon because it can make the code harder to follow. However, do what you want. It's your code.
+##### NOTE: it is worth noting that `goto` is usually frowned upon because it can make the code harder to follow. However, do what you want. It's your code. It is also worth noting that `goto` is useful for deep nested loops.
 - Return statements:
   - Used to exit a function and return a value from that function call, IE:
 ```c
@@ -674,6 +674,17 @@ These are lines in the code that start with `#`. They are instructions to the pr
 // defining a macro
 // SYNTAX: #define MACRO_NAME(params) expression
 #define SQR(x) ((x) * (x))
+
+// define a multi line macro
+#define MULTI_MACRO(x)          \
+  do {                          \
+    printf("Value: %d", x);     \
+    if (x > 2) {                \
+      print("Greater than 2");  \
+    } else {                    \ 
+      print("Less than 10");    \
+    }                           \
+  } while (0)
 ```
 - `#undef`
   - Undefine a macro. This macro must have already been defined using `#define`.
