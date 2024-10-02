@@ -122,7 +122,7 @@ struct Person {
   char name[50];
   int age;
   float height;
-}
+};
 
 // create a person
 struct Person john = {.name = "John", .age = 50, .height = 65.6};
