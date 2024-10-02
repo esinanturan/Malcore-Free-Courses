@@ -682,7 +682,7 @@ These are lines in the code that start with `#`. They are instructions to the pr
     if (x > 2) {                \
       printf("Greater than 2"); \
     } else {                    \
-      printf("Less than 2");   \
+      printf("Less than 2");    \
     }                           \
   } while (0)
 ```
