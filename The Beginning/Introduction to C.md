@@ -680,9 +680,9 @@ These are lines in the code that start with `#`. They are instructions to the pr
   do {                          \
     printf("Value: %d", x);     \
     if (x > 2) {                \
-      print("Greater than 2");  \
-    } else {                    \ 
-      print("Less than 10");    \
+      printf("Greater than 2"); \
+    } else {                    \
+      printf("Less than 10");   \
     }                           \
   } while (0)
 ```
