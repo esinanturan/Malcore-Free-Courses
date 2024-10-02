@@ -813,7 +813,7 @@ int main() {
 - Using `errno` for error reporting
   - `errno` is a global variable in C. It stores the error code when certain standard library functions fail. This may provide more detailed information.
 
-```c
+```cpp
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
@@ -867,7 +867,7 @@ Now that we've been through all you will need to know to start writing in C code
 #### The code
 
 
-```c
+```cpp
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
