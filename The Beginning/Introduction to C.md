@@ -2,7 +2,7 @@
     <img src="../.github/img_5.png" height="512" width="512"/>
 </p>
 
-# NOTE: THIS IS A WORK IN PROGRESS AND IS NOT RELEASED YET
+<!--# NOTE: THIS IS A WORK IN PROGRESS AND IS NOT RELEASED YET-->
 
 **Shameless plug**
 
