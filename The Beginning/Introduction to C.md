@@ -130,7 +130,7 @@ struct Person john = {.name = "John", .age = 50, .height = 65.6};
 - Enumerations (enums):
   - An enumeration (enum) is a way to assign names to integer values. Example:
 ```c
-enum Weekday = {Monday, Tuesday};
+enum Weekday {Monday, Tuesday};
 enum Weekday today = Monday;
 ```
 - Modifiers:
