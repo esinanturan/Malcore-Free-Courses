@@ -865,7 +865,7 @@ Now that we've been through all you will need to know to start writing in C code
 
 #### The code
 
-```c 
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -1005,7 +1005,7 @@ void logError(const char *message) {
 #### Compiling the file
 
 Now you will need to save and compile this file like so:
-```
+```bash
 salty@Loki:/tmp$ gcc -o test -Wall test.c 
 salty@Loki:/tmp$ ./test
 Enter the size of the array (max size: 100): 8
