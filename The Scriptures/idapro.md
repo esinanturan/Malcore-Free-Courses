@@ -16,7 +16,30 @@ You can also support us by buying us a coffee
 
 ---
 
-### Index
+## Index
+
+- [Keys](#keys)
+- [Navigation](#navigation)
+- [Search](#search)
+- [Graphing](#graphing)
+- [Comments](#comments)
+- [Data Format Options](#data-format-options)
+- [Open Subviews](#open-subviews)
+- [File Operations](#file-operations)
+- [Debugger](#debugger)
+- [Breakpoints](#breakpoints)
+- [Watches](#watches)
+- [Tracing](#tracing)
+- [Misc](#miscellaneous)
+- [Edit](#edit-data-types--etc)
+- [Operand Type](#operand-type)
+- [Segments](#segments)
+- [Structs](#structs)
+- [Functions](#functions)
+
+---
+
+## Keys
 
 | Image                                                               | Description |
 |---------------------------------------------------------------------|-------------|
@@ -28,7 +51,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Navigation
+## Navigation
 
 | Action                    | Shortcut                                                                                                                               |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,7 +72,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Search
+## Search
 
 | Action                 | Shortcut                                                             |
 |------------------------|----------------------------------------------------------------------|
@@ -67,7 +90,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Graphing
+## Graphing
 
 | Action         | Shortcut                                                               |
 |----------------|------------------------------------------------------------------------|
@@ -76,7 +99,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Comments
+## Comments
 
 | Action                    | Shortcut                                                                |
 |---------------------------|-------------------------------------------------------------------------|
@@ -88,7 +111,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Data Format Options
+## Data Format Options
 
 | Action              | Shortcut                                                            |
 |---------------------|---------------------------------------------------------------------|
@@ -97,7 +120,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Open Subviews
+## Open Subviews
 
 | Action            | Shortcut                                                                |
 |-------------------|-------------------------------------------------------------------------|
@@ -113,7 +136,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### File Operations
+## File Operations
 
 | Action              | Shortcut                                                              |
 |---------------------|-----------------------------------------------------------------------|
@@ -123,7 +146,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Debugger
+## Debugger
 
 | Action            | Shortcut                                                              |
 |-------------------|-----------------------------------------------------------------------|
@@ -136,7 +159,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Breakpoints
+## Breakpoints
 
 | Action          | Shortcut                                                                                                                               |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -144,7 +167,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Watches
+## Watches
 
 | Action       | Shortcut |
 |--------------|----------|
@@ -152,7 +175,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Tracing
+## Tracing
 
 | Action      | Shortcut                                                                                                                               |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -160,7 +183,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Miscellaneous
+## Miscellaneous
 
 | Action                   | Shortcut                                                                  |
 |--------------------------|---------------------------------------------------------------------------|
@@ -173,7 +196,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Edit (Data Types – etc)
+## Edit (Data Types – etc)
 
 | Action             | Shortcut                                                               |
 |--------------------|------------------------------------------------------------------------|
@@ -190,7 +213,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Operand Type
+## Operand Type
 
 | Action                   | Shortcut                                                              |
 |--------------------------|-----------------------------------------------------------------------|
@@ -213,7 +236,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Segments
+## Segments
 
 | Action                        | Shortcut                                                            |
 |-------------------------------|---------------------------------------------------------------------|
@@ -222,7 +245,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Structs
+## Structs
 
 | Action                  | Shortcut                                                             |
 |-------------------------|----------------------------------------------------------------------|
@@ -232,7 +255,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Functions
+## Functions
 
 | Action               | Shortcut                                                             |
 |----------------------|----------------------------------------------------------------------|
