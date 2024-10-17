@@ -32,7 +32,7 @@ You can also support us by buying us a coffee
 - [Visual Mode](#visual-mode)
 - [ROP](#rop)
 - [Searching](#searching)
-- [Comments & Defines](#comments--defines)
+- [Comments & Defines](#comments-and-defines)
 - [Magic Files](#magic-files)
 - [Yara](#yara)
 - [Zignatures](#zignatures)
@@ -228,7 +228,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Comments & Defines
+### Comments and Defines
 
 | **Comments & Defines** | Details                           |
 |------------------------|-----------------------------------|
