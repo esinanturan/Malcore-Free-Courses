@@ -4,11 +4,14 @@
 
 ##### Shameless plug
 
-This cheatsheet is given to you for free by the Malcore team: [https://m4lc.io/cs/r2/register](https://m4lc.io/cs/r2/register)
+This cheatsheet is given to you for free by the Malcore
+team: [https://m4lc.io/cs/r2/register](https://m4lc.io/cs/r2/register)
 
-Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can also join our Discord server here: [https://m4lc.io/cs/r2/discord](https://m4lc.io/cs/r2/discord)
+Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can
+also join our Discord server here: [https://m4lc.io/cs/r2/discord](https://m4lc.io/cs/r2/discord)
 
-We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
+We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course
+in further detail or to ask questions.
 
 You can also support us by buying us a coffee
 
@@ -50,16 +53,16 @@ You can also support us by buying us a coffee
 ### Command Line Options
 
 | **Commands** | Details                                                              |
-|-------------------------|----------------------------------------------------------------------|
-| `-L`                    | List of supported IO plugins                                         |
-| `-q`                    | Exit after processing commands                                       |
-| `-w`                    | Write mode enabled                                                   |
-| `-i [file]`             | Interprets an r2 script                                              |
-| `-A`                    | Analyze executable at load time                                      |
-| `-n`                    | Bare load, do not load executable info as the entrypoint             |
-| `-c 'cmds'`             | Run r2 and execute commands                                          |
-| `-p [prj]`              | Creates a project for the file being analyzed                        |
-| `-`                     | Opens r2 with the malloc plugin that provides a 512-byte memory area |
+|--------------|----------------------------------------------------------------------|
+| `-L`         | List of supported IO plugins                                         |
+| `-q`         | Exit after processing commands                                       |
+| `-w`         | Write mode enabled                                                   |
+| `-i [file]`  | Interprets an r2 script                                              |
+| `-A`         | Analyze executable at load time                                      |
+| `-n`         | Bare load, do not load executable info as the entrypoint             |
+| `-c 'cmds'`  | Run r2 and execute commands                                          |
+| `-p [prj]`   | Creates a project for the file being analyzed                        |
+| `-`          | Opens r2 with the malloc plugin that provides a 512-byte memory area |
 
 [Back to Index](#index)
 
@@ -67,12 +70,12 @@ You can also support us by buying us a coffee
 
 ### Configuration Properties
 
-| **Commands** | Details                              |
-|------------------------------|--------------------------------------|
-| `e`                          | Returns configuration properties     |
-| `e <property>`               | Check specific property              |
-| `e <property>=<value>`       | Change property value                |
-| `e?`                         | Help about a configuration property  |
+| **Commands**           | Details                             |
+|------------------------|-------------------------------------|
+| `e`                    | Returns configuration properties    |
+| `e <property>`         | Check specific property             |
+| `e <property>=<value>` | Change property value               |
+| `e?`                   | Help about a configuration property |
 
 [Back to Index](#index)
 
@@ -80,7 +83,7 @@ You can also support us by buying us a coffee
 
 ### Basic Commands
 
-| **Commands**       | Details                                      |
+| **Commands**             | Details                                      |
 |--------------------------|----------------------------------------------|
 | Command chaining         | `x 3;s+3;pi 3;s+3;pxo 4;`                    |
 | Pipe with shell commands | <code>pd &#124; less</code>                  |
@@ -107,8 +110,8 @@ You can also support us by buying us a coffee
 ### Block Size
 
 | **Commands** | Details           |
-|----------------|-------------------|
-| `b size`       | Change block size |
+|--------------|-------------------|
+| `b size`     | Change block size |
 
 [Back to Index](#index)
 
@@ -116,9 +119,9 @@ You can also support us by buying us a coffee
 
 ### JSON Output
 
-|**Commands** | Details                                                        |
-|-----------------|----------------------------------------------------------------|
-| `j`             | Most commands accept `j` to print their output in JSON format  |
+| **Commands** | Details                                                       |
+|--------------|---------------------------------------------------------------|
+| `j`          | Most commands accept `j` to print their output in JSON format |
 
 [Back to Index](#index)
 
@@ -127,12 +130,12 @@ You can also support us by buying us a coffee
 ### Analyze
 
 | **Commands** | Details                                |
-|-------------|----------------------------------------|
-| `aa`        | Analyze all functions and basic blocks |
-| `af`        | Analyze functions                      |
-| `afl`       | List all functions                     |
-| `afi`       | Info on current function               |
-| `afr`       | Rename function                        |
+|--------------|----------------------------------------|
+| `aa`         | Analyze all functions and basic blocks |
+| `af`         | Analyze functions                      |
+| `afl`        | List all functions                     |
+| `afi`        | Info on current function               |
+| `afr`        | Rename function                        |
 
 [Back to Index](#index)
 
@@ -140,15 +143,15 @@ You can also support us by buying us a coffee
 
 ### Information
 
-| **Commands**| Details                 |
-|-----------------|-------------------------|
-| `iI`            | File info               |
-| `iz`            | Strings in data section |
-| `iS`            | Sections                |
-| `is`            | Symbols                 |
-| `il`            | Linked libraries        |
-| `ii`            | Imports                 |
-| `ie`            | Entrypoint              |
+| **Commands** | Details                 |
+|--------------|-------------------------|
+| `iI`         | File info               |
+| `iz`         | Strings in data section |
+| `iS`         | Sections                |
+| `is`         | Symbols                 |
+| `il`         | Linked libraries        |
+| `ii`         | Imports                 |
+| `ie`         | Entrypoint              |
 
 [Back to Index](#index)
 
@@ -157,11 +160,11 @@ You can also support us by buying us a coffee
 ### Write
 
 | **Commands** | Details                                        |
-|-----------|------------------------------------------------|
-| `wx`      | Write hex values at the current offset         |
-| `wa`      | Write assembly                                 |
-| `wc`      | Write cache commit                             |
-| `wv`      | Write value with endian conversion and padding |
+|--------------|------------------------------------------------|
+| `wx`         | Write hex values at the current offset         |
+| `wa`         | Write assembly                                 |
+| `wc`         | Write cache commit                             |
+| `wv`         | Write value with endian conversion and padding |
 
 [Back to Index](#index)
 
@@ -169,7 +172,7 @@ You can also support us by buying us a coffee
 
 ### Flags
 
-| **Commands**        | Details                           |
+| **Commands**       | Details                           |
 |--------------------|-----------------------------------|
 | `f`                | List flags                        |
 | `f label @ offset` | Define a flag at an offset        |
@@ -182,11 +185,11 @@ You can also support us by buying us a coffee
 
 ### Yank and Paste
 
-|**Commands** | Details                                    |
-|------------------|--------------------------------------------|
-| `y n`            | Copy `n` bytes from current position       |
-| `yp`             | Print yank buffer                          |
-| `yy offset`      | Paste contents of yank buffer at an offset |
+| **Commands** | Details                                    |
+|--------------|--------------------------------------------|
+| `y n`        | Copy `n` bytes from current position       |
+| `yp`         | Print yank buffer                          |
+| `yy offset`  | Paste contents of yank buffer at an offset |
 
 [Back to Index](#index)
 
@@ -195,11 +198,11 @@ You can also support us by buying us a coffee
 ### Visual Mode
 
 | **Commands** | Details                          |
-|-----------------|----------------------------------|
-| `V`             | Enter visual mode                |
-| `q`             | Exit visual mode                 |
-| `hjkl`          | Move around while in visual mode |
-| `o`             | Go to offset                     |
+|--------------|----------------------------------|
+| `V`          | Enter visual mode                |
+| `q`          | Exit visual mode                 |
+| `hjkl`       | Move around while in visual mode |
+| `o`          | Go to offset                     |
 
 [Back to Index](#index)
 
@@ -207,7 +210,7 @@ You can also support us by buying us a coffee
 
 ### ROP
 
-| **Commands**    | Details                      |
+| **Commands** | Details                      |
 |--------------|------------------------------|
 | `/R opcodes` | Search for opcodes           |
 | `/a`         | Search for assembly          |
@@ -219,7 +222,7 @@ You can also support us by buying us a coffee
 
 ### Searching
 
-| **Commands**   | Details                     |
+| **Commands**     | Details                     |
 |------------------|-----------------------------|
 | `/ bytes`        | Search for bytes            |
 | `/m [magicfile]` | Search magic number headers |
@@ -231,10 +234,10 @@ You can also support us by buying us a coffee
 ### Comments and Defines
 
 | **Commands** | Details                           |
-|------------------------|-----------------------------------|
-| `Cd [size]`            | Define as data                    |
-| `C- [size]`            | Define as code                    |
-| `CC`                   | Add a new comment in console mode |
+|--------------|-----------------------------------|
+| `Cd [size]`  | Define as data                    |
+| `C- [size]`  | Define as code                    |
+| `CC`         | Add a new comment in console mode |
 
 [Back to Index](#index)
 
@@ -242,9 +245,9 @@ You can also support us by buying us a coffee
 
 ### Magic Files
 
-| **Commands**  | Details                     |
-|-----------------|-----------------------------|
-| `pm`            | Print Magic files analysis  |
+| **Commands**     | Details                     |
+|------------------|-----------------------------|
+| `pm`             | Print Magic files analysis  |
 | `/m [magicfile]` | Search magic number headers |
 
 [Back to Index](#index)
@@ -253,7 +256,7 @@ You can also support us by buying us a coffee
 
 ### Yara
 
-| **Commands**    | Details                                 |
+| **Commands** | Details                                 |
 |--------------|-----------------------------------------|
 | `:yara scan` | Scan with Yara for detecting signatures |
 
@@ -263,7 +266,7 @@ You can also support us by buying us a coffee
 
 ### Zignatures
 
-| **Commands**               | Details                |
+| **Commands**                  | Details                |
 |-------------------------------|------------------------|
 | `zg <language> <output file>` | Generate zignatures    |
 | `z`                           | Show loaded zignatures |
@@ -274,7 +277,7 @@ You can also support us by buying us a coffee
 
 ### Compare Files
 
-| **Commands**        | Details                             |
+| **Commands**               | Details                             |
 |----------------------------|-------------------------------------|
 | `r2 -m 0xf0000 /etc/fstab` | Open source file                    |
 | `cc offset`                | Diff by columns between two offsets |
@@ -285,7 +288,7 @@ You can also support us by buying us a coffee
 
 ### Graphs
 
-| **Commands**       | Details                                        |
+| **Commands**     | Details                                        |
 |------------------|------------------------------------------------|
 | `ag $$ > a.dot`  | Dump basic block graph to a file named `a.dot` |
 | `agc $$ > b.dot` | Dump call graph to a file named `b.dot`        |
@@ -296,7 +299,7 @@ You can also support us by buying us a coffee
 
 ### Debugger
 
-| **Commands**                                 | Details                                                               |
+| **Commands**                                  | Details                                                               |
 |-----------------------------------------------|-----------------------------------------------------------------------|
 | <code>r2 -d [pid&#124;cmd&#124;ptrace]</code> | Start r2 in debugger mode (if the comamnd contains spaces use quotes) |
 | `dp`                                          | Show processes and threads                                            |
@@ -309,10 +312,10 @@ You can also support us by buying us a coffee
 
 ### WebGUI (Enyo)
 
-| **Commands**| Details                  |
-|-------------------|--------------------------|
-| `=h`              | Start the server         |
-| `=H`              | Start server and browser |
+| **Commands** | Details                  |
+|--------------|--------------------------|
+| `=h`         | Start the server         |
+| `=H`         | Start server and browser |
 
 [Back to Index](#index)
 
@@ -320,12 +323,12 @@ You can also support us by buying us a coffee
 
 ### Radare2 Suite Commands
 
-| **Commands**| Details                           |
-|----------------------------|-----------------------------------|
-| `rax2 -e`                  | Base conversion and endian change |
-| `rahash2 -a entropy`       | Show entropy per block            |
-| `radiff2 -C`               | Code diffing                      |
-| `rasm2 -d`                 | Disassemble data                  |
+| **Commands**         | Details                           |
+|----------------------|-----------------------------------|
+| `rax2 -e`            | Base conversion and endian change |
+| `rahash2 -a entropy` | Show entropy per block            |
+| `radiff2 -C`         | Code diffing                      |
+| `rasm2 -d`           | Disassemble data                  |
 
 [Back to Index](#index)
 
@@ -343,10 +346,10 @@ You can also support us by buying us a coffee
 
 ### Executable Analysis (rabin2)
 
-| **Commands**  | Details         |
-|-------------|-----------------|
-| `rabin2 -I` | Executable info |
-| `rabin2 -s` | Symbols         |
+| **Commands** | Details         |
+|--------------|-----------------|
+| `rabin2 -I`  | Executable info |
+| `rabin2 -s`  | Symbols         |
 
 [Back to Index](#index)
 
