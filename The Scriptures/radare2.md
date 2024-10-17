@@ -28,7 +28,7 @@ You can also support us by buying us a coffee
 - [Information](#information)
 - [Write](#write)
 - [Flags](#flags)
-- [Yank & Paste](#yank--paste)
+- [Yank & Paste](#yank-and-paste)
 - [Visual Mode](#visual-mode)
 - [ROP](#rop)
 - [Searching](#searching)
@@ -180,7 +180,7 @@ You can also support us by buying us a coffee
 
 ---
 
-### Yank & Paste
+### Yank and Paste
 
 | **Yank & Paste** | Details                                    |
 |------------------|--------------------------------------------|
