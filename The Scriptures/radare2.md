@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="../.github/img-removebg-preview.png">
+    <img src="../.github/radare2-cheatsheet.jpg" height="73" width="171">
 </p>
 
 ##### Shameless plug
