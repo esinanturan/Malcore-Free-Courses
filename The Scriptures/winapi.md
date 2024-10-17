@@ -20,6 +20,16 @@ will be an ongoing project and will probably take a long time to do.
 - [AarSvc](#aarsvc.dll)
 - [AboutSettingsHandlers](#aboutsettingshandlers.dll)
 - [AboveLockAppHost](#abovelockapphost.dll)
+- [accessibilitycpl](#accessibilitycpl.dll)
+- [accountaccessor](#accountaccessor.dll)
+- [AccountsRt](#accountsrt.dll)
+- [AcGenral](#acgenral.dll)
+- [AcLayers](#aclayers.dll)
+- [acledit](#acledit.dll)
+- [aclui](#aclui.dll)
+- [acmigration](#acmigration.dll)
+- [ACPBackgroundManagerPolicy](#acpbackgroundmanagerpolicy.dll)
+- [acppage](#acppage.dll)
 
 ## ztrace_maps.dll
 
@@ -246,5 +256,281 @@ will be an ongoing project and will probably take a long time to do.
 | DllCanUnloadNow         | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
 | DllGetActivationFactory | N/A                                                                                                                 |
 | DllGetClassObject       | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) | 
+
+---
+
+## accessibilitycpl.dll
+
+#### Export table:
+
+```
+1   0x00002e30 0x180002e30 GLOBAL FUNC 0    ACCESSIBILITYCPL.dll DllCanUnloadNow
+2   0x00002e50 0x180002e50 GLOBAL FUNC 0    ACCESSIBILITYCPL.dll DllGetClassObject
+3   0x00002ee0 0x180002ee0 GLOBAL FUNC 0    ACCESSIBILITYCPL.dll DllInstall
+4   0x00002ef0 0x180002ef0 GLOBAL FUNC 0    ACCESSIBILITYCPL.dll DllMain
+5   0x00003070 0x180003070 GLOBAL FUNC 0    ACCESSIBILITYCPL.dll DllRegisterServer
+6   0x00003070 0x180003070 GLOBAL FUNC 0    ACCESSIBILITYCPL.dll DllUnregisterServer
+```
+
+#### Functions and Documentation
+
+| Exported Function   | Documentation Link                                                                                                  |
+|---------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllCanUnloadNow     | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetClassObject   | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+| DllInstall          | N/A                                                                                                                 |
+| DllMain             | N/A                                                                                                                 |
+| DllRegisterServer   | [DllRegisterServer](https://learn.microsoft.com/en-us/windows/win32/api/unknwn/nf-unknwn-dllregisterserver)         |
+| DllUnregisterServer | [DllUnregisterServer](https://learn.microsoft.com/en-us/windows/win32/api/unknwn/nf-unknwn-dllunregisterserver)     |
+
+---
+
+## accountaccessor.dll
+
+#### Export table:
+
+```
+1   0x000103f0 0x1800103f0 GLOBAL FUNC 0    AccountAccessor.dll GetConversationSyncEnabled
+2   0x00010a00 0x180010a00 GLOBAL FUNC 0    AccountAccessor.dll GetUnifiedInboxEnabled
+3   0x00010ae0 0x180010ae0 GLOBAL FUNC 0    AccountAccessor.dll GetUnifiedInboxServerValue
+4   0x00010310 0x180010310 GLOBAL FUNC 0    AccountAccessor.dll SetConversationSyncEnabled
+5   0x00010920 0x180010920 GLOBAL FUNC 0    AccountAccessor.dll SetUnifiedInboxEnabled
+6   0x00010300 0x180010300 GLOBAL FUNC 0    AccountAccessor.dll CreateDefaultWindowsLiveAccount
+7   0x00006eb0 0x180006eb0 GLOBAL FUNC 0    AccountAccessor.dll DllCanUnloadNow
+8   0x00006ef0 0x180006ef0 GLOBAL FUNC 0    AccountAccessor.dll DllGetClassObject
+9   0x00013710 0x180013710 GLOBAL FUNC 0    AccountAccessor.dll FindMatchingPartnership
+10  0x000106b0 0x1800106b0 GLOBAL FUNC 0    AccountAccessor.dll GetConversationSyncDateFilter
+11  0x00010810 0x180010810 GLOBAL FUNC 0    AccountAccessor.dll IsExtendedConversationSyncDateFiltersSupported
+12  0x00013570 0x180013570 GLOBAL FUNC 0    AccountAccessor.dll LoadGoldenPartnershipAccessor
+13  0x00010530 0x180010530 GLOBAL FUNC 0    AccountAccessor.dll SetConversationSyncDateFilter
+14  0x000142d0 0x1800142d0 GLOBAL FUNC 0    AccountAccessor.dll UnenrollAndMarkAccountForDeletion
+15  0x00015c70 0x180015c70 GLOBAL FUNC 0    AccountAccessor.dll UpdateGoogleAccountConversationFlags
+16  0x00015cd0 0x180015cd0 GLOBAL FUNC 0    AccountAccessor.dll UpdateGoogleAccountServerSendsMeetingProp
+17  0x000150d0 0x1800150d0 GLOBAL FUNC 0    AccountAccessor.dll UpdateWebDavAccountProperties
+```
+
+#### Functions and Documentation
+
+| Exported Function                              | Documentation Link                                                                                                  |
+|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| GetConversationSyncEnabled                     | N/A                                                                                                                 |
+| GetUnifiedInboxEnabled                         | N/A                                                                                                                 |
+| GetUnifiedInboxServerValue                     | N/A                                                                                                                 |
+| SetConversationSyncEnabled                     | N/A                                                                                                                 |
+| SetUnifiedInboxEnabled                         | N/A                                                                                                                 |
+| CreateDefaultWindowsLiveAccount                | N/A                                                                                                                 |
+| DllCanUnloadNow                                | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetClassObject                              | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+| FindMatchingPartnership                        | N/A                                                                                                                 |
+| GetConversationSyncDateFilter                  | N/A                                                                                                                 |
+| IsExtendedConversationSyncDateFiltersSupported | N/A                                                                                                                 |
+| LoadGoldenPartnershipAccessor                  | N/A                                                                                                                 |
+| SetConversationSyncDateFilter                  | N/A                                                                                                                 |
+| UnenrollAndMarkAccountForDeletion              | N/A                                                                                                                 |
+| UpdateGoogleAccountConversationFlags           | N/A                                                                                                                 |
+| UpdateGoogleAccountServerSendsMeetingProp      | N/A                                                                                                                 |
+| UpdateWebDavAccountProperties                  | N/A                                                                                                                 |
+
+---
+
+## AccountsRt.dll
+
+#### Export table:
+
+```
+1   0x0002eed0 0x18002eed0 GLOBAL FUNC 0    AccountsRT.dll DllCanUnloadNow
+2   0x0000cc60 0x18000cc60 GLOBAL FUNC 0    AccountsRT.dll DllGetActivationFactory
+3   0x0002ef40 0x18002ef40 GLOBAL FUNC 0    AccountsRT.dll DllGetClassObject
+```
+
+#### Functions and Documentation
+
+| Exported Function       | Documentation Link                                                                                                  |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllCanUnloadNow         | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetActivationFactory | N/A                                                                                                                 |
+| DllGetClassObject       | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+
+---
+
+## AcGenral.dll
+
+#### Export table:
+
+```
+1   0x00004d30 0x180004d30 GLOBAL FUNC 0    AcGenral.dll GetHookAPIs
+2   0x00004de0 0x180004de0 GLOBAL FUNC 0    AcGenral.dll NotifyShims
+```
+
+#### Functions and Documentation
+
+| Exported Function | Documentation Link |
+|-------------------|--------------------|
+| GetHookAPIs       | N/A                |
+| NotifyShims       | N/A                |
+
+---
+
+## AcLayers.dll
+
+#### Export table:
+
+```
+1   0x00001250 0x180001250 GLOBAL FUNC 0    AcLayers.dll GetHookAPIs
+2   0x000023c0 0x1800023c0 GLOBAL FUNC 0    AcLayers.dll NotifyShims
+```
+
+#### Functions and Documentation
+
+| Exported Function | Documentation Link |
+|-------------------|--------------------|
+| GetHookAPIs       | N/A                |
+| NotifyShims       | N/A                |
+
+---
+
+## acledit.dll
+
+#### Export table:
+
+```
+1   0x00001980 0x180001980 GLOBAL FUNC 0    ACLEDIT.dll EditAuditInfo
+2   0x000019a0 0x1800019a0 GLOBAL FUNC 0    ACLEDIT.dll EditOwnerInfo
+3   0x000019c0 0x1800019c0 GLOBAL FUNC 0    ACLEDIT.dll EditPermissionInfo
+4   0x000019e0 0x1800019e0 GLOBAL FUNC 0    ACLEDIT.dll FMExtensionProcW
+5   0x00001ad0 0x180001ad0 GLOBAL FUNC 0    ACLEDIT.dll DllMain
+6   0x00001b10 0x180001b10 GLOBAL FUNC 0    ACLEDIT.dll SedDiscretionaryAclEditor
+7   0x00001b30 0x180001b30 GLOBAL FUNC 0    ACLEDIT.dll SedSystemAclEditor
+8   0x00001b50 0x180001b50 GLOBAL FUNC 0    ACLEDIT.dll SedTakeOwnership
+```
+
+#### Functions and Documentation
+
+| Exported Function         | Documentation Link |
+|---------------------------|--------------------|
+| EditAuditInfo             | N/A                |
+| EditOwnerInfo             | N/A                |
+| EditPermissionInfo        | N/A                |
+| FMExtensionProcW          | N/A                |
+| DllMain                   | N/A                |
+| SedDiscretionaryAclEditor | N/A                |
+| SedSystemAclEditor        | N/A                |
+| SedTakeOwnership          | N/A                |
+
+---
+
+## aclui.dll
+
+#### Export table:
+
+```
+1   0x0004c340 0x18004c340 GLOBAL FUNC 0    ACLUI.dll CreateSecurityPage
+2   0x0004c490 0x18004c490 GLOBAL FUNC 0    ACLUI.dll EditSecurity
+3   0x0001e5d0 0x18001e5d0 GLOBAL FUNC 0    ACLUI.dll EditSecurityAdvanced
+4   0x00040b70 0x180040b70 GLOBAL FUNC 0    ACLUI.dll EditResourceCondition
+5   0x00040630 0x180040630 GLOBAL FUNC 0    ACLUI.dll EditConditionalAceClaims
+6   0x0001b3b0 0x18001b3b0 GLOBAL FUNC 0    ACLUI.dll GetLocalizedStringForCondition
+7   0x0000c430 0x18000c430 GLOBAL FUNC 0    ACLUI.dll GetTlsIndexForClaimDictionary
+8   0x00000000 0x180000000 GLOBAL FUNC 0    ACLUI.dll Ordinal_8
+9   0x00000000 0x180000000 GLOBAL FUNC 0    ACLUI.dll Ordinal_9
+10  0x00000000 0x180000000 GLOBAL FUNC 0    ACLUI.dll Ordinal_10
+11  0x00000000 0x180000000 GLOBAL FUNC 0    ACLUI.dll Ordinal_11
+12  0x00000000 0x180000000 GLOBAL FUNC 0    ACLUI.dll Ordinal_12
+13  0x00000000 0x180000000 GLOBAL FUNC 0    ACLUI.dll Ordinal_13
+14  0x00000000 0x180000000 GLOBAL FUNC 0    ACLUI.dll Ordinal_14
+15  0x00000000 0x180000000 GLOBAL FUNC 0    ACLUI.dll Ordinal_15
+16  0x0006c4e0 0x18006c4e0 GLOBAL FUNC 0    ACLUI.dll IID_ISecurityInformation
+```
+
+#### Functions and Documentation
+
+| Exported Function              | Documentation Link |
+|--------------------------------|--------------------|
+| CreateSecurityPage             | N/A                |
+| EditSecurity                   | N/A                |
+| EditSecurityAdvanced           | N/A                |
+| EditResourceCondition          | N/A                |
+| EditConditionalAceClaims       | N/A                |
+| GetLocalizedStringForCondition | N/A                |
+| GetTlsIndexForClaimDictionary  | N/A                |
+| Ordinal_8                      | N/A                |
+| Ordinal_9                      | N/A                |
+| Ordinal_10                     | N/A                |
+| Ordinal_11                     | N/A                |
+| Ordinal_12                     | N/A                |
+| Ordinal_13                     | N/A                |
+| Ordinal_14                     | N/A                |
+| Ordinal_15                     | N/A                |
+| IID_ISecurityInformation       | N/A                |
+
+---
+
+## acmigration.dll
+
+#### Export table:
+
+```
+1   0x00030240 0x180030240 GLOBAL FUNC 0    acmigration.dll AcmEngineApply
+2   0x0002efd0 0x18002efd0 GLOBAL FUNC 0    acmigration.dll AcmEngineCollect
+3   0x0002e690 0x18002e690 GLOBAL FUNC 0    acmigration.dll AcmEngineCreate
+4   0x0002e750 0x18002e750 GLOBAL FUNC 0    acmigration.dll AcmEngineDelete
+5   0x0002ee50 0x18002ee50 GLOBAL FUNC 0    acmigration.dll AcmEngineGenerateMigXml
+6   0x0002e790 0x18002e790 GLOBAL FUNC 0    acmigration.dll AcmEngineGetCapabilityList
+7   0x0002eb80 0x18002eb80 GLOBAL FUNC 0    acmigration.dll AcmEngineSetBaseWorkingDirectory
+8   0x0002e660 0x18002e660 GLOBAL FUNC 0    acmigration.dll AcmMatchPluginExecute
+9   0x00001f00 0x180001f00 GLOBAL FUNC 0    acmigration.dll ApplyMigrationShimsW
+```
+
+#### Functions and Documentation
+
+| Exported Function                | Documentation Link |
+|----------------------------------|--------------------|
+| AcmEngineApply                   | N/A                |
+| AcmEngineCollect                 | N/A                |
+| AcmEngineCreate                  | N/A                |
+| AcmEngineDelete                  | N/A                |
+| AcmEngineGenerateMigXml          | N/A                |
+| AcmEngineGetCapabilityList       | N/A                |
+| AcmEngineSetBaseWorkingDirectory | N/A                |
+| AcmMatchPluginExecute            | N/A                |
+| ApplyMigrationShimsW             | N/A                |
+
+---
+
+## ACPBackgroundManagerPolicy.dll
+
+#### Export table:
+
+```
+1   0x00018810 0x180018810 GLOBAL FUNC 0    ACPBackgroundManagerPolicy.dll DllCanUnloadNow
+2   0x000050f0 0x1800050f0 GLOBAL FUNC 0    ACPBackgroundManagerPolicy.dll DllGetClassObject
+```
+
+#### Functions and Documentation
+
+| Exported Function | Documentation Link                                                                                                  |
+|-------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllCanUnloadNow   | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetClassObject | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+
+---
+
+## acppage.dll
+
+#### Export table:
+
+```
+1   0x00008e90 0x180008e90 GLOBAL FUNC 0    acppage.dll DllCanUnloadNow
+2   0x00008ef0 0x180008ef0 GLOBAL FUNC 0    acppage.dll DllGetClassObject
+3   0x00010660 0x180010660 GLOBAL FUNC 0    acppage.dll GetExeFromLnk
+```
+
+#### Functions and Documentation
+
+| Exported Function | Documentation Link                                                                                                  |
+|-------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllCanUnloadNow   | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetClassObject | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+| GetExeFromLnk     | N/A                                                                                                                 |
 
 ---
