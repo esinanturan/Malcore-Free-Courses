@@ -4,7 +4,8 @@
 
 # What is this?
 
-This is an attempt to add all exported functions from the Windows DLL files located in `System32` and `sysWOW64`. This will be an ongoing project and will probably take a long time to do.
+This is an attempt to add all exported functions from the Windows DLL files located in `System32` and `sysWOW64`. This
+will be an ongoing project and will probably take a long time to do.
 
 # System32
 
@@ -23,6 +24,7 @@ This is an attempt to add all exported functions from the Windows DLL files loca
 ## ztrace_maps.dll
 
 #### Export table:
+
 ```
 1   0x000032a0 0x1800032a0 GLOBAL FUNC 0    ZTrace_Maps.dll ZTraceClose
 2   0x00003340 0x180003340 GLOBAL FUNC 0    ZTrace_Maps.dll ZTraceEnabledHelper
@@ -45,9 +47,36 @@ This is an attempt to add all exported functions from the Windows DLL files loca
 19  0x000039c0 0x1800039c0 GLOBAL FUNC 0    ZTrace_Maps.dll ZTraceTestInit
 ```
 
+#### Functions and Documentation
+
+| Exported Function             | Documentation Link |
+|-------------------------------|--------------------|
+| ZTraceClose                   | N/A                |
+| ZTraceEnabledHelper           | N/A                |
+| ZTraceHelper                  | N/A                |
+| ZTraceHelperNoThis            | N/A                |
+| ZTraceHelperV                 | N/A                |
+| ZTraceHelperVC                | N/A                |
+| ZTraceInit                    | N/A                |
+| ZTraceReportIgnore            | N/A                |
+| ZTraceReportIgnoreC           | N/A                |
+| ZTraceReportIgnoreNoThis      | N/A                |
+| ZTraceReportOrigination       | N/A                |
+| ZTraceReportOriginationC      | N/A                |
+| ZTraceReportOriginationNoThis | N/A                |
+| ZTraceReportPropagation       | N/A                |
+| ZTraceReportPropagationC      | N/A                |
+| ZTraceReportPropagationNoThis | N/A                |
+| ZTraceTestCopyTrace           | N/A                |
+| ZTraceTestForceClose          | N/A                |
+| ZTraceTestInit                | N/A                |
+
+---
+
 ## aadauthhelper.dll
 
 #### Export table:
+
 ```
 1   0x00004350 0x180004350 GLOBAL FUNC 0    AADAUTHHELPER.DLL CloseFidoAuthenticationSession
 2   0x00004440 0x180004440 GLOBAL FUNC 0    AADAUTHHELPER.DLL CreateAuthBuffer
@@ -61,25 +90,63 @@ This is an attempt to add all exported functions from the Windows DLL files loca
 10  0x00004b90 0x180004b90 GLOBAL FUNC 0    AADAUTHHELPER.DLL StartSigningFidoClientData
 ```
 
+#### Functions and Documentation
+
+| Exported Function                  | Documentation Link |
+|------------------------------------|--------------------|
+| CloseFidoAuthenticationSession     | N/A                |
+| CreateAuthBuffer                   | N/A                |
+| CreateResourceAccountAuthBuffer    | N/A                |
+| CreateTokenAuthBuffer              | N/A                |
+| CreateTokenAuthBufferEx            | N/A                |
+| GetFidoAuthenticationSessionStatus | N/A                |
+| GetSerializedAuthBuffer            | N/A                |
+| StartChangingFidoPin               | N/A                |
+| StartFidoAuthenticationSession     | N/A                |
+| StartSigningFidoClientData         | N/A                |
+
+---
+
 ## aadcloudap.dll
 
 #### Export table:
+
 ```
 1   0x00005d30 0x180005d30 GLOBAL FUNC 0    AADCLOUDAP.dll CloudAPPluginInitialize
 2   0x00006160 0x180006160 GLOBAL FUNC 0    AADCLOUDAP.dll DllRegisterServer
 3   0x00006160 0x180006160 GLOBAL FUNC 0    AADCLOUDAP.dll DllUnregisterServer
 ```
 
+#### Functions and Documentation
+
+| Exported Function       | Documentation Link                                                                                              |
+|-------------------------|-----------------------------------------------------------------------------------------------------------------|
+| CloudAPPluginInitialize | N/A                                                                                                             |
+| DllRegisterServer       | [DllRegisterServer](https://learn.microsoft.com/en-us/windows/win32/api/unknwn/nf-unknwn-dllregisterserver)     |
+| DllUnregisterServer     | [DllUnregisterServer](https://learn.microsoft.com/en-us/windows/win32/api/unknwn/nf-unknwn-dllunregisterserver) |
+
+---
+
 ## aadjcsp.dll
 
 #### Export table:
+
 ```
 1   0x000046e0 0x1800046e0 GLOBAL FUNC 0    AADJCSP.dll DllGetClassObject
 ```
 
+#### Functions and Documentation
+
+| Exported Function | Documentation Link                                                                                                  |
+|-------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllGetClassObject | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+
+---
+
 ## aadtb.dll
 
 #### Export table:
+
 ```
 1   0x0000cdc0 0x18000d9c0 GLOBAL FUNC 0    AADTB.dll AADTBAcquireToken
 2   0x0000d150 0x18000dd50 GLOBAL FUNC 0    AADTB.dll AADTBAcquireTokenEx
@@ -90,18 +157,44 @@ This is an attempt to add all exported functions from the Windows DLL files loca
 7   0x0002a1d0 0x18002add0 GLOBAL FUNC 0    AADTB.dll DllGetClassObject
 ```
 
+#### Functions and Documentation
+
+| Exported Function       | Documentation Link                                                                                                  |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------|
+| AADTBAcquireToken       | N/A                                                                                                                 |
+| AADTBAcquireTokenEx     | N/A                                                                                                                 |
+| AADTBFreeString         | N/A                                                                                                                 |
+| AADTBFreeStruct         | N/A                                                                                                                 |
+| DllCanUnloadNow         | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetActivationFactory | N/A                                                                                                                 |
+| DllGetClassObject       | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+
+---
+
 ## aadWamExtension.dll
 
 #### Export table:
+
 ```
 1   0x000080e0 0x1800080e0 GLOBAL FUNC 0    aadWamExtension.dll DllCanUnloadNow
 2   0x00008140 0x180008140 GLOBAL FUNC 0    aadWamExtension.dll DllGetActivationFactory
 3   0x00008340 0x180008340 GLOBAL FUNC 0    aadWamExtension.dll DllGetClassObject
 ```
 
+#### Functions and Documentation
+
+| Exported Function       | Documentation Link                                                                                                  |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllCanUnloadNow         | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetActivationFactory | N/A                                                                                                                 |
+| DllGetClassObject       | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+
+---
+
 ## AarSvc.dll
 
 #### Export table:
+
 ```
 1   0x000054a0 0x1800054a0 GLOBAL FUNC 0    AarSvc.dll DllCanUnloadNow
 2   0x00005190 0x180005190 GLOBAL FUNC 0    AarSvc.dll DllGetActivationFactory
@@ -109,18 +202,49 @@ This is an attempt to add all exported functions from the Windows DLL files loca
 4   0x000055f0 0x1800055f0 GLOBAL FUNC 0    AarSvc.dll ServiceMain
 ```
 
+#### Functions and Documentation
+
+| Exported Function       | Documentation Link                                                                                                  |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllCanUnloadNow         | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetActivationFactory | N/A                                                                                                                 |
+| DllGetClassObject       | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+| ServiceMain             | [ServiceMain](https://learn.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-servicemain)                     |
+
+---
+
 ## AboutSettingsHandlers.dll
 
 #### Export table:
+
 ```
 1   0x00003b00 0x180003b00 GLOBAL FUNC 0    AboutSettingsHandlers.dll GetSetting
 ```
 
+#### Functions and Documentation
+
+| Exported Function | Documentation Link |
+|-------------------|--------------------|
+| GetSetting        | N/A                |
+
+---
+
 ## AboveLockAppHost.dll
 
 #### Export table:
+
 ```
 1   0x00009300 0x180009300 GLOBAL FUNC 0    AboveLockAppHost.dll DllCanUnloadNow
 2   0x00017370 0x180017370 GLOBAL FUNC 0    AboveLockAppHost.dll DllGetActivationFactory
 3   0x00009370 0x180009370 GLOBAL FUNC 0    AboveLockAppHost.dll DllGetClassObject
 ```
+
+#### Functions and Documentation
+
+| Exported Function       | Documentation Link                                                                                                  |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllCanUnloadNow         | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetActivationFactory | N/A                                                                                                                 |
+| DllGetClassObject       | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) | 
+
+---
