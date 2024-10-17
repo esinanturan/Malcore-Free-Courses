@@ -333,9 +333,9 @@ You can also support us by buying us a coffee
 
 ### Shellcode Generator (ragg2)
 
-| **Shellcode Generator (ragg2)** | Details                       |
-|---------------------------------|-------------------------------|
-| `ragg2 -a x86 -b 32 -i exec`    | Generate 32-bit x86 shellcode |
+| **ragg2**                    | Details                       |
+|------------------------------|-------------------------------|
+| `ragg2 -a x86 -b 32 -i exec` | Generate 32-bit x86 shellcode |
 
 [Back to Index](#index)
 
@@ -343,10 +343,10 @@ You can also support us by buying us a coffee
 
 ### Executable Analysis (rabin2)
 
-| **Executable Analysis (rabin2)** | Details         |
-|----------------------------------|-----------------|
-| `rabin2 -I`                      | Executable info |
-| `rabin2 -s`                      | Symbols         |
+| **rabin2**  | Details         |
+|-------------|-----------------|
+| `rabin2 -I` | Executable info |
+| `rabin2 -s` | Symbols         |
 
 [Back to Index](#index)
 
@@ -354,7 +354,7 @@ You can also support us by buying us a coffee
 
 ### Program Launcher (rarun2)
 
-| **Program Launcher (rarun2)**                             | Details                                                       |
+| **rarun2**                                                | Details                                                       |
 |-----------------------------------------------------------|---------------------------------------------------------------|
 | `r2 -b 32 -d rarun2 program=exp1 arg1=$(ragg2 -P 200 -r)` | Launch a program with args inside r2's debugger               |
 | `r2 -d rarun2 program=/bin/cat stdin=$(python e.py)`      | runs /bin/cat with the output of exploit.py directed to stdin |
