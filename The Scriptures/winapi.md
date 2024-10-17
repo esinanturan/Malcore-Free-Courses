@@ -4,7 +4,7 @@
 
 # What is this?
 
-This is an attempt to add all exported functions from the Windows DLL files located in `System32` and `sysWOW64`. This will be an ongoing project and will probably take a long time to do. Each exported function will also have the link (if available) to the functions documentation.
+This is an attempt to add all exported functions from the Windows DLL files located in `System32` and `sysWOW64`. This will be an ongoing project and will probably take a long time to do.
 
 # System32
 
