@@ -10,15 +10,15 @@ This is an attempt to add all exported functions from the Windows DLL files loca
 
 ### DLL Files List
 
-- [ztrace_maps](#ztrace_mapsdll)
-- [aadauthhelper](#aadauthhelperdll)
-- [aadcloudap](#aadcloudapdll)
-- [aadjcsp](#aadjcspdll)
-- [aadtb](#aadtbdll)
-- [aadWamExtension](#aadwamextensiondll)
-- [AarSvc](#aarsvcdll)
-- [AboutSettingsHandlers](#aboutsettingshandlersdll)
-- [AboveLockAppHost](#abovelockapphostdll)
+- [ztrace_maps](#ztrace_maps.dll)
+- [aadauthhelper](#aadauthhelper.dll)
+- [aadcloudap](#aadcloudap.dll)
+- [aadjcsp](#aadjcsp.dll)
+- [aadtb](#aadtb.dll)
+- [aadWamExtension](#aadwamextension.dll)
+- [AarSvc](#aarsvc.dll)
+- [AboutSettingsHandlers](#aboutsettingshandlers.dll)
+- [AboveLockAppHost](#abovelockapphost.dll)
 
 ## ztrace_maps.dll
 
