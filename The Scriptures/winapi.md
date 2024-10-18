@@ -30,6 +30,17 @@ will be an ongoing project and will probably take a long time to do.
 - [acmigration](#acmigration.dll)
 - [ACPBackgroundManagerPolicy](#acpbackgroundmanagerpolicy.dll)
 - [acppage](#acppage.dll)
+- [acproxy](#acproxy.dll)
+- [acspecfs](#acspecfc.dll)
+- [actioncenter](#actioncenter.dll)
+- [actioncentercpl](#actioncentercpl.dll)
+- [actionqueue](#actionqueue.dll)
+- [actionqueue](#actionqueue.dll)
+- [activationclient](#activationclient.dll)
+- [activationmanager](#activationmanager.dll)
+- [activesynccsp](#activesynccsp.dll)
+- [activesyncprovider](#activesyncprovider.dll)
+- [actxprxy](#actxprxy.dll)
 
 ## ztrace_maps.dll
 
@@ -532,5 +543,341 @@ will be an ongoing project and will probably take a long time to do.
 | DllCanUnloadNow   | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
 | DllGetClassObject | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
 | GetExeFromLnk     | N/A                                                                                                                 |
+
+---
+
+## acproxy.dll
+
+#### Export table:
+
+```
+1   0x00001a30 0x180001a30 GLOBAL FUNC 0    ACPROXY.dll PerformAutochkOperations
+```
+
+#### Functions and Documentation
+
+| Exported Function        | Documentation Link |
+|--------------------------|--------------------|
+| PerformAutochkOperations | N/A                |
+
+---
+
+## AcSpecfc.dll
+
+#### Export table:
+
+```
+1   0x00009a60 0x180009a60 GLOBAL FUNC 0    AcSpecfc.dll GetHookAPIs
+2   0x00009b10 0x180009b10 GLOBAL FUNC 0    AcSpecfc.dll NotifyShims
+```
+
+#### Functions and Documentation
+
+| Exported Function | Documentation Link |
+|-------------------|--------------------|
+| GetHookAPIs       | N/A                |
+| NotifyShims       | N/A                |
+
+---
+
+## ActionCenter.dll
+
+#### Export table:
+
+```
+1   0x00002300 0x180002300 GLOBAL FUNC 0    ACTIONCENTER.dll DllCanUnloadNow
+2   0x000094c0 0x1800094c0 GLOBAL FUNC 0    ACTIONCENTER.dll DllGetClassObject
+```
+
+## ActionCenterCPL.dll
+
+#### Export table:
+
+```
+1   0x00006250 0x180006250 GLOBAL FUNC 0    ACTIONCENTERCPL.dll DllCanUnloadNow
+2   0x00006270 0x180006270 GLOBAL FUNC 0    ACTIONCENTERCPL.dll DllGetClassObject
+3   0x000063a0 0x1800063a0 GLOBAL FUNC 0    ACTIONCENTERCPL.dll DllRegisterServer
+4   0x000063a0 0x1800063a0 GLOBAL FUNC 0    ACTIONCENTERCPL.dll DllUnregisterServer
+```
+
+#### Functions and Documentation
+
+| Exported Function | Documentation Link                                                                                                  |
+|-------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllCanUnloadNow   | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetClassObject | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+
+---
+
+## ActionQueue.dll
+
+#### Export table:
+
+```
+1   0x00007550 0x180007550 GLOBAL FUNC 0    ActionQueue.dll GenerateActionQueue
+2   0x00006320 0x180006320 GLOBAL FUNC 0    ActionQueue.dll ProcessActionQueue
+```
+
+#### Functions and Documentation
+
+| Exported Function   | Documentation Link                                                                                                  |
+|---------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllCanUnloadNow     | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetClassObject   | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+| DllRegisterServer   | [DllRegisterServer](https://learn.microsoft.com/en-us/windows/win32/api/unknwn/nf-unknwn-dllregisterserver)         |
+| DllUnregisterServer | [DllUnregisterServer](https://learn.microsoft.com/en-us/windows/win32/api/unknwn/nf-unknwn-dllunregisterserver)     |
+
+---
+
+## ActivationClient.dll
+
+#### Export table:
+
+```
+1   0x00005c70 0x180005c70 GLOBAL FUNC 0    ActivationClient.dll DllCanUnloadNow
+2   0x00005ce0 0x180005ce0 GLOBAL FUNC 0    ActivationClient.dll DllGetActivationFactory
+3   0x00005ee0 0x180005ee0 GLOBAL FUNC 0    ActivationClient.dll DllGetClassObject
+```
+
+#### Functions and Documentation
+
+| Exported Function   | Documentation Link |
+|---------------------|--------------------|
+| GenerateActionQueue | N/A                |
+| ProcessActionQueue  | N/A                |
+
+---
+
+## ActivationManager.dll
+
+#### Export table:
+
+```
+1   0x00096620 0x180096620 GLOBAL FUNC 0    ActivationManager.dll DisableAppXDebuggingForPackage
+2   0x000156e0 0x1800156e0 GLOBAL FUNC 0    ActivationManager.dll DllCanUnloadNow
+3   0x0006df20 0x18006df20 GLOBAL FUNC 0    ActivationManager.dll DllGetActivationFactory
+4   0x0002f0a0 0x18002f0a0 GLOBAL FUNC 0    ActivationManager.dll DllGetClassObject
+5   0x000966d0 0x1800966d0 GLOBAL FUNC 0    ActivationManager.dll EnableAppXDebuggingForPackage
+6   0x00096880 0x180096880 GLOBAL FUNC 0    ActivationManager.dll FreeAppXLaunchContext
+7   0x00097360 0x180097360 GLOBAL FUNC 0    ActivationManager.dll GetPackageExecutionContextForAumid
+8   0x00018720 0x180018720 GLOBAL FUNC 0    ActivationManager.dll GetPackageExecutionContextForAumidAndUser
+9   0x00055ef0 0x180055ef0 GLOBAL FUNC 0    ActivationManager.dll GetPackageExecutionContextForPackageByFamilyNameAndUser
+10  0x0001c450 0x18001c450 GLOBAL FUNC 0    ActivationManager.dll GetPackageExecutionContextForPackageByFullName
+11  0x000968b0 0x1800968b0 GLOBAL FUNC 0    ActivationManager.dll PostCreateProcessAppXActivation
+12  0x00096c70 0x180096c70 GLOBAL FUNC 0    ActivationManager.dll PrepareAppXActivation
+13  0x00097050 0x180097050 GLOBAL FUNC 0    ActivationManager.dll RegisterAppXPackageIfNecessary
+14  0x00097130 0x180097130 GLOBAL FUNC 0    ActivationManager.dll RegisterAppXPackageIfNecessary2
+```
+
+#### Functions and Documentation
+
+| Exported Function       | Documentation Link                                                                                                  |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllCanUnloadNow         | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetActivationFactory | N/A                                                                                                                 |
+| DllGetClassObject       | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+
+---
+
+#### Functions and Documentation
+
+| Exported Function                                       | Documentation Link                                                                                                  |
+|---------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| DisableAppXDebuggingForPackage                          | N/A                                                                                                                 |
+| DllCanUnloadNow                                         | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetActivationFactory                                 | N/A                                                                                                                 |
+| DllGetClassObject                                       | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+| EnableAppXDebuggingForPackage                           | N/A                                                                                                                 |
+| FreeAppXLaunchContext                                   | N/A                                                                                                                 |
+| GetPackageExecutionContextForAumid                      | N/A                                                                                                                 |
+| GetPackageExecutionContextForAumidAndUser               | N/A                                                                                                                 |
+| GetPackageExecutionContextForPackageByFamilyNameAndUser | N/A                                                                                                                 |
+| GetPackageExecutionContextForPackageByFullName          | N/A                                                                                                                 |
+| PostCreateProcessAppXActivation                         | N/A                                                                                                                 |
+| PrepareAppXActivation                                   | N/A                                                                                                                 |
+| RegisterAppXPackageIfNecessary                          | N/A                                                                                                                 |
+| RegisterAppXPackageIfNecessary2                         | N/A                                                                                                                 |
+
+---
+
+## ActiveSyncCsp.dll
+
+#### Export table:
+
+```
+1   0x00006ce0 0x180006ce0 GLOBAL FUNC 0    ActiveSyncCsp.dll DllCanUnloadNow
+2   0x00006d20 0x180006d20 GLOBAL FUNC 0    ActiveSyncCsp.dll DllGetClassObject
+```
+
+#### Functions and Documentation
+
+| Exported Function | Documentation Link                                                                                                  |
+|-------------------|---------------------------------------------------------------------------------------------------------------------|
+| DllCanUnloadNow   | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetClassObject | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+
+---
+
+## ActiveSyncProvider.dll
+
+#### Export table:
+
+```
+1   0x00079be0 0x180079be0 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_1
+2   0x000b7f10 0x1800b7f10 GLOBAL FUNC 0    ActiveSyncProvider.dll IsEnabledForSync
+3   0x000108a0 0x1800108a0 GLOBAL FUNC 0    ActiveSyncProvider.dll CreateMassObject
+4   0x000d23c0 0x1800d23c0 GLOBAL FUNC 0    ActiveSyncProvider.dll CreateSyncServiceLayer
+5   0x0000c010 0x18000c010 GLOBAL FUNC 0    ActiveSyncProvider.dll DllCanUnloadNow
+6   0x0000c050 0x18000c050 GLOBAL FUNC 0    ActiveSyncProvider.dll DllGetClassObject
+7   0x00067e20 0x180067e20 GLOBAL FUNC 0    ActiveSyncProvider.dll DownloadEmailAttachment
+8   0x000681f0 0x1800681f0 GLOBAL FUNC 0    ActiveSyncProvider.dll DownloadEmailBody
+9   0x000abee0 0x1800abee0 GLOBAL FUNC 0    ActiveSyncProvider.dll GetActiveSyncServerProbeInstance
+10  0x000abf90 0x1800abf90 GLOBAL FUNC 0    ActiveSyncProvider.dll GetConversationSyncEnabled
+11  0x0006eb90 0x18006eb90 GLOBAL FUNC 0    ActiveSyncProvider.dll GetOutlookExtensionSupportForAccount
+12  0x0006ec90 0x18006ec90 GLOBAL FUNC 0    ActiveSyncProvider.dll GetOutlookExtensionSupportFromAccessor
+13  0x000d3cd0 0x1800d3cd0 GLOBAL FUNC 0    ActiveSyncProvider.dll GetUserInfoForUnconfiguredAccount
+14  0x000ac960 0x1800ac960 GLOBAL FUNC 0    ActiveSyncProvider.dll HandleEasMeetingResponseForAppointment
+15  0x000acbf0 0x1800acbf0 GLOBAL FUNC 0    ActiveSyncProvider.dll HandleEasMeetingResponseForMeetingNotification
+16  0x000ae080 0x1800ae080 GLOBAL FUNC 0    ActiveSyncProvider.dll IsErrorCatastrophic
+17  0x0006eed0 0x18006eed0 GLOBAL FUNC 0    ActiveSyncProvider.dll IsValidOutlookExtensionVersion
+18  0x0007bfd0 0x18007bfd0 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_18
+19  0x000482d0 0x1800482d0 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_19
+20  0x000ae2d0 0x1800ae2d0 GLOBAL FUNC 0    ActiveSyncProvider.dll MarkPeopleFolderForResync
+21  0x0000c2f0 0x18000c2f0 GLOBAL FUNC 0    ActiveSyncProvider.dll OneStopFactory
+22  0x0006c690 0x18006c690 GLOBAL FUNC 0    ActiveSyncProvider.dll SyncGetMAPISession
+23  0x0006c710 0x18006c710 GLOBAL FUNC 0    ActiveSyncProvider.dll SyncGetMessageStore
+24  0x0006c7b0 0x18006c7b0 GLOBAL FUNC 0    ActiveSyncProvider.dll SyncGetSpecialFolder
+25  0x00079c90 0x180079c90 GLOBAL FUNC 0    ActiveSyncProvider.dll SyncMgrPurgeFolderProvider
+26  0x00079ca0 0x180079ca0 GLOBAL FUNC 0    ActiveSyncProvider.dll SyncMgrPurgeProviderStore
+27  0x00079d90 0x180079d90 GLOBAL FUNC 0    ActiveSyncProvider.dll SyncMgrRemovePolicy
+28  0x000ae310 0x1800ae310 GLOBAL FUNC 0    ActiveSyncProvider.dll UpdateEasTrackingSchema
+29  0x0007c010 0x18007c010 GLOBAL FUNC 0    ActiveSyncProvider.dll WriteStoreCapabilityProps
+30  0x0007ca30 0x18007ca30 GLOBAL FUNC 0    ActiveSyncProvider.dll WriteStoreContentTypesProps
+31  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_31
+32  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_32
+33  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_33
+34  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_34
+35  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_35
+36  0x00079ab0 0x180079ab0 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_36
+37  0x00079db0 0x180079db0 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_37
+38  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_38
+39  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_39
+40  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_40
+41  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_41
+42  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_42
+43  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_43
+44  0x00047e70 0x180047e70 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_44
+45  0x00047c40 0x180047c40 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_45
+46  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_46
+47  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_47
+48  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_48
+49  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_49
+50  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_50
+51  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_51
+52  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_52
+53  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_53
+54  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_54
+55  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_55
+56  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_56
+57  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_57
+58  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_58
+59  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_59
+60  0x00000000 0x180000000 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_60
+61  0x000ae0c0 0x1800ae0c0 GLOBAL FUNC 0    ActiveSyncProvider.dll Ordinal_61
+62  0x000052d0 0x1800052d0 GLOBAL FUNC 0    ActiveSyncProvider.dll InitializeSyncStatus
+63  0x000052e0 0x1800052e0 GLOBAL FUNC 0    ActiveSyncProvider.dll SyncSqmUpdateStats
+```
+
+#### Functions and Documentation
+
+| Exported Function                              | Documentation Link                                                                                                  |
+|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| Ordinal_1                                      | N/A                                                                                                                 |
+| IsEnabledForSync                               | N/A                                                                                                                 |
+| CreateMassObject                               | N/A                                                                                                                 |
+| CreateSyncServiceLayer                         | N/A                                                                                                                 |
+| DllCanUnloadNow                                | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetClassObject                              | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+| DownloadEmailAttachment                        | N/A                                                                                                                 |
+| DownloadEmailBody                              | N/A                                                                                                                 |
+| GetActiveSyncServerProbeInstance               | N/A                                                                                                                 |
+| GetConversationSyncEnabled                     | N/A                                                                                                                 |
+| GetOutlookExtensionSupportForAccount           | N/A                                                                                                                 |
+| GetOutlookExtensionSupportFromAccessor         | N/A                                                                                                                 |
+| GetUserInfoForUnconfiguredAccount              | N/A                                                                                                                 |
+| HandleEasMeetingResponseForAppointment         | N/A                                                                                                                 |
+| HandleEasMeetingResponseForMeetingNotification | N/A                                                                                                                 |
+| IsErrorCatastrophic                            | N/A                                                                                                                 |
+| IsValidOutlookExtensionVersion                 | N/A                                                                                                                 |
+| Ordinal_18                                     | N/A                                                                                                                 |
+| Ordinal_19                                     | N/A                                                                                                                 |
+| MarkPeopleFolderForResync                      | N/A                                                                                                                 |
+| OneStopFactory                                 | N/A                                                                                                                 |
+| SyncGetMAPISession                             | N/A                                                                                                                 |
+| SyncGetMessageStore                            | N/A                                                                                                                 |
+| SyncGetSpecialFolder                           | N/A                                                                                                                 |
+| SyncMgrPurgeFolderProvider                     | N/A                                                                                                                 |
+| SyncMgrPurgeProviderStore                      | N/A                                                                                                                 |
+| SyncMgrRemovePolicy                            | N/A                                                                                                                 |
+| UpdateEasTrackingSchema                        | N/A                                                                                                                 |
+| WriteStoreCapabilityProps                      | N/A                                                                                                                 |
+| WriteStoreContentTypesProps                    | N/A                                                                                                                 |
+| Ordinal_31                                     | N/A                                                                                                                 |
+| Ordinal_32                                     | N/A                                                                                                                 |
+| Ordinal_33                                     | N/A                                                                                                                 |
+| Ordinal_34                                     | N/A                                                                                                                 |
+| Ordinal_35                                     | N/A                                                                                                                 |
+| Ordinal_36                                     | N/A                                                                                                                 |
+| Ordinal_37                                     | N/A                                                                                                                 |
+| Ordinal_38                                     | N/A                                                                                                                 |
+| Ordinal_39                                     | N/A                                                                                                                 |
+| Ordinal_40                                     | N/A                                                                                                                 |
+| Ordinal_41                                     | N/A                                                                                                                 |
+| Ordinal_42                                     | N/A                                                                                                                 |
+| Ordinal_43                                     | N/A                                                                                                                 |
+| Ordinal_44                                     | N/A                                                                                                                 |
+| Ordinal_45                                     | N/A                                                                                                                 |
+| Ordinal_46                                     | N/A                                                                                                                 |
+| Ordinal_47                                     | N/A                                                                                                                 |
+| Ordinal_48                                     | N/A                                                                                                                 |
+| Ordinal_49                                     | N/A                                                                                                                 |
+| Ordinal_50                                     | N/A                                                                                                                 |
+| Ordinal_51                                     | N/A                                                                                                                 |
+| Ordinal_52                                     | N/A                                                                                                                 |
+| Ordinal_53                                     | N/A                                                                                                                 |
+| Ordinal_54                                     | N/A                                                                                                                 |
+| Ordinal_55                                     | N/A                                                                                                                 |
+| Ordinal_56                                     | N/A                                                                                                                 |
+| Ordinal_57                                     | N/A                                                                                                                 |
+| Ordinal_58                                     | N/A                                                                                                                 |
+| Ordinal_59                                     | N/A                                                                                                                 |
+| Ordinal_60                                     | N/A                                                                                                                 |
+| Ordinal_61                                     | N/A                                                                                                                 |
+| InitializeSyncStatus                           | N/A                                                                                                                 |
+| SyncSqmUpdateStats                             | N/A                                                                                                                 |
+
+---
+
+## actxprxy.dll
+
+#### Export table:
+
+```
+3   0x00005990 0x180005990 GLOBAL FUNC 0    SWEEPRX.dll GetProxyDllInfo
+4   0x000042d0 0x1800042d0 GLOBAL FUNC 0    SWEEPRX.dll DllCanUnloadNow
+5   0x00004270 0x180004270 GLOBAL FUNC 0    SWEEPRX.dll DllGetClassObject
+6   0x00005930 0x180005930 GLOBAL FUNC 0    SWEEPRX.dll DllRegisterServer
+7   0x00005960 0x180005960 GLOBAL FUNC 0    SWEEPRX.dll DllUnregisterServer
+```
+
+#### Functions and Documentation
+
+| Exported Function   | Documentation Link                                                                                                  |
+|---------------------|---------------------------------------------------------------------------------------------------------------------|
+| GetProxyDllInfo     | N/A                                                                                                                 |
+| DllCanUnloadNow     | [DllCanUnloadNow](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllcanunloadnow)     |
+| DllGetClassObject   | [DllGetClassObject](https://learn.microsoft.com/en-us/windows/win32/api/combaseapi/nf-combaseapi-dllgetclassobject) |
+| DllRegisterServer   | [DllRegisterServer](https://learn.microsoft.com/en-us/windows/win32/api/unknwn/nf-unknwn-dllregisterserver)         |
+| DllUnregisterServer | [DllUnregisterServer](https://learn.microsoft.com/en-us/windows/win32/api/unknwn/nf-unknwn-dllunregisterserver)     |
 
 ---
