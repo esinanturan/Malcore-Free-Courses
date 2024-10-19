@@ -182,3 +182,279 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
   - `0x8000` – File is removable media-aware.
 
 ![PE Signature](../.github/winpe/header_11.png)
+
+#### OptionalHeader
+
+- Despite it's name it is required for executable images and DLL files. It contains a bunch of information that is needed to properly load the PE file and execute the file in memory.
+  - PE32 size: 224 bytes
+  - PE64 size: 240 bytes
+
+| Offset (PE32) | Offset (PE32+) | Size | Field Name                   | Description                                                                                      |
+|---------------|---------------|------|-------------------------------|--------------------------------------------------------------------------------------------------|
+| 0x00          | 0x00          | 2    | **Magic**                     | Specifies whether the file is PE32 (`0x10B`) or PE32+ (`0x20B`).                                 |
+| 0x02          | 0x02          | 1    | **Major Linker Version**      | Major version of the linker used to create the file.                                            |
+| 0x03          | 0x03          | 1    | **Minor Linker Version**      | Minor version of the linker used to create the file.                                            |
+| 0x04          | 0x04          | 4    | **SizeOfCode**                | Total size of all code sections (.text) when loaded in memory.                                  |
+| 0x08          | 0x08          | 4    | **SizeOfInitializedData**     | Total size of all initialized data sections (.data) when loaded in memory.                      |
+| 0x0C          | 0x0C          | 4    | **SizeOfUninitializedData**   | Total size of all uninitialized data sections (.bss) when loaded in memory.                     |
+| 0x10          | 0x10          | 4    | **AddressOfEntryPoint**       | RVA of the entry point function (e.g., `main` or `DllMain`).                                    |
+| 0x14          | 0x14          | 4    | **BaseOfCode**                | RVA of the start of the code section.                                                           |
+| 0x18          | N/A           | 4    | **BaseOfData**                | (PE32 only) RVA of the start of the data section.                                               |
+| 0x1C          | 0x18          | 4/8  | **ImageBase**                 | Preferred address of the image when loaded in memory (default: `0x400000` for PE32, `0x140000000` for PE32+). |
+| 0x20          | 0x20          | 4    | **SectionAlignment**          | Alignment of sections when loaded in memory (default: `0x1000`).                                |
+| 0x24          | 0x24          | 4    | **FileAlignment**             | Alignment of sections in the file on disk (default: `0x200`).                                   |
+| 0x28          | 0x28          | 2    | **MajorOperatingSystemVersion** | Major version of the minimum OS required to run the file.                                       |
+| 0x2A          | 0x2A          | 2    | **MinorOperatingSystemVersion** | Minor version of the minimum OS required to run the file.                                       |
+| 0x2C          | 0x2C          | 2    | **MajorImageVersion**         | Major version number of the image.                                                              |
+| 0x2E          | 0x2E          | 2    | **MinorImageVersion**         | Minor version number of the image.                                                              |
+| 0x30          | 0x30          | 2    | **MajorSubsystemVersion**     | Major version of the subsystem required to run the file.                                        |
+| 0x32          | 0x32          | 2    | **MinorSubsystemVersion**     | Minor version of the subsystem required to run the file.                                        |
+| 0x34          | 0x34          | 4    | **Win32VersionValue**         | Reserved, usually set to 0.                                                                     |
+| 0x38          | 0x38          | 4    | **SizeOfImage**               | Total size of the image, including all headers and sections, aligned to **SectionAlignment**.   |
+| 0x3C          | 0x3C          | 4    | **SizeOfHeaders**             | Combined size of the DOS Header, PE Header, Optional Header, and Section Headers, aligned to **FileAlignment**. |
+| 0x40          | 0x40          | 4    | **CheckSum**                  | Checksum of the image. Required for drivers; optional for user-mode executables.                |
+| 0x44          | 0x44          | 2    | **Subsystem**                 | Specifies the subsystem required (e.g., Windows GUI, Console, etc.).                            |
+| 0x46          | 0x46          | 2    | **DllCharacteristics**        | Flags indicating characteristics of the DLL (e.g., ASLR, DEP, etc.).                            |
+| 0x48          | 0x48          | 4/8  | **SizeOfStackReserve**        | Size of the stack to reserve (initial stack size).                                              |
+| 0x4C          | 0x50          | 4/8  | **SizeOfStackCommit**         | Size of the stack to commit initially.                                                          |
+| 0x50          | 0x58          | 4/8  | **SizeOfHeapReserve**         | Size of the heap to reserve (initial heap size).                                                |
+| 0x54          | 0x60          | 4/8  | **SizeOfHeapCommit**          | Size of the heap to commit initially.                                                           |
+| 0x58          | 0x68          | 4    | **LoaderFlags**               | Reserved, usually set to 0.                                                                     |
+| 0x5C          | 0x6C          | 4    | **NumberOfRvaAndSizes**       | Number of data directories in the Optional Header (usually 16).                                 |
+
+1. Magic
+- **Offset**: 0x00 (PE32 and PE32+)
+- **Size**: 2 bytes
+- **Description**: 
+  - Identifies the file format: 
+    - **0x10B** for **PE32**.
+    - **0x20B** for **PE32+**.
+  - Used to differentiate between 32-bit and 64-bit executable formats.
+
+2. **Major Linker Version**
+- **Offset**: 0x02
+- **Size**: 1 byte
+- **Description**: 
+  - The major version number of the linker that generated the file.
+  - Indicates the compatibility of the file with the linker software.
+
+3. **Minor Linker Version**
+- **Offset**: 0x03
+- **Size**: 1 byte
+- **Description**: 
+  - The minor version number of the linker that generated the file.
+
+4. **SizeOfCode**
+- **Offset**: 0x04
+- **Size**: 4 bytes
+- **Description**: 
+  - The total size of all sections that contain executable code (e.g., **.text** section).
+  - It represents the size when loaded into memory.
+
+5. **SizeOfInitializedData**
+- **Offset**: 0x08
+- **Size**: 4 bytes
+- **Description**: 
+  - The total size of all sections containing initialized data (e.g., **.data** section).
+
+6. **SizeOfUninitializedData**
+- **Offset**: 0x0C
+- **Size**: 4 bytes
+- **Description**: 
+  - The total size of all sections containing uninitialized data (e.g., **.bss** section).
+
+7. **AddressOfEntryPoint**
+- **Offset**: 0x10
+- **Size**: 4 bytes
+- **Description**: 
+  - The Relative Virtual Address (RVA) of the entry point function, such as `main()` for executables or `DllMain()` for DLLs.
+  - This is where execution starts after the program is loaded.
+
+8. **BaseOfCode**
+- **Offset**: 0x14
+- **Size**: 4 bytes
+- **Description**: 
+  - The RVA of the start of the code section (e.g., **.text**).
+  - Indicates where the code segment begins in memory.
+
+9. **BaseOfData** (PE32 only)
+- **Offset**: 0x18
+- **Size**: 4 bytes
+- **Description**: 
+  - The RVA of the start of the data section (e.g., **.data**).
+  - This field is not present in **PE32+**.
+
+10. **ImageBase**
+- **Offset**: 0x1C (PE32), 0x18 (PE32+)
+- **Size**: 4 bytes (PE32), 8 bytes (PE32+)
+- **Description**: 
+  - The preferred memory address at which the image should be loaded.
+  - Defaults to `0x400000` for **PE32** and `0x140000000` for **PE32+**.
+
+11. **SectionAlignment**
+- **Offset**: 0x20
+- **Size**: 4 bytes
+- **Description**: 
+  - The alignment of sections in memory.
+  - Typically `0x1000` (4KB), but must be greater than or equal to **FileAlignment**.
+
+12. **FileAlignment**
+- **Offset**: 0x24
+- **Size**: 4 bytes
+- **Description**: 
+  - The alignment of sections in the file on disk.
+  - Usually set to `0x200` (512 bytes), but can vary based on the file format.
+
+13. **MajorOperatingSystemVersion**
+- **Offset**: 0x28
+- **Size**: 2 bytes
+- **Description**: 
+  - The major version of the minimum required operating system.
+
+![PE Signature](../.github/winpe/img_17.png)
+
+14. **MinorOperatingSystemVersion**
+- **Offset**: 0x2A
+- **Size**: 2 bytes
+- **Description**: 
+  - The minor version of the minimum required operating system.
+
+![PE Signature](../.github/winpe/img_16.png)
+
+15. **MajorImageVersion**
+- **Offset**: 0x2C
+- **Size**: 2 bytes
+- **Description**: 
+  - The major version number of the image, set by the developer.
+
+![PE Signature](../.github/winpe/img_15.png)
+
+16. **MinorImageVersion**
+- **Offset**: 0x2E
+- **Size**: 2 bytes
+- **Description**: 
+  - The minor version number of the image.
+
+![PE Signature](../.github/winpe/img_14.png)
+
+17. **MajorSubsystemVersion**
+- **Offset**: 0x30
+- **Size**: 2 bytes
+- **Description**: 
+  - The major version of the subsystem that the image requires (e.g., GUI, console).
+
+![PE Signature](../.github/winpe/img_13.png)
+
+18. **MinorSubsystemVersion**
+- **Offset**: 0x32
+- **Size**: 2 bytes
+- **Description**: 
+  - The minor version of the subsystem.
+
+![PE Signature](../.github/winpe/img_12.png)
+
+19. **Win32VersionValue**
+- **Offset**: 0x34
+- **Size**: 4 bytes
+- **Description**: 
+  - Reserved, usually set to 0.
+
+![PE Signature](../.github/winpe/img_11.png)
+
+20. **SizeOfImage**
+- **Offset**: 0x38
+- **Size**: 4 bytes
+- **Description**: 
+  - The total size of the image, aligned to **SectionAlignment**.
+  - This includes headers and all sections.
+
+![PE Signature](../.github/winpe/img_10.png)
+
+21. **SizeOfHeaders**
+- **Offset**: 0x3C
+- **Size**: 4 bytes
+- **Description**: 
+  - The size of all headers combined (DOS Header, PE Header, Optional Header, and Section Headers).
+  - Aligned to **FileAlignment**.
+
+![PE Signature](../.github/winpe/img_9.png)
+
+22. **CheckSum**
+- **Offset**: 0x40
+- **Size**: 4 bytes
+- **Description**: 
+  - The checksum of the image.
+  - Required for kernel-mode drivers; optional for user-mode executables.
+
+![PE Signature](../.github/winpe/img_8.png)
+
+23. **Subsystem**
+- **Offset**: 0x44
+- **Size**: 2 bytes
+- **Description**: 
+  - Specifies the subsystem required to run the image.
+  - Common values: 
+    - **0x02**: Windows GUI.
+    - **0x03**: Windows Console.
+
+![PE Signature](../.github/winpe/img_7.png)
+
+24. **DllCharacteristics**
+- **Offset**: 0x46
+- **Size**: 2 bytes
+- **Description**: 
+  - Flags indicating specific characteristics of the DLL, such as:
+    - **ASLR** (Address Space Layout Randomization).
+    - **DEP** (Data Execution Prevention).
+
+![PE Signature](../.github/winpe/img_6.png)
+
+25. **SizeOfStackReserve**
+- **Offset**: 0x48 (PE32), 0x48 (PE32+)
+- **Size**: 4 bytes (PE32), 8 bytes (PE32+)
+- **Description**: 
+  - The size of memory reserved for the stack.
+  - Defaults to 1 MB for **PE32** and 4 MB for **PE32+**.
+
+![PE Signature](../.github/winpe/img_5.png)
+
+26. **SizeOfStackCommit**
+- **Offset**: 0x4C (PE32), 0x50 (PE32+)
+- **Size**: 4 bytes (PE32), 8 bytes (PE32+)
+- **Description**: 
+  - The size of memory initially committed for the stack.
+
+![PE Signature](../.github/winpe/img_4.png)
+
+27. **SizeOfHeapReserve**
+- **Offset**: 0x50 (PE32), 0x58 (PE32+)
+- **Size**: 4 bytes (PE32), 8 bytes (PE32+)
+- **Description**: 
+  - The size of memory reserved for the heap.
+
+![PE Signature](../.github/winpe/img_3.png)
+
+28. **SizeOfHeapCommit**
+- **Offset**: 0x54 (PE32), 0x60 (PE32+)
+- **Size**: 4 bytes (PE32), 8 bytes (PE32+)
+- **Description**: 
+  - The size of memory initially committed for the heap.
+
+![PE Signature](../.github/winpe/img_2.png)
+
+29. **LoaderFlags**
+- **Offset**: 0x58 (PE32), 0x68 (PE32+)
+- **Size**: 4 bytes
+- **Description**: 
+  - Reserved for system use, usually set to 0.
+
+![PE Signature](../.github/winpe/img_1.png)
+
+30. **NumberOfRvaAndSizes**
+- **Offset**: 0x5C (PE32), 0x6C (PE32+)
+- **Size**: 4 bytes
+- **Description**: 
+  - The number of data directories following this field.
+  - Typically set to **16**, covering standard PE data directories like Import Table, Export Table, etc.
+
+![PE Signature](../.github/winpe/img.png)
