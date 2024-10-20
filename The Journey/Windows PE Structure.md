@@ -740,9 +740,9 @@ Common sections in PE files include:
 - `.tls`
   - Holds **Thread Local Storage** that initializes values to specific threads
 
-![Raw Section](../.github/winpe/img_31.png)
+Each section is 40 bytes long and contains multiple pieces to it. As you can see in the image and table below:
 
-Each section is 40 bytes long and contains the following information:
+![Raw Section](../.github/winpe/img_31.png)
 
 | Offset | Size (Bytes) | Field Name               | Description                                                                                           |
 |--------|--------------|--------------------------|-------------------------------------------------------------------------------------------------------|
