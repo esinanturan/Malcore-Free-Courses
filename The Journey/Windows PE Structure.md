@@ -309,33 +309,33 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
        - The minor version number of the linker that generated the file.
    - **Possible values**:
        - **0**: 
-           - Initial versions; often seen in older files.
-         - **10** (`0x0A`):
-               - Microsoft Linker version 5.10, corresponding to Visual Studio 97.
-         - **12** (`0x0C`):
-               - Microsoft Linker version 6.0, corresponding to Visual Studio 6.0.
-         - **16** (`0x10`):
-               - Microsoft Linker version 7.0, corresponding to Visual Studio .NET 2002.
-         - **20** (`0x14`):
-               - Microsoft Linker version 7.10, corresponding to Visual Studio .NET 2003.
-         - **30** (`0x1E`):
-               - Microsoft Linker version 8.0, corresponding to Visual Studio 2005.
-         - **36** (`0x24`):
-               - Microsoft Linker version 9.0, corresponding to Visual Studio 2008.
-         - **40** (`0x28`):
-               - Microsoft Linker version 10.0, corresponding to Visual Studio 2010.
-         - **46** (`0x2E`):
-               - Microsoft Linker version 11.0, corresponding to Visual Studio 2012.
-         - **48** (`0x30`):
-               - Microsoft Linker version 12.0, corresponding to Visual Studio 2013.
-         - **50** (`0x32`):
-               - Microsoft Linker version 14.0, corresponding to Visual Studio 2015.
-         - **52** (`0x34`):
-               - Microsoft Linker version 14.1, corresponding to Visual Studio 2017.
-         - **28** (`0x1C`):
-               - Microsoft Linker version 14.2, corresponding to Visual Studio 2019.
-         - **36** (`0x24`):
-               - Microsoft Linker version 14.3, corresponding to Visual Studio 2022.
+         - Initial versions; often seen in older files.
+       - **10** (`0x0A`):
+         - Microsoft Linker version 5.10, corresponding to Visual Studio 97.
+       - **12** (`0x0C`):
+         - Microsoft Linker version 6.0, corresponding to Visual Studio 6.0.
+       - **16** (`0x10`):
+         - Microsoft Linker version 7.0, corresponding to Visual Studio .NET 2002.
+       - **20** (`0x14`):
+         - Microsoft Linker version 7.10, corresponding to Visual Studio .NET 2003.
+       - **30** (`0x1E`):
+         - Microsoft Linker version 8.0, corresponding to Visual Studio 2005.
+       - **36** (`0x24`):
+         - Microsoft Linker version 9.0, corresponding to Visual Studio 2008.
+       - **40** (`0x28`):
+         - Microsoft Linker version 10.0, corresponding to Visual Studio 2010.
+       - **46** (`0x2E`):
+         - Microsoft Linker version 11.0, corresponding to Visual Studio 2012.
+       - **48** (`0x30`):
+         - Microsoft Linker version 12.0, corresponding to Visual Studio 2013.
+       - **50** (`0x32`):
+         - Microsoft Linker version 14.0, corresponding to Visual Studio 2015.
+       - **52** (`0x34`):
+         - Microsoft Linker version 14.1, corresponding to Visual Studio 2017.
+       - **28** (`0x1C`):
+         - Microsoft Linker version 14.2, corresponding to Visual Studio 2019.
+       - **36** (`0x24`):
+        - Microsoft Linker version 14.3, corresponding to Visual Studio 2022.
 
 ![Minor Linker Version](../.github/winpe/img_26.png)
 
