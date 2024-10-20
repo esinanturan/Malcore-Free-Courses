@@ -388,7 +388,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
    - **Description**: 
        - The RVA of the start of the data section.
          - This field is not present in **PE32+**.
-         - Possible for base of data to be missing in **PE32+**
+         - Possible for `BaseOfData` to be missing in **PE32+**
 
 10. **ImageBase**
     - **Offset**: 0x1C (PE32), 0x18 (PE32+)
