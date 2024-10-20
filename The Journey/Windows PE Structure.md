@@ -753,7 +753,7 @@ Each section is 40 bytes long and contains multiple pieces to it. As you can see
 | 0x1C   | 4            | **PointerToLinenumbers** | The file offset of the line-number entries for the section (used for debugging, mostly in OBJ files). |
 | 0x20   | 2            | **NumberOfRelocations**  | The number of relocation entries for the section (used in OBJ files).                                 |
 | 0x22   | 2            | **NumberOfLinenumbers**  | The number of line-number entries for the section (used in debugging, mostly in OBJ files).           |
-| 0x24   | 4            | **Characteristics**      | Flags indicating attributes of the section, such as read, write, execute permissions.                 |
+| 0x24   | 4            | **Characteristics**      | Flags indicating attributes of the section.                                                           |
 
 1. **Name**
 
