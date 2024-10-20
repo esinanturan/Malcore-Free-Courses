@@ -125,15 +125,15 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
   - Offset is typically directly after the PE signature
   - Contains general metadata about the file
 
-| Offset | Size (Bytes) | Field Name            | Description                                                                                     |
-|--------|--------------|------------------------|-------------------------------------------------------------------------------------------------|
-| 0x00   | 2            | **Machine**            | Indicates the architecture for which the file is intended.                                      |
-| 0x02   | 2            | **NumberOfSections**   | The number of sections in the PE file, such as `.text`, `.data`, etc.                           |
-| 0x04   | 4            | **TimeDateStamp**      | The timestamp indicating when the file was created or last modified, in UNIX epoch format.      |
-| 0x08   | 4            | **PointerToSymbolTable** | The file offset to the symbol table, used mainly in object files (usually 0 in executables).    |
-| 0x0C   | 4            | **NumberOfSymbols**    | The number of entries in the symbol table, used in debugging or object files.                   |
-| 0x10   | 2            | **SizeOfOptionalHeader** | The size of the Optional Header that follows this COFF header.                                  |
-| 0x12   | 2            | **Characteristics**    | Flags that indicate the attributes and characteristics of the file (such as, executable, DLL).     |
+| Offset | Size (Bytes) | Field Name               | Description                                                                                  |
+|--------|--------------|--------------------------|----------------------------------------------------------------------------------------------|
+| 0x00   | 2            | **Machine**              | Indicates the architecture for which the file is intended.                                   |
+| 0x02   | 2            | **NumberOfSections**     | The number of sections in the PE file                                                        |
+| 0x04   | 4            | **TimeDateStamp**        | The timestamp indicating when the file was created or last modified, in UNIX epoch format.   |
+| 0x08   | 4            | **PointerToSymbolTable** | The file offset to the symbol table, used mainly in object files (usually 0 in executables). |
+| 0x0C   | 4            | **NumberOfSymbols**      | The number of entries in the symbol table, used in debugging or object files.                |
+| 0x10   | 2            | **SizeOfOptionalHeader** | The size of the Optional Header that follows this COFF header.                               |
+| 0x12   | 2            | **Characteristics**      | Flags that indicate the attributes and characteristics of the file                           |
 
 1. Machine
    - **Offset**: `0x00`
@@ -210,7 +210,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 | 0x04          | 0x04           | 4    | **SizeOfCode**                  | Total size of all code sections (.text) when loaded in memory.                                                  |
 | 0x08          | 0x08           | 4    | **SizeOfInitializedData**       | Total size of all initialized data sections (.data) when loaded in memory.                                      |
 | 0x0C          | 0x0C           | 4    | **SizeOfUninitializedData**     | Total size of all uninitialized data sections (.bss) when loaded in memory.                                     |
-| 0x10          | 0x10           | 4    | **AddressOfEntryPoint**         | RVA of the entry point function (such as, `main` or `DllMain`).                                                 |
+| 0x10          | 0x10           | 4    | **AddressOfEntryPoint**         | RVA of the entry point function                                                                                 |
 | 0x14          | 0x14           | 4    | **BaseOfCode**                  | RVA of the start of the code section.                                                                           |
 | 0x18          | N/A            | 4    | **BaseOfData**                  | (PE32 only) RVA of the start of the data section.                                                               |
 | 0x1C          | 0x18           | 4/8  | **ImageBase**                   | Preferred address of the image when loaded in memory (default: `0x400000` for PE32, `0x140000000` for PE32+).   |
@@ -226,8 +226,8 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 | 0x38          | 0x38           | 4    | **SizeOfImage**                 | Total size of the image, including all headers and sections, aligned to **SectionAlignment**.                   |
 | 0x3C          | 0x3C           | 4    | **SizeOfHeaders**               | Combined size of the DOS Header, PE Header, Optional Header, and Section Headers, aligned to **FileAlignment**. |
 | 0x40          | 0x40           | 4    | **CheckSum**                    | Checksum of the image. Required for drivers; optional for user-mode executables.                                |
-| 0x44          | 0x44           | 2    | **Subsystem**                   | Specifies the subsystem required (such as, Windows GUI, Console, etc.).                                         |
-| 0x46          | 0x46           | 2    | **DllCharacteristics**          | Flags indicating characteristics of the DLL (such as, ASLR, DEP, etc.).                                         |
+| 0x44          | 0x44           | 2    | **Subsystem**                   | Specifies the subsystem required                                                                                |
+| 0x46          | 0x46           | 2    | **DllCharacteristics**          | Flags indicating characteristics of the DLL                                                                     |
 | 0x48          | 0x48           | 4/8  | **SizeOfStackReserve**          | Size of the stack to reserve (initial stack size).                                                              |
 | 0x4C          | 0x50           | 4/8  | **SizeOfStackCommit**           | Size of the stack to commit initially.                                                                          |
 | 0x50          | 0x58           | 4/8  | **SizeOfHeapReserve**           | Size of the heap to reserve (initial heap size).                                                                |
@@ -342,7 +342,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
    - **Offset**: 0x04
    - **Size**: 4 bytes
    - **Description**: 
-       - The total size of all sections that contain executable code (such as, **.text** section).
+       - The total size of all sections that contain executable code.
        - It represents the size when loaded into memory.
 
 ![SizeOfCode](../.github/winpe/img_25.png)
@@ -351,7 +351,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
    - **Offset**: 0x08
    - **Size**: 4 bytes
    - **Description**: 
-       - The total size of all sections containing initialized data (such as, **.data** section).
+       - The total size of all sections containing initialized data.
 
 ![SizeOfInitializedData](../.github/winpe/img_24.png)
 
@@ -359,7 +359,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
    - **Offset**: 0x0C
    - **Size**: 4 bytes
    - **Description**: 
-       - The total size of all sections containing uninitialized data (such as, **.bss** section).
+       - The total size of all sections containing uninitialized data.
 
 ![SizeOfUninitializedData](../.github/winpe/img_23.png)
 
@@ -367,7 +367,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
    - **Offset**: 0x10
    - **Size**: 4 bytes
    - **Description**: 
-       - The Relative Virtual Address (RVA) of the entry point function, such as `main()` for executables or `DllMain()` for DLLs.
+       - The Relative Virtual Address (RVA) of the entry point function.
        - This is where execution starts after the program is loaded.
 
 ![AddressOfEntryPoint](../.github/winpe/img_22.png)
@@ -376,7 +376,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
    - **Offset**: 0x14
    - **Size**: 4 bytes
    - **Description**: 
-       - The RVA of the start of the code section (such as, **.text**).
+       - The RVA of the start of the code section.
        - Indicates where the code segment begins in memory.
 
 ![BaseOfCode](../.github/winpe/img_21.png)
@@ -385,7 +385,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
    - **Offset**: 0x18
    - **Size**: 4 bytes
    - **Description**: 
-       - The RVA of the start of the data section (such as, **.data**).
+       - The RVA of the start of the data section.
          - This field is not present in **PE32+**.
          - Possible for base of data to be missing in **PE32+**
 
@@ -452,7 +452,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
     - **Offset**: 0x30
     - **Size**: 2 bytes
     - **Description**: 
-        - The major version of the subsystem that the image requires (such as, GUI, console).
+        - The major version of the subsystem that the image requires.
   
 ![MajorSubsystemVersion](../.github/winpe/img_13.png)
 
@@ -514,9 +514,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
     - **Offset**: 0x46
     - **Size**: 2 bytes
     - **Description**: 
-        - Flags indicating specific characteristics of the DLL, such as:
-          - **ASLR** (Address Space Layout Randomization).
-          - **DEP** (Data Execution Prevention).
+        - Flags indicating specific characteristics of the DLL.
 
 ![DllCharacteristics](../.github/winpe/img_6.png)
 
@@ -599,7 +597,7 @@ Let’s break down each directory in detail:
    - **Offset (PE32)**: `0x60`, **Offset (PE32+)**: `0x70`
    - **Purpose**: 
        - Contains addresses of functions, variables, and symbols that the module exports for use by other modules.
-       - Used for linking and referencing functions provided by the module (e.g., DLL exports).
+       - Used for linking and referencing functions provided by the module.
    - **Fields**:
        - **RVA**: Pointer to the start of the Export Table.
        - **Size**: Size of the Export Table data.
@@ -728,7 +726,7 @@ Common sections in PE files include:
 - `.rdata`
   - Contains read-only constants, strings, and data that should not be modified
 - `.rsrc`
-  - Stores resources such as: icons, menus, dialogs, etc
+  - Stores resources that the file will use
 - `.edata`
   - Contains the export table
 - `.idata`
@@ -746,7 +744,7 @@ Each section is 40 bytes long and contains multiple pieces to it. As you can see
 
 | Offset | Size (Bytes) | Field Name               | Description                                                                                           |
 |--------|--------------|--------------------------|-------------------------------------------------------------------------------------------------------|
-| 0x00   | 8            | **Name**                 | An ASCII string representing the section name (e.g., `.text`, `.data`, `.rdata`).                     |
+| 0x00   | 8            | **Name**                 | An ASCII string representing the section name                                                         |
 | 0x08   | 4            | **VirtualSize**          | The total size of the section in memory. It might be larger than the size on disk due to alignment.   |
 | 0x0C   | 4            | **VirtualAddress**       | The RVA (Relative Virtual Address) of the section in memory, relative to the image base.              |
 | 0x10   | 4            | **SizeOfRawData**        | The size of the section data in the file, aligned to the **FileAlignment**.                           |
