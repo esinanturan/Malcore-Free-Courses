@@ -8,10 +8,10 @@
 
 ##### Shameless plug
 
-This course is provided to you for free by the Malcore team: LINK
+This course is provided to you for free by the Malcore team: https://m4lc.io/course/winpe/register
 
 Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can
-also join our Discord server here: LINK
+also join our Discord server here: https://m4lc.io/course/winpe/discord
 
 We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course
 in further detail or to ask questions.
@@ -802,10 +802,10 @@ That's really all there is to it. In this course we have broken down the PE file
 
 Once again:
 
-This course is provided to you for free by the Malcore team: LINK
+This course is provided to you for free by the Malcore team: https://m4lc.io/course/winpe/register
 
 Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can
-also join our Discord server here: LINK
+also join our Discord server here: https://m4lc.io/course/winpe/discord
 
 We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course
 in further detail or to ask questions.
@@ -813,3 +813,4 @@ in further detail or to ask questions.
 You can also support us by buying us a coffee
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/malcoreio)
+
