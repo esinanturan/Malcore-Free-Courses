@@ -164,6 +164,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
    - **Offset**: `0x04`
    - **Description**: Contains the timestamp for when the file was created or last modified, expressed in UNIX epoch format (seconds since January 1, 1970).
    - **Usage**: This can be used to analyze when a PE file was compiled or built.
+   - You can see a timestamp after compilation being retrieved from the file here: [https://m4lc.io/course/winpe/timestamp](https://m4lc.io/course/winpe/timestamp)
 
 ![Timestamp](../.github/winpe/header_7.png)
 
@@ -814,6 +815,7 @@ A lot of this information can be visualized and seen done during analysis by fol
 - [https://m4lc.io/course/winpe/certs](https://m4lc.io/course/winpe/certs)
 - [https://m4lc.io/course/winpe/info](https://m4lc.io/course/winpe/info)
 - [https://m4lc.io/course/winpe/full](https://m4lc.io/course/winpe/full)
+- [https://m4lc.io/course/winpe/timestamp](https://m4lc.io/course/winpe/timestamp)
 
 Also, please remember that this course is provided to you for free by the Malcore team: [https://m4lc.io/course/winpe/register](https://m4lc.io/course/winpe/register)
 
