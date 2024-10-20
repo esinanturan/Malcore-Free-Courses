@@ -8,10 +8,10 @@
 
 ##### Shameless plug
 
-This course is provided to you for free by the Malcore team: https://m4lc.io/course/winpe/register
+This course is provided to you for free by the Malcore team: [https://m4lc.io/course/winpe/register](https://m4lc.io/course/winpe/register)
 
 Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can
-also join our Discord server here: https://m4lc.io/course/winpe/discord
+also join our Discord server here: [https://m4lc.io/course/winpe/discord](https://m4lc.io/course/winpe/discord)
 
 We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course
 in further detail or to ask questions.
@@ -813,10 +813,10 @@ A lot of this information can be visualized and seen done during analysis by fol
 - [https://m4lc.io/course/winpe/info](https://m4lc.io/course/winpe/info)
 - [https://m4lc.io/course/winpe/full](https://m4lc.io/course/winpe/full)
 
-Also, please remember that this course is provided to you for free by the Malcore team: https://m4lc.io/course/winpe/register
+Also, please remember that this course is provided to you for free by the Malcore team: [https://m4lc.io/course/winpe/register](https://m4lc.io/course/winpe/register)
 
 Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can
-also join our Discord server here: https://m4lc.io/course/winpe/discord
+also join our Discord server here: [https://m4lc.io/course/winpe/discord](https://m4lc.io/course/winpe/discord)
 
 We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course
 in further detail or to ask questions.
