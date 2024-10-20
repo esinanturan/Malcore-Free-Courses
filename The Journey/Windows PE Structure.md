@@ -37,11 +37,7 @@ In this course we will break down the Windows PE structure thoroughly.
 
 You can see a full analysis of this file done by Malcore here: [https://m4lc.io/course/winpe/full](https://m4lc.io/course/winpe/full)
 
-# What is a DOS Header?
-
-The purpose of the DOS header is to maintain backwards compatibility with older systems. It is a remnant of the DOS era, and tells the system that this is an executable in DOS while providing a pointer to the PE header where modern executable information starts.
-
-### PE structure visualization
+# PE structure visualization
 
 ```shell
  ───────────────────────────────────────────────────────────────────
@@ -95,14 +91,14 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
  00000450: 185e 8be5 5dc3 cccc cccc cccc cccc cccc  .^..]........... ─┘
  ──────────────────────────────────────────────────────────────────── 
 ```
-
 # Full PE structure breakdown
 
 ## DOS Header
-  - `e_magic`: The signature that the system recognizes as a valid DOS executable
-    - Offset: `0x0000`
-  - `e_lfanew`: The pointer to the PE header location
-    - Offset: `0x003C`
+  - The purpose of the DOS header is to maintain backwards compatibility with older systems. It is a remnant of the DOS era, and tells the system that this is an executable in DOS while providing a pointer to the PE header where modern executable information starts.
+    - `e_magic`: The signature that the system recognizes as a valid DOS executable
+      - Offset: `0x0000`
+    - `e_lfanew`: The pointer to the PE header location
+      - Offset: `0x003C`
 
 ![e_magic](../.github/winpe/header_1.png)
 
