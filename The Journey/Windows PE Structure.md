@@ -32,13 +32,13 @@ You can also support us by buying us a coffee
 
 ---
 
-# Windows PE file structure
+# What is a Windows PE file?
 
 The Windows Portable Executable (PE) file format is a structure used by Windows binary files. It is derived from the Common Object File Format (COFF) used in Unix systems, it is fundamental for Windows systems.
 
 In this course we will break down the Windows PE structure thoroughly. 
 
-You can see a full analysis of this file done by Malcore here: [https://m4lc.io/course/winpe/full](https://m4lc.io/course/winpe/full)
+**NOTE**: To help visualize some of this information you can see a full analysis of this file done by Malcore here: [https://m4lc.io/course/winpe/full](https://m4lc.io/course/winpe/full)
 
 ---
 
