@@ -106,6 +106,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
     - `e_lfanew`: The pointer to the PE header location: 0x003C
 
 ![e_magic](../.github/winpe/header_1.png)
+
 ![e_lfanew](../.github/winpe/header_2.png)
 
 ## DOS Stub
