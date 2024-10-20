@@ -710,8 +710,9 @@ Let’s break down each directory in detail:
         - **RVA**: Pointer to the start of the IAT.
         - **Size**: Size of the IAT data.
 
-![Data Directory Dump](../.github/winpe/img_29.png)
 ![Data Directory Raw](../.github/winpe/img_30.png)
+
+![Data Directory Dump](../.github/winpe/img_29.png)
 
 ## Sections
 
