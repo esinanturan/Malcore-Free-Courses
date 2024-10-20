@@ -19,8 +19,8 @@ You can also support us by buying us a coffee
 ---
 
 # What will be covered?
-- [What is a PE file?](#windows-pe-structure)
-- [Structure breakdown](#full-pe-structure-breakdown)
+- [What is a PE file?](#what-is-a-windows-pe-file)
+- [Detailed structure breakdown](#detailed-pe-structure-breakdown)
   - [Header](#dos-header)
   - [Stub](#dos-stub)
   - [Signature](#pe-signature)
@@ -99,7 +99,7 @@ In this course we will break down the Windows PE structure thoroughly.
 
 ---
 
-# Full PE structure breakdown
+# Detailed PE structure breakdown
 
 ## DOS Header
   - The purpose of the DOS header is to maintain backwards compatibility with older systems. It is a remnant of the DOS era, and tells the system that this is an executable in DOS while providing a pointer to the PE header where modern executable information starts.
@@ -116,7 +116,7 @@ In this course we will break down the Windows PE structure thoroughly.
 
 ## DOS Stub
   - Offset: `0x0040`
-    - Small program that runs DOS mode, usually contains the message: `This program cannot be run in DOS mode.`
+    - Small program that runs in DOS mode, usually contains the message: `This program cannot be run in DOS mode.`
 
 ![DOS Stub](../.github/winpe/header_3.png)
 
@@ -125,8 +125,8 @@ In this course we will break down the Windows PE structure thoroughly.
 ## PE Signature
   - Offset is specified by `e_lfanew` header.
     - Marks the start of the PE file
-      - For example if `e_lfanew` is 0x000080 the signature is at 0x80
-      - The signature is always `\x50\x45\x00\x00` in ASCII: `PE\0\0`
+      - For example if `e_lfanew` is `0x000080` the signature is at `0x80`
+      - The signature in bytes is always: `\x50\x45\x00\x00` and displayed in ASCII it is always: `PE\0\0`
 
 ![PE Signature](../.github/winpe/header_4.png)
 
@@ -136,19 +136,19 @@ In this course we will break down the Windows PE structure thoroughly.
   - Offset is typically directly after the PE signature
   - Contains general metadata about the file
 
-| Offset | Size (Bytes) | Field Name               | Description                                                                                  |
-|--------|--------------|--------------------------|----------------------------------------------------------------------------------------------|
-| 0x00   | 2            | **Machine**              | Indicates the architecture for which the file is intended.                                   |
-| 0x02   | 2            | **NumberOfSections**     | The number of sections in the PE file                                                        |
-| 0x04   | 4            | **TimeDateStamp**        | The timestamp indicating when the file was created or last modified, in UNIX epoch format.   |
-| 0x08   | 4            | **PointerToSymbolTable** | The file offset to the symbol table, used mainly in object files (usually 0 in executables). |
-| 0x0C   | 4            | **NumberOfSymbols**      | The number of entries in the symbol table, used in debugging or object files.                |
-| 0x10   | 2            | **SizeOfOptionalHeader** | The size of the Optional Header that follows this COFF header.                               |
-| 0x12   | 2            | **Characteristics**      | Flags that indicate the attributes and characteristics of the file                           |
+| Offset | Size (Bytes) | Field Name               | Description                                                        |
+|--------|--------------|--------------------------|--------------------------------------------------------------------|
+| 0x00   | 2            | **Machine**              | Indicates the architecture.                                        |
+| 0x02   | 2            | **NumberOfSections**     | The number of sections in the PE file.                             |
+| 0x04   | 4            | **TimeDateStamp**        | Timestamp indicating when the file was created or last modified.   |
+| 0x08   | 4            | **PointerToSymbolTable** | The file offset to the symbol table.                               |
+| 0x0C   | 4            | **NumberOfSymbols**      | The number of entries in the symbol table.                         |
+| 0x10   | 2            | **SizeOfOptionalHeader** | The size of the `Optional Header`.                                 |
+| 0x12   | 2            | **Characteristics**      | Flags that indicate the attributes and characteristics of the file |
 
 1. Machine
    - **Offset**: `0x00`
-   - **Description**: Indicates the target architecture of the executable.
+   - **Description**: Indicates the target architecture of the file.
    - **Possible Values**:
        - `0x014C` – Intel 386 (x86).
        - `0x0200` – Intel Itanium.
@@ -157,18 +157,19 @@ In this course we will break down the Windows PE structure thoroughly.
        - `0x01C4` – ARMv7.
        - `0xAA64` – ARM64.
        - `0x0100` – MIPS R3000.
+   - **NOTE**: There may be more values, we just couldn't think of any other ones
 
 ![Machine](../.github/winpe/header_5.png)
 
 2. Number of Sections
    - **Offset**: `0x02`
-   - **Description**: The number of section headers in the PE file. This field tells the Windows loader how many sections to expect following the Optional Header.
+   - **Description**: The number of section the PE file (counts the section header not the full section).
   
 ![Number of Sections](../.github/winpe/header_6.png)
 
 3. Timestamp
    - **Offset**: `0x04`
-   - **Description**: Contains the timestamp for when the file was created or last modified, expressed in UNIX epoch format (seconds since January 1, 1970).
+   - **Description**: Contains the timestamp of the file creation or last modified time.
    - **Usage**: This can be used to analyze when a PE file was compiled or built.
    - You can see a timestamp after compilation being retrieved from the file here: [https://m4lc.io/course/winpe/timestamp](https://m4lc.io/course/winpe/timestamp)
 
@@ -176,29 +177,29 @@ In this course we will break down the Windows PE structure thoroughly.
 
 4. PointerToSymbolTable
    - **Offset**: `0x08`
-   - **Description**: Points to the start of the symbol table in the file, used mainly in object files (not in executables).
-       - In executables and DLLs, this field is typically set to `0x00000000`.
+   - **Description**: Points to the start of the symbol table in the file.
+       - In executables and DLL files, this field is usually set to `0x00000000`.
 
 ![PointerToSymbolTable](../.github/winpe/header_8.png)
 
 5. Number of Symbols
    - **Offset**: `0x0C`
-  - **Description**: The number of entries in the symbol table. This is used in object files for debugging purposes, but in executables, it’s generally set to `0x00000000`.
+  - **Description**: The number of entries in the symbol table. Is usually set to `0x00000000`.
 
 ![Number of Symbols](../.github/winpe/header_9.png)
 
 6. SizeOfOptionalHeader
    - **Offset**: `0x10`
-   - **Description**: Specifies the size of the Optional Header that follows the COFF header.
-       - For PE32 (32-bit) files, the size is usually `0x00E0` (224 bytes).
-       - For PE32+ (64-bit) files, the size is typically `0x00F0` (240 bytes).
+   - **Description**: Specifies the size of the `Optional Header`.
+       - For 32-bit files, the size is usually `0x00E0` (224 bytes).
+       - For 64-bit files, the size is usually `0x00F0` (240 bytes).
 
 ![SizeOfOptionalHeader](../.github/winpe/header_10.png)
 
 7. Characteristics
    - **Offset**: `0x12`
-   - **Description**: Contains flags that describe the attributes of the PE file, like whether it's executable, relocatable, a DLL, etc.
-   - **Possible Values (Bit Flags)**:
+   - **Description**: Contains flags that describe the attributes of the PE file (such as if it's an exe or a DLL).
+   - **Possible Values**:
        - `0x0002` – Executable image.
        - `0x0020` – Application can handle addresses larger than 2GB (large address aware).
        - `0x0100` – The file is a DLL.
@@ -212,22 +213,22 @@ In this course we will break down the Windows PE structure thoroughly.
 
 ## OptionalHeader
 
-Despite it's name it is required for executable images and DLL files. It contains a bunch of information that is needed to properly load the PE file and execute the file in memory. You can see a lot of this information pulled out of a real file and visualize it here: [https://m4lc.io/course/winpe/info](https://m4lc.io/course/winpe/info)
+Despite it's name this is required for executable images and DLL files. It contains a bunch of information that is needed to properly load the PE file and execute the file in memory. You can see a lot of this information pulled out of a real file and visualize it here: [https://m4lc.io/course/winpe/info](https://m4lc.io/course/winpe/info)
 
 | Offset (PE32) | Offset (PE32+) | Size | Field Name                      | Description                                                                                                     |
 |---------------|----------------|------|---------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| 0x00          | 0x00           | 2    | **Magic**                       | Specifies whether the file is PE32 (`0x10B`) or PE32+ (`0x20B`).                                                |
+| 0x00          | 0x00           | 2    | **Magic**                       | Specifies whether the file is 32(`0x10B`) or 64(`0x20B`) bit.                                                   |
 | 0x02          | 0x02           | 1    | **Major Linker Version**        | Major version of the linker used to create the file.                                                            |
 | 0x03          | 0x03           | 1    | **Minor Linker Version**        | Minor version of the linker used to create the file.                                                            |
-| 0x04          | 0x04           | 4    | **SizeOfCode**                  | Total size of all code sections (.text) when loaded in memory.                                                  |
-| 0x08          | 0x08           | 4    | **SizeOfInitializedData**       | Total size of all initialized data sections (.data) when loaded in memory.                                      |
-| 0x0C          | 0x0C           | 4    | **SizeOfUninitializedData**     | Total size of all uninitialized data sections (.bss) when loaded in memory.                                     |
-| 0x10          | 0x10           | 4    | **AddressOfEntryPoint**         | RVA of the entry point function                                                                                 |
+| 0x04          | 0x04           | 4    | **SizeOfCode**                  | Total size of all code sections when loaded in memory.                                                          |
+| 0x08          | 0x08           | 4    | **SizeOfInitializedData**       | Total size of all initialized data sections when loaded in memory.                                              |
+| 0x0C          | 0x0C           | 4    | **SizeOfUninitializedData**     | Total size of all uninitialized data sections when loaded in memory.                                            |
+| 0x10          | 0x10           | 4    | **AddressOfEntryPoint**         | RVA (Relative Virutal Address) of the entry point function                                                      |
 | 0x14          | 0x14           | 4    | **BaseOfCode**                  | RVA of the start of the code section.                                                                           |
 | 0x18          | N/A            | 4    | **BaseOfData**                  | (PE32 only) RVA of the start of the data section.                                                               |
-| 0x1C          | 0x18           | 4/8  | **ImageBase**                   | Preferred address of the image when loaded in memory (default: `0x400000` for PE32, `0x140000000` for PE32+).   |
-| 0x20          | 0x20           | 4    | **SectionAlignment**            | Alignment of sections when loaded in memory (default: `0x1000`).                                                |
-| 0x24          | 0x24           | 4    | **FileAlignment**               | Alignment of sections in the file on disk (default: `0x200`).                                                   |
+| 0x1C          | 0x18           | 4/8  | **ImageBase**                   | Preferred address of the image when loaded in memory.                                                           |
+| 0x20          | 0x20           | 4    | **SectionAlignment**            | Alignment of sections when loaded in memory.                                                                    |
+| 0x24          | 0x24           | 4    | **FileAlignment**               | Alignment of sections in the file on disk.                                                                      |
 | 0x28          | 0x28           | 2    | **MajorOperatingSystemVersion** | Major version of the minimum OS required to run the file.                                                       |
 | 0x2A          | 0x2A           | 2    | **MinorOperatingSystemVersion** | Minor version of the minimum OS required to run the file.                                                       |
 | 0x2C          | 0x2C           | 2    | **MajorImageVersion**           | Major version number of the image.                                                                              |
@@ -240,21 +241,21 @@ Despite it's name it is required for executable images and DLL files. It contain
 | 0x40          | 0x40           | 4    | **CheckSum**                    | Checksum of the image. Required for drivers; optional for user-mode executables.                                |
 | 0x44          | 0x44           | 2    | **Subsystem**                   | Specifies the subsystem required                                                                                |
 | 0x46          | 0x46           | 2    | **DllCharacteristics**          | Flags indicating characteristics of the DLL                                                                     |
-| 0x48          | 0x48           | 4/8  | **SizeOfStackReserve**          | Size of the stack to reserve (initial stack size).                                                              |
+| 0x48          | 0x48           | 4/8  | **SizeOfStackReserve**          | Size of the stack to reserve.                                                                                   |
 | 0x4C          | 0x50           | 4/8  | **SizeOfStackCommit**           | Size of the stack to commit initially.                                                                          |
-| 0x50          | 0x58           | 4/8  | **SizeOfHeapReserve**           | Size of the heap to reserve (initial heap size).                                                                |
+| 0x50          | 0x58           | 4/8  | **SizeOfHeapReserve**           | Size of the heap to reserve.                                                                                    |
 | 0x54          | 0x60           | 4/8  | **SizeOfHeapCommit**            | Size of the heap to commit initially.                                                                           |
 | 0x58          | 0x68           | 4    | **LoaderFlags**                 | Reserved, usually set to 0.                                                                                     |
-| 0x5C          | 0x6C           | 4    | **NumberOfRvaAndSizes**         | Number of data directories in the Optional Header (usually 16).                                                 |
+| 0x5C          | 0x6C           | 4    | **NumberOfRvaAndSizes**         | Number of data directories in the Optional Header.                                                              |
 
 1. **Magic**
    - **Offset**: 0x00 (PE32 and PE32+)
    - **Size**: 2 bytes
    - **Description**: 
        - Identifies the file format: 
-         - **0x10B** for **PE32**.
-         - **0x20B** for **PE32+**.
-   - Used to differentiate between 32-bit and 64-bit executable formats.
+         - **0x10B** for **32 bit**.
+         - **0x20B** for **64 bit**.
+   - Used to determine between 32-bit and 64-bit executable formats.
 
 ![Magic](../.github/winpe/img_28.png)
 
@@ -310,6 +311,7 @@ Despite it's name it is required for executable images and DLL files. It contain
        - **14** (`0x0E`)
            - **Linker Version**: Microsoft Linker 14.3
            - **Visual Studio Version**: Visual Studio 2022
+   - **NOTE**: There are probably more that are not listed
 
 ![Major Linker Version](../.github/winpe/img_27.png)
 
@@ -347,6 +349,7 @@ Despite it's name it is required for executable images and DLL files. It contain
          - Microsoft Linker version 14.2, corresponding to Visual Studio 2019.
        - **36** (`0x24`):
         - Microsoft Linker version 14.3, corresponding to Visual Studio 2022.
+   - **NOTE**: There are probably more that are not listed
 
 ![Minor Linker Version](../.github/winpe/img_26.png)
 
@@ -355,7 +358,6 @@ Despite it's name it is required for executable images and DLL files. It contain
    - **Size**: 4 bytes
    - **Description**: 
        - The total size of all sections that contain executable code.
-       - It represents the size when loaded into memory.
 
 ![SizeOfCode](../.github/winpe/img_25.png)
 
@@ -379,7 +381,7 @@ Despite it's name it is required for executable images and DLL files. It contain
    - **Offset**: 0x10
    - **Size**: 4 bytes
    - **Description**: 
-       - The Relative Virtual Address (RVA) of the entry point function.
+       - RVA of the entry point function.
        - This is where execution starts after the program is loaded.
 
 ![AddressOfEntryPoint](../.github/winpe/img_22.png)
@@ -399,7 +401,7 @@ Despite it's name it is required for executable images and DLL files. It contain
    - **Description**: 
        - The RVA of the start of the data section.
          - This field is not present in **PE32+**.
-         - Possible for `BaseOfData` to be missing in **PE32+** (which is why there is no image of it)
+         - Possible for `BaseOfData` to be missing in **PE32+** (which is why there is no image of it in this course)
 
 10. **ImageBase**
     - **Offset**: 0x1C (PE32), 0x18 (PE32+)
@@ -497,7 +499,7 @@ Despite it's name it is required for executable images and DLL files. It contain
     - **Offset**: 0x3C
     - **Size**: 4 bytes
     - **Description**: 
-        - The size of all headers combined (DOS Header, PE Header, Optional Header, and Section Headers).
+        - The size of all headers combined.
         - Aligned to **FileAlignment**.
 
 ![SizeOfHeaders](../.github/winpe/img_9.png)
@@ -584,14 +586,14 @@ Despite it's name it is required for executable images and DLL files. It contain
 
 ## Data Directory
 
-The data directory is a set of pointers that is technically part of the `OptionalHeader`. It directs the Windows loader to various tables and structures that manage the execution of the program.
+The data directory is a set of pointers that are part of the `OptionalHeader`. It directs the Windows loader to various tables and structures that manage the execution of the program.
 
 | Offset (PE32) | Offset (PE32+) | Size | Field Name            | Description                                            |
 |---------------|----------------|------|-----------------------|--------------------------------------------------------|
 | 0x60          | 0x70           | 8    | Export Table          | Exports functions and symbols for other modules.       |
 | 0x68          | 0x78           | 8    | Import Table          | Imports functions and symbols from other modules.      |
 | 0x70          | 0x80           | 8    | Resource Table        | Contains resources like icons, strings, and dialogs.   |
-| 0x78          | 0x88           | 8    | Exception Table       | Exception handling information (e.g., SEH, x64).       |
+| 0x78          | 0x88           | 8    | Exception Table       | Exception handling information.                        |
 | 0x80          | 0x90           | 8    | Certificate Table     | Digital signatures for verifying the file's integrity. |
 | 0x88          | 0x98           | 8    | Base Relocation Table | Base address relocation information.                   |
 | 0x90          | 0xA0           | 8    | Debug Directory       | Debugging information used by debuggers.               |
@@ -762,18 +764,18 @@ Each section is 40 bytes long and contains multiple pieces to it. As you can see
 
 ![Raw Section](../.github/winpe/img_31.png)
 
-| Offset | Size (Bytes) | Field Name               | Description                                                                                           |
-|--------|--------------|--------------------------|-------------------------------------------------------------------------------------------------------|
-| 0x00   | 8            | **Name**                 | An ASCII string representing the section name                                                         |
-| 0x08   | 4            | **VirtualSize**          | The total size of the section in memory. It might be larger than the size on disk due to alignment.   |
-| 0x0C   | 4            | **VirtualAddress**       | The RVA (Relative Virtual Address) of the section in memory, relative to the image base.              |
-| 0x10   | 4            | **SizeOfRawData**        | The size of the section data in the file, aligned to the **FileAlignment**.                           |
-| 0x14   | 4            | **PointerToRawData**     | The file offset where the section's data starts.                                                      |
-| 0x18   | 4            | **PointerToRelocations** | The file offset of the relocation entries for the section (if applicable, mostly used in OBJ files).  |
-| 0x1C   | 4            | **PointerToLinenumbers** | The file offset of the line-number entries for the section (used for debugging, mostly in OBJ files). |
-| 0x20   | 2            | **NumberOfRelocations**  | The number of relocation entries for the section (used in OBJ files).                                 |
-| 0x22   | 2            | **NumberOfLinenumbers**  | The number of line-number entries for the section (used in debugging, mostly in OBJ files).           |
-| 0x24   | 4            | **Characteristics**      | Flags indicating attributes of the section.                                                           |
+| Offset | Size (Bytes) | Field Name               | Description                                                                                         |
+|--------|--------------|--------------------------|-----------------------------------------------------------------------------------------------------|
+| 0x00   | 8            | **Name**                 | An ASCII string representing the section name                                                       |
+| 0x08   | 4            | **VirtualSize**          | The total size of the section in memory. It might be larger than the size on disk due to alignment. |
+| 0x0C   | 4            | **VirtualAddress**       | The RVA of the section in memory, relative to the image base.                                       |
+| 0x10   | 4            | **SizeOfRawData**        | The size of the section data in the file, aligned to the **FileAlignment**.                         |
+| 0x14   | 4            | **PointerToRawData**     | The file offset where the section's data starts.                                                    |
+| 0x18   | 4            | **PointerToRelocations** | The file offset of the relocation entries for the section.                                          |
+| 0x1C   | 4            | **PointerToLinenumbers** | The file offset of the line-number entries for the section.                                         |
+| 0x20   | 2            | **NumberOfRelocations**  | The number of relocation entries for the section.                                                   |
+| 0x22   | 2            | **NumberOfLinenumbers**  | The number of line-number entries for the section.                                                  |
+| 0x24   | 4            | **Characteristics**      | Flags indicating attributes of the section.                                                         |
 
 1. **Name**
 
