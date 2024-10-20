@@ -39,6 +39,8 @@ The Windows Portable Executable (PE) file format is a structure used by Windows 
 
 In this course we will break down the Windows PE structure thoroughly. 
 
+You can see a full analysis of this file done by Malcore here: [https://m4lc.io/course/winpe/full](https://m4lc.io/course/winpe/full)
+
 # What is a DOS Header?
 
 The purpose of the DOS header is to maintain backwards compatibility with older systems. It is a remnant of the DOS era, and tells the system that this is an executable in DOS while providing a pointer to the PE header where modern executable information starts.
@@ -199,9 +201,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 
 ## OptionalHeader
 
-- Despite it's name it is required for executable images and DLL files. It contains a bunch of information that is needed to properly load the PE file and execute the file in memory.
-  - PE32 size: 224 bytes
-  - PE64 size: 240 bytes
+Despite it's name it is required for executable images and DLL files. It contains a bunch of information that is needed to properly load the PE file and execute the file in memory. You can see a lot of this information pulled out of a real file and visualize it here: [https://m4lc.io/course/winpe/info](https://m4lc.io/course/winpe/info)
 
 | Offset (PE32) | Offset (PE32+) | Size | Field Name                      | Description                                                                                                     |
 |---------------|----------------|------|---------------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -611,6 +611,7 @@ Let’s break down each directory in detail:
    - **Fields**:
        - **RVA**: Pointer to the start of the Import Table.
        - **Size**: Size of the Import Table data.
+   - You can see a visualization of the import table of this file here: [https://m4lc.io/course/winpe/imports](https://m4lc.io/course/winpe/imports)
 
 3. **Resource Table**
    - **Offset (PE32)**: `0x70`, **Offset (PE32+)**: `0x80`
@@ -638,6 +639,7 @@ Let’s break down each directory in detail:
    - **Fields**:
        - **RVA**: Pointer to the start of the Certificate Table (points to a file offset, not an RVA).
        - **Size**: Size of the certificate data.
+   - You can see what it looks like when certificates are pulled from a file here: [https://m4lc.io/course/winpe/certs](https://m4lc.io/course/winpe/certs)
 
 6. **Base Relocation Table**
    - **Offset (PE32)**: `0x88`, **Offset (PE32+)**: `0x98`
@@ -716,6 +718,8 @@ Let’s break down each directory in detail:
 ## Sections
 
 A section in a PE file represents different parts of the file the contain code, data, and other resources that make the file execute. Each section is defined by a header that describes its properties, size, and memory alignment.
+
+You can see a visualization of the sections of the file used for this course here: [https://m4lc.io/course/winpe/sections](https://m4lc.io/course/winpe/sections)
 
 Common sections in PE files include:
 - `.text`
@@ -802,7 +806,14 @@ That's really all there is to it. In this course we have broken down the PE file
 
 Once again:
 
-This course is provided to you for free by the Malcore team: https://m4lc.io/course/winpe/register
+A lot of this information can be visualized and seen done during analysis by following these links:
+- [https://m4lc.io/course/winpe/sections](https://m4lc.io/course/winpe/sections)
+- [https://m4lc.io/course/winpe/imports](https://m4lc.io/course/winpe/imports)
+- [https://m4lc.io/course/winpe/certs](https://m4lc.io/course/winpe/certs)
+- [https://m4lc.io/course/winpe/info](https://m4lc.io/course/winpe/info)
+- [https://m4lc.io/course/winpe/full](https://m4lc.io/course/winpe/full)
+
+Also, please remember that this course is provided to you for free by the Malcore team: https://m4lc.io/course/winpe/register
 
 Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can
 also join our Discord server here: https://m4lc.io/course/winpe/discord
