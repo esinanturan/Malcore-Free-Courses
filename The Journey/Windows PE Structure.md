@@ -1,8 +1,10 @@
 # THIS IS A WORK IN PROGRESS AND IS NOT PUBLICLY RELEASED
 
-<p align="center">
-    <img src="">
-</p>
+[//]: # (<p align="center">)
+
+[//]: # (    <img src="../.github/winpe_struct_logo.png">)
+
+[//]: # (</p>)
 
 ##### Shameless plug
 
@@ -120,7 +122,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 | 0x08   | 4            | **PointerToSymbolTable** | The file offset to the symbol table, used mainly in object files (usually 0 in executables).    |
 | 0x0C   | 4            | **NumberOfSymbols**    | The number of entries in the symbol table, used in debugging or object files.                   |
 | 0x10   | 2            | **SizeOfOptionalHeader** | The size of the Optional Header that follows this COFF header.                                  |
-| 0x12   | 2            | **Characteristics**    | Flags that indicate the attributes and characteristics of the file (e.g., executable, DLL).     |
+| 0x12   | 2            | **Characteristics**    | Flags that indicate the attributes and characteristics of the file (such as, executable, DLL).     |
 
 1. Machine
 - **Offset**: `0x00`
@@ -197,7 +199,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 | 0x04          | 0x04          | 4    | **SizeOfCode**                | Total size of all code sections (.text) when loaded in memory.                                  |
 | 0x08          | 0x08          | 4    | **SizeOfInitializedData**     | Total size of all initialized data sections (.data) when loaded in memory.                      |
 | 0x0C          | 0x0C          | 4    | **SizeOfUninitializedData**   | Total size of all uninitialized data sections (.bss) when loaded in memory.                     |
-| 0x10          | 0x10          | 4    | **AddressOfEntryPoint**       | RVA of the entry point function (e.g., `main` or `DllMain`).                                    |
+| 0x10          | 0x10          | 4    | **AddressOfEntryPoint**       | RVA of the entry point function (such as, `main` or `DllMain`).                                    |
 | 0x14          | 0x14          | 4    | **BaseOfCode**                | RVA of the start of the code section.                                                           |
 | 0x18          | N/A           | 4    | **BaseOfData**                | (PE32 only) RVA of the start of the data section.                                               |
 | 0x1C          | 0x18          | 4/8  | **ImageBase**                 | Preferred address of the image when loaded in memory (default: `0x400000` for PE32, `0x140000000` for PE32+). |
@@ -213,8 +215,8 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 | 0x38          | 0x38          | 4    | **SizeOfImage**               | Total size of the image, including all headers and sections, aligned to **SectionAlignment**.   |
 | 0x3C          | 0x3C          | 4    | **SizeOfHeaders**             | Combined size of the DOS Header, PE Header, Optional Header, and Section Headers, aligned to **FileAlignment**. |
 | 0x40          | 0x40          | 4    | **CheckSum**                  | Checksum of the image. Required for drivers; optional for user-mode executables.                |
-| 0x44          | 0x44          | 2    | **Subsystem**                 | Specifies the subsystem required (e.g., Windows GUI, Console, etc.).                            |
-| 0x46          | 0x46          | 2    | **DllCharacteristics**        | Flags indicating characteristics of the DLL (e.g., ASLR, DEP, etc.).                            |
+| 0x44          | 0x44          | 2    | **Subsystem**                 | Specifies the subsystem required (such as, Windows GUI, Console, etc.).                            |
+| 0x46          | 0x46          | 2    | **DllCharacteristics**        | Flags indicating characteristics of the DLL (such as, ASLR, DEP, etc.).                            |
 | 0x48          | 0x48          | 4/8  | **SizeOfStackReserve**        | Size of the stack to reserve (initial stack size).                                              |
 | 0x4C          | 0x50          | 4/8  | **SizeOfStackCommit**         | Size of the stack to commit initially.                                                          |
 | 0x50          | 0x58          | 4/8  | **SizeOfHeapReserve**         | Size of the heap to reserve (initial heap size).                                                |
@@ -222,7 +224,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 | 0x58          | 0x68          | 4    | **LoaderFlags**               | Reserved, usually set to 0.                                                                     |
 | 0x5C          | 0x6C          | 4    | **NumberOfRvaAndSizes**       | Number of data directories in the Optional Header (usually 16).                                 |
 
-1. Magic
+1. **Magic**
 - **Offset**: 0x00 (PE32 and PE32+)
 - **Size**: 2 bytes
 - **Description**: 
@@ -231,37 +233,124 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
     - **0x20B** for **PE32+**.
   - Used to differentiate between 32-bit and 64-bit executable formats.
 
+![Magic](../.github/winpe/img_28.png)
+
 2. **Major Linker Version**
 - **Offset**: 0x02
 - **Size**: 1 byte
 - **Description**: 
   - The major version number of the linker that generated the file.
   - Indicates the compatibility of the file with the linker software.
+- **Possible values**:
+  - **2** (`0x02`)
+      - **Linker Version**: Microsoft Linker 2.x
+        - **Visual Studio Version**: Early Microsoft C Compilers
+  - **3** (`0x03`)
+      - **Linker Version**: Microsoft Linker 3.x
+        - **Visual Studio Version**: Early Microsoft C/C++ Compilers
+  - **5** (`0x05`)
+      - **Linker Version**: Microsoft Linker 5.x
+        - **Visual Studio Version**: Visual Studio 97
+  - **6** (`0x06`)
+      - **Linker Version**: Microsoft Linker 6.x
+        - **Visual Studio Version**: Visual Studio 6.0
+  - **7** (`0x07`)
+      - **Linker Version**: Microsoft Linker 7.0
+        - **Visual Studio Version**: Visual Studio .NET 2002
+  - **7** (`0x07`)
+      - **Linker Version**: Microsoft Linker 7.10
+        - **Visual Studio Version**: Visual Studio .NET 2003
+  - **8** (`0x08`)
+      - **Linker Version**: Microsoft Linker 8.0
+        - **Visual Studio Version**: Visual Studio 2005
+  - **9** (`0x09`)
+      - **Linker Version**: Microsoft Linker 9.0
+        - **Visual Studio Version**: Visual Studio 2008
+  - **10** (`0x0A`)
+      - **Linker Version**: Microsoft Linker 10.0
+        - **Visual Studio Version**: Visual Studio 2010
+  - **11** (`0x0B`)
+      - **Linker Version**: Microsoft Linker 11.0
+        - **Visual Studio Version**: Visual Studio 2012
+  - **12** (`0x0C`)
+      - **Linker Version**: Microsoft Linker 12.0
+        - **Visual Studio Version**: Visual Studio 2013
+  - **14** (`0x0E`)
+      - **Linker Version**: Microsoft Linker 14.0
+        - **Visual Studio Version**: Visual Studio 2015
+  - **14** (`0x0E`)
+      - **Linker Version**: Microsoft Linker 14.1
+        - **Visual Studio Version**: Visual Studio 2017
+  - **14** (`0x0E`)
+      - **Linker Version**: Microsoft Linker 14.2
+        - **Visual Studio Version**: Visual Studio 2019
+  - **14** (`0x0E`)
+      - **Linker Version**: Microsoft Linker 14.3
+        - **Visual Studio Version**: Visual Studio 2022
+
+![Major Linker Version](../.github/winpe/img_27.png)
 
 3. **Minor Linker Version**
 - **Offset**: 0x03
 - **Size**: 1 byte
 - **Description**: 
   - The minor version number of the linker that generated the file.
+- **Possible values**:
+  - **0**: 
+      - Initial versions; often seen in older files.
+  - **10** (`0x0A`):
+      - Microsoft Linker version 5.10, corresponding to Visual Studio 97.
+  - **12** (`0x0C`):
+      - Microsoft Linker version 6.0, corresponding to Visual Studio 6.0.
+  - **16** (`0x10`):
+      - Microsoft Linker version 7.0, corresponding to Visual Studio .NET 2002.
+  - **20** (`0x14`):
+      - Microsoft Linker version 7.10, corresponding to Visual Studio .NET 2003.
+  - **30** (`0x1E`):
+      - Microsoft Linker version 8.0, corresponding to Visual Studio 2005.
+  - **36** (`0x24`):
+      - Microsoft Linker version 9.0, corresponding to Visual Studio 2008.
+  - **40** (`0x28`):
+      - Microsoft Linker version 10.0, corresponding to Visual Studio 2010.
+  - **46** (`0x2E`):
+      - Microsoft Linker version 11.0, corresponding to Visual Studio 2012.
+  - **48** (`0x30`):
+      - Microsoft Linker version 12.0, corresponding to Visual Studio 2013.
+  - **50** (`0x32`):
+      - Microsoft Linker version 14.0, corresponding to Visual Studio 2015.
+  - **52** (`0x34`):
+      - Microsoft Linker version 14.1, corresponding to Visual Studio 2017.
+  - **28** (`0x1C`):
+      - Microsoft Linker version 14.2, corresponding to Visual Studio 2019.
+  - **36** (`0x24`):
+      - Microsoft Linker version 14.3, corresponding to Visual Studio 2022.
+
+![Minor Linker Version](../.github/winpe/img_26.png)
 
 4. **SizeOfCode**
 - **Offset**: 0x04
 - **Size**: 4 bytes
 - **Description**: 
-  - The total size of all sections that contain executable code (e.g., **.text** section).
+  - The total size of all sections that contain executable code (such as, **.text** section).
   - It represents the size when loaded into memory.
+
+![SizeOfCode](../.github/winpe/img_25.png)
 
 5. **SizeOfInitializedData**
 - **Offset**: 0x08
 - **Size**: 4 bytes
 - **Description**: 
-  - The total size of all sections containing initialized data (e.g., **.data** section).
+  - The total size of all sections containing initialized data (such as, **.data** section).
+
+![SizeOfInitializedData](../.github/winpe/img_24.png)
 
 6. **SizeOfUninitializedData**
 - **Offset**: 0x0C
 - **Size**: 4 bytes
 - **Description**: 
-  - The total size of all sections containing uninitialized data (e.g., **.bss** section).
+  - The total size of all sections containing uninitialized data (such as, **.bss** section).
+
+![SizeOfUninitializedData](../.github/winpe/img_23.png)
 
 7. **AddressOfEntryPoint**
 - **Offset**: 0x10
@@ -270,19 +359,24 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
   - The Relative Virtual Address (RVA) of the entry point function, such as `main()` for executables or `DllMain()` for DLLs.
   - This is where execution starts after the program is loaded.
 
+![AddressOfEntryPoint](../.github/winpe/img_22.png)
+
 8. **BaseOfCode**
 - **Offset**: 0x14
 - **Size**: 4 bytes
 - **Description**: 
-  - The RVA of the start of the code section (e.g., **.text**).
+  - The RVA of the start of the code section (such as, **.text**).
   - Indicates where the code segment begins in memory.
+
+![BaseOfCode](../.github/winpe/img_21.png)
 
 9. **BaseOfData** (PE32 only)
 - **Offset**: 0x18
 - **Size**: 4 bytes
 - **Description**: 
-  - The RVA of the start of the data section (e.g., **.data**).
+  - The RVA of the start of the data section (such as, **.data**).
   - This field is not present in **PE32+**.
+  - Possible for base of data to be missing in **PE32+**
 
 10. **ImageBase**
 - **Offset**: 0x1C (PE32), 0x18 (PE32+)
@@ -291,12 +385,16 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
   - The preferred memory address at which the image should be loaded.
   - Defaults to `0x400000` for **PE32** and `0x140000000` for **PE32+**.
 
+![ImageBase](../.github/winpe/img_20.png)
+
 11. **SectionAlignment**
 - **Offset**: 0x20
 - **Size**: 4 bytes
 - **Description**: 
   - The alignment of sections in memory.
   - Typically `0x1000` (4KB), but must be greater than or equal to **FileAlignment**.
+
+![SectionAlignment](../.github/winpe/img_19.png)
 
 12. **FileAlignment**
 - **Offset**: 0x24
@@ -305,13 +403,15 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
   - The alignment of sections in the file on disk.
   - Usually set to `0x200` (512 bytes), but can vary based on the file format.
 
+![FileAlignment](../.github/winpe/img_18.png)
+
 13. **MajorOperatingSystemVersion**
 - **Offset**: 0x28
 - **Size**: 2 bytes
 - **Description**: 
   - The major version of the minimum required operating system.
 
-![PE Signature](../.github/winpe/img_17.png)
+![MajorOperatingSystemVersion](../.github/winpe/img_17.png)
 
 14. **MinorOperatingSystemVersion**
 - **Offset**: 0x2A
@@ -319,7 +419,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 - **Description**: 
   - The minor version of the minimum required operating system.
 
-![PE Signature](../.github/winpe/img_16.png)
+![MinorOperatingSystemVersion](../.github/winpe/img_16.png)
 
 15. **MajorImageVersion**
 - **Offset**: 0x2C
@@ -327,7 +427,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 - **Description**: 
   - The major version number of the image, set by the developer.
 
-![PE Signature](../.github/winpe/img_15.png)
+![MajorImageVersion](../.github/winpe/img_15.png)
 
 16. **MinorImageVersion**
 - **Offset**: 0x2E
@@ -335,15 +435,15 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 - **Description**: 
   - The minor version number of the image.
 
-![PE Signature](../.github/winpe/img_14.png)
+![MinorImageVersion](../.github/winpe/img_14.png)
 
 17. **MajorSubsystemVersion**
 - **Offset**: 0x30
 - **Size**: 2 bytes
 - **Description**: 
-  - The major version of the subsystem that the image requires (e.g., GUI, console).
+  - The major version of the subsystem that the image requires (such as, GUI, console).
 
-![PE Signature](../.github/winpe/img_13.png)
+![MajorSubsystemVersion](../.github/winpe/img_13.png)
 
 18. **MinorSubsystemVersion**
 - **Offset**: 0x32
@@ -351,7 +451,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 - **Description**: 
   - The minor version of the subsystem.
 
-![PE Signature](../.github/winpe/img_12.png)
+![MinorSubsystemVersion](../.github/winpe/img_12.png)
 
 19. **Win32VersionValue**
 - **Offset**: 0x34
@@ -359,7 +459,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 - **Description**: 
   - Reserved, usually set to 0.
 
-![PE Signature](../.github/winpe/img_11.png)
+![Win32VersionValue](../.github/winpe/img_11.png)
 
 20. **SizeOfImage**
 - **Offset**: 0x38
@@ -368,7 +468,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
   - The total size of the image, aligned to **SectionAlignment**.
   - This includes headers and all sections.
 
-![PE Signature](../.github/winpe/img_10.png)
+![SizeOfImag](../.github/winpe/img_10.png)
 
 21. **SizeOfHeaders**
 - **Offset**: 0x3C
@@ -377,7 +477,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
   - The size of all headers combined (DOS Header, PE Header, Optional Header, and Section Headers).
   - Aligned to **FileAlignment**.
 
-![PE Signature](../.github/winpe/img_9.png)
+![SizeOfHeaders](../.github/winpe/img_9.png)
 
 22. **CheckSum**
 - **Offset**: 0x40
@@ -386,7 +486,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
   - The checksum of the image.
   - Required for kernel-mode drivers; optional for user-mode executables.
 
-![PE Signature](../.github/winpe/img_8.png)
+![CheckSum](../.github/winpe/img_8.png)
 
 23. **Subsystem**
 - **Offset**: 0x44
@@ -397,7 +497,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
     - **0x02**: Windows GUI.
     - **0x03**: Windows Console.
 
-![PE Signature](../.github/winpe/img_7.png)
+![Subsystem](../.github/winpe/img_7.png)
 
 24. **DllCharacteristics**
 - **Offset**: 0x46
@@ -407,7 +507,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
     - **ASLR** (Address Space Layout Randomization).
     - **DEP** (Data Execution Prevention).
 
-![PE Signature](../.github/winpe/img_6.png)
+![DllCharacteristics](../.github/winpe/img_6.png)
 
 25. **SizeOfStackReserve**
 - **Offset**: 0x48 (PE32), 0x48 (PE32+)
@@ -416,7 +516,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
   - The size of memory reserved for the stack.
   - Defaults to 1 MB for **PE32** and 4 MB for **PE32+**.
 
-![PE Signature](../.github/winpe/img_5.png)
+![SizeOfStackReserve](../.github/winpe/img_5.png)
 
 26. **SizeOfStackCommit**
 - **Offset**: 0x4C (PE32), 0x50 (PE32+)
@@ -424,7 +524,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 - **Description**: 
   - The size of memory initially committed for the stack.
 
-![PE Signature](../.github/winpe/img_4.png)
+![SizeOfStackCommit](../.github/winpe/img_4.png)
 
 27. **SizeOfHeapReserve**
 - **Offset**: 0x50 (PE32), 0x58 (PE32+)
@@ -432,7 +532,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 - **Description**: 
   - The size of memory reserved for the heap.
 
-![PE Signature](../.github/winpe/img_3.png)
+![SizeOfHeapReserve](../.github/winpe/img_3.png)
 
 28. **SizeOfHeapCommit**
 - **Offset**: 0x54 (PE32), 0x60 (PE32+)
@@ -440,7 +540,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 - **Description**: 
   - The size of memory initially committed for the heap.
 
-![PE Signature](../.github/winpe/img_2.png)
+![SizeOfHeapCommit](../.github/winpe/img_2.png)
 
 29. **LoaderFlags**
 - **Offset**: 0x58 (PE32), 0x68 (PE32+)
@@ -448,7 +548,7 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 - **Description**: 
   - Reserved for system use, usually set to 0.
 
-![PE Signature](../.github/winpe/img_1.png)
+![LoaderFlags](../.github/winpe/img_1.png)
 
 30. **NumberOfRvaAndSizes**
 - **Offset**: 0x5C (PE32), 0x6C (PE32+)
@@ -457,4 +557,231 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
   - The number of data directories following this field.
   - Typically set to **16**, covering standard PE data directories like Import Table, Export Table, etc.
 
-![PE Signature](../.github/winpe/img.png)
+![NumberOfRvaAndSizes](../.github/winpe/img.png)
+
+#### Data Directory
+
+The data directory is a set of pointers that is technically part of the `OptionalHeader`. It directs the Windows loader to various tables and structures that manage the execution of the program.
+
+| Offset (PE32) | Offset (PE32+) | Size | Field Name           | Description                                           |
+|---------------|---------------|------|-----------------------|-------------------------------------------------------|
+| 0x60          | 0x70          | 8    | Export Table          | Exports functions and symbols for other modules.     |
+| 0x68          | 0x78          | 8    | Import Table          | Imports functions and symbols from other modules.    |
+| 0x70          | 0x80          | 8    | Resource Table        | Contains resources like icons, strings, and dialogs. |
+| 0x78          | 0x88          | 8    | Exception Table       | Exception handling information (e.g., SEH, x64).     |
+| 0x80          | 0x90          | 8    | Certificate Table     | Digital signatures for verifying the file's integrity.|
+| 0x88          | 0x98          | 8    | Base Relocation Table | Base address relocation information.                 |
+| 0x90          | 0xA0          | 8    | Debug Directory       | Debugging information used by debuggers.             |
+| 0x98          | 0xA8          | 8    | Architecture          | Reserved, generally set to 0.                         |
+| 0xA0          | 0xB0          | 8    | GlobalPtr             | Reserved for global pointer information.             |
+| 0xA8          | 0xB8          | 8    | TLS Table             | Thread Local Storage (TLS) initialization data.      |
+| 0xB0          | 0xC0          | 8    | Load Config Table     | Security and other load configuration information.   |
+| 0xB8          | 0xC8          | 8    | Bound Import          | List of functions bound to specific addresses.       |
+| 0xC0          | 0xD0          | 8    | Import Address Table  | Address table for imported functions.                |
+| 0xC8          | 0xD8          | 8    | Delay Import          | Delayed loading information for imported functions.  |
+| 0xD0          | 0xE0          | 8    | CLR Runtime Header    | .NET metadata for managed code.                      |
+| 0xD8          | 0xE8          | 8    | Reserved              | Reserved, typically set to 0.                         |
+
+Let’s break down each directory in detail:
+
+### 1. **Export Table**
+- **Offset (PE32)**: `0x60`, **Offset (PE32+)**: `0x70`
+- **Purpose**: 
+  - Contains addresses of functions, variables, and symbols that the module exports for use by other modules.
+  - Used for linking and referencing functions provided by the module (e.g., DLL exports).
+- **Fields**:
+  - **RVA**: Pointer to the start of the Export Table.
+  - **Size**: Size of the Export Table data.
+
+### 2. **Import Table**
+- **Offset (PE32)**: `0x68`, **Offset (PE32+)**: `0x78`
+- **Purpose**: 
+  - Contains information about functions, symbols, and variables imported from other modules.
+  - Used for dynamic linking, allowing the module to use functions provided by other DLLs.
+- **Fields**:
+  - **RVA**: Pointer to the start of the Import Table.
+  - **Size**: Size of the Import Table data.
+
+### 3. **Resource Table**
+- **Offset (PE32)**: `0x70`, **Offset (PE32+)**: `0x80`
+- **Purpose**: 
+  - Contains resources like icons, dialogs, menus, strings, bitmaps, and other user interface components.
+  - Allows for localization and UI customization within the PE file.
+- **Fields**:
+  - **RVA**: Pointer to the start of the Resource Table.
+  - **Size**: Size of the Resource Table data.
+
+### 4. **Exception Table**
+- **Offset (PE32)**: `0x78`, **Offset (PE32+)**: `0x88`
+- **Purpose**: 
+  - Holds information for exception handling, particularly for x64 Structured Exception Handling (SEH).
+  - Used to manage hardware exceptions and software-defined exceptions during execution.
+- **Fields**:
+  - **RVA**: Pointer to the start of the Exception Table.
+  - **Size**: Size of the Exception Table data.
+
+### 5. **Certificate Table**
+- **Offset (PE32)**: `0x80`, **Offset (PE32+)**: `0x90`
+- **Purpose**: 
+  - Contains digital certificates for the file.
+  - Used for verifying the integrity and authenticity of the PE file, often part of Authenticode signature verification.
+- **Fields**:
+  - **RVA**: Pointer to the start of the Certificate Table (points to a file offset, not an RVA).
+  - **Size**: Size of the certificate data.
+
+### 6. **Base Relocation Table**
+- **Offset (PE32)**: `0x88`, **Offset (PE32+)**: `0x98`
+- **Purpose**: 
+  - Contains base relocations that enable the executable to be loaded at a different base address than specified by **ImageBase**.
+  - Adjusts memory addresses when the image cannot be loaded at its preferred address.
+- **Fields**:
+  - **RVA**: Pointer to the start of the Base Relocation Table.
+  - **Size**: Size of the Base Relocation Table data.
+
+### 7. **Debug Directory**
+- **Offset (PE32)**: `0x90`, **Offset (PE32+)**: `0xA0`
+- **Purpose**: 
+  - Contains information useful for debugging tools.
+  - Includes information about symbols, source files, and debugging information needed for analysis.
+- **Fields**:
+  - **RVA**: Pointer to the start of the Debug Directory.
+  - **Size**: Size of the Debug Directory data.
+
+### 8. **Architecture**
+- **Offset (PE32)**: `0x98`, **Offset (PE32+)**: `0xA8`
+- **Purpose**: 
+  - Reserved for future use, typically set to 0.
+- **Fields**:
+  - **RVA**: Usually set to 0.
+  - **Size**: Usually set to 0.
+
+### 9. **GlobalPtr**
+- **Offset (PE32)**: `0xA0`, **Offset (PE32+)**: `0xB0`
+- **Purpose**: 
+  - Reserved for global pointer optimization; generally set to 0.
+- **Fields**:
+  - **RVA**: Typically 0.
+  - **Size**: Typically 0.
+
+### 10. **TLS Table**
+- **Offset (PE32)**: `0xA8`, **Offset (PE32+)**: `0xB8`
+- **Purpose**: 
+  - Contains initialization data for **Thread Local Storage (TLS)**.
+  - TLS provides a mechanism for data that is specific to individual threads.
+- **Fields**:
+  - **RVA**: Pointer to the start of the TLS Table.
+  - **Size**: Size of the TLS Table data.
+
+### 11. **Load Config Table**
+- **Offset (PE32)**: `0xB0`, **Offset (PE32+)**: `0xC0`
+- **Purpose**: 
+  - Contains security features like SafeSEH, CFG (Control Flow Guard), and other load-time configurations.
+  - Used to enhance security during execution.
+- **Fields**:
+  - **RVA**: Pointer to the start of the Load Config Table.
+  - **Size**: Size of the Load Config Table data.
+
+### 12. **Bound Import**
+- **Offset (PE32)**: `0xB8`, **Offset (PE32+)**: `0xC8`
+- **Purpose**: 
+  - Contains information about functions that are bound to specific addresses.
+  - Helps speed up the loading process by avoiding the need for dynamic import resolution.
+- **Fields**:
+  - **RVA**: Pointer to the start of the Bound Import Table.
+  - **Size**: Size of the Bound Import Table data.
+
+### 13. **Import Address Table (IAT)**
+- **Offset (PE32)**: `0xC0`, **Offset (PE32+)**: `0xD0`
+- **Purpose**: 
+  - Provides the actual addresses of imported functions used by the executable.
+  - Used during runtime to resolve addresses for dynamically linked functions.
+- **Fields**:
+  - **RVA**: Pointer to the start of the IAT.
+  - **Size**: Size of the IAT data.
+
+![Data Directory Dump](../.github/winpe/img_29.png)
+![Data Directory Raw](../.github/winpe/img_30.png)
+
+#### Sections
+
+A section in a PE file represents different parts of the file the contain code, data, and other resources that make the file execute. Each section is defined by a header that describes its properties, size, and memory alignment.
+
+Common sections in PE files include:
+- `.text`
+  - Contains the executable code if the program, where the CPU executes its instructions
+- `.data`
+  - Stories initialized global variables and static variables. These variables have a defined value before execution
+- `.bss`
+  - Holds uninitialized data
+- `.rdata`
+  - Contains read-only constants, strings, and data that should not be modified
+- `.rsrc`
+  - Stores resources such as: icons, menus, dialogs, etc
+- `.edata`
+  - Contains the export table
+- `.idata`
+  - Like `.edata` but contains the import table
+- `.reloc`
+  - Contains relocation information allowing the executable to be loaded at different addresses
+- `.pdata`
+  - Contains exception data
+- `.tls`
+  - Holds **Thread Local Storage** that initializes values to specific threads
+
+![Raw Section](../.github/winpe/img_31.png)
+
+Each section is 40 bytes long and contains the following information:
+
+| Offset | Size (Bytes) | Field Name           | Description                                                                                      |
+|--------|--------------|-----------------------|--------------------------------------------------------------------------------------------------|
+| 0x00   | 8            | **Name**              | An ASCII string representing the section name (e.g., `.text`, `.data`, `.rdata`).               |
+| 0x08   | 4            | **VirtualSize**       | The total size of the section in memory. It might be larger than the size on disk due to alignment. |
+| 0x0C   | 4            | **VirtualAddress**    | The RVA (Relative Virtual Address) of the section in memory, relative to the image base.        |
+| 0x10   | 4            | **SizeOfRawData**     | The size of the section data in the file, aligned to the **FileAlignment**.                     |
+| 0x14   | 4            | **PointerToRawData**  | The file offset where the section's data starts.                                                |
+| 0x18   | 4            | **PointerToRelocations** | The file offset of the relocation entries for the section (if applicable, mostly used in OBJ files). |
+| 0x1C   | 4            | **PointerToLinenumbers** | The file offset of the line-number entries for the section (used for debugging, mostly in OBJ files). |
+| 0x20   | 2            | **NumberOfRelocations** | The number of relocation entries for the section (used in OBJ files).                           |
+| 0x22   | 2            | **NumberOfLinenumbers** | The number of line-number entries for the section (used in debugging, mostly in OBJ files).     |
+| 0x24   | 4            | **Characteristics**   | Flags indicating attributes of the section, such as read, write, execute permissions.           |
+
+1. **Name**
+
+![Section Name](../.github/winpe/img_32.png)
+
+2. **VirtualSize**
+
+![VirtualSize](../.github/winpe/img_33.png)
+
+3. **VirtualAddress**
+
+![Section Name](../.github/winpe/img_33.png)
+
+4. **SizeOfRawData** 
+
+![SizeOfRawData](../.github/winpe/img_35.png)
+
+5. **PointerToRawData**
+
+![PointerToRawData](../.github/winpe/img_36.png)
+
+6. **PointerToRelocations**
+
+![PointerToRelocations](../.github/winpe/img_37.png)
+
+7. **PointerToLinenumbers** 
+
+![PointerToLinenumbers](../.github/winpe/img_38.png)
+
+8. **NumberOfRelocations** 
+
+![NumberOfRelocations](../.github/winpe/img_39.png)
+
+9. **NumberOfLinenumbers**
+
+![NumberOfRelocations](../.github/winpe/img_40.png)
+
+10. **Characteristics**  
+
+![Characteristics](../.github/winpe/img_41.png)
+
