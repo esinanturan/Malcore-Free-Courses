@@ -16,6 +16,8 @@ You can also support us by buying us a coffee
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/malcoreio)
 
+---
+
 # What will be covered?
 - [What is a PE file?](#windows-pe-structure)
 - [Structure breakdown](#full-pe-structure-breakdown)
@@ -28,6 +30,7 @@ You can also support us by buying us a coffee
   - [Sections](#sections)
 - [That's it](#thats-all-there-is-to-it)
 
+---
 
 # Windows PE Structure
 
@@ -36,6 +39,8 @@ The Windows Portable Executable (PE) file format is a structure used by Windows 
 In this course we will break down the Windows PE structure thoroughly. 
 
 You can see a full analysis of this file done by Malcore here: [https://m4lc.io/course/winpe/full](https://m4lc.io/course/winpe/full)
+
+---
 
 # PE structure visualization
 
@@ -91,6 +96,9 @@ You can see a full analysis of this file done by Malcore here: [https://m4lc.io/
  00000450: 185e 8be5 5dc3 cccc cccc cccc cccc cccc  .^..]........... ─┘
  ──────────────────────────────────────────────────────────────────── 
 ```
+
+---
+
 # Full PE structure breakdown
 
 ## DOS Header
@@ -104,11 +112,15 @@ You can see a full analysis of this file done by Malcore here: [https://m4lc.io/
 
 ![e_lfanew](../.github/winpe/header_2.png)
 
+---
+
 ## DOS Stub
   - Offset: `0x0040`
     - Small program that runs DOS mode, usually contains the message: `This program cannot be run in DOS mode.`
 
 ![DOS Stub](../.github/winpe/header_3.png)
+
+---
 
 ## PE Signature
   - Offset is specified by `e_lfanew` header.
@@ -117,6 +129,8 @@ You can see a full analysis of this file done by Malcore here: [https://m4lc.io/
       - The signature is always `\x50\x45\x00\x00` in ASCII: `PE\0\0`
 
 ![PE Signature](../.github/winpe/header_4.png)
+
+---
 
 ## COFF File Header
   - Offset is typically directly after the PE signature
@@ -193,6 +207,8 @@ You can see a full analysis of this file done by Malcore here: [https://m4lc.io/
        - `0x8000` – File is removable media-aware.
 
 ![Characteristics](../.github/winpe/header_11.png)
+
+---
 
 ## OptionalHeader
 
@@ -564,6 +580,8 @@ Despite it's name it is required for executable images and DLL files. It contain
 
 ![NumberOfRvaAndSizes](../.github/winpe/img.png)
 
+---
+
 ## Data Directory
 
 The data directory is a set of pointers that is technically part of the `OptionalHeader`. It directs the Windows loader to various tables and structures that manage the execution of the program.
@@ -710,6 +728,8 @@ Let’s break down each directory in detail:
 
 ![Data Directory Dump](../.github/winpe/img_29.png)
 
+---
+
 ## Sections
 
 A section in a PE file represents different parts of the file the contain code, data, and other resources that make the file execute. Each section is defined by a header that describes its properties, size, and memory alignment.
@@ -794,6 +814,8 @@ Each section is 40 bytes long and contains multiple pieces to it. As you can see
 10. **Characteristics**  
 
 ![Characteristics](../.github/winpe/img_41.png)
+
+---
 
 # That's all there is to it!
 
