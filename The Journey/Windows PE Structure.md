@@ -62,12 +62,12 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
  ───────────────────────────────────────────────────────────────────
  ───────────────────────────────────────────────────────────────────
  000000f0: 5045 0000 4c01 0500 b1c6 a062 0000 0000  PE..L......b.... ─┐
- 00000100: 0000 0000 e000 0201 0b01 0e1d 0010 0000  ................  │
+ 00000100: 0000 0000 e000 0201 0b01 0e1d 0010 0000  ................  │─ PE Header
  00000110: 0016 0000 0000 0000 e613 0000 0010 0000  ................  │
  00000120: 0020 0000 0000 4000 0010 0000 0002 0000  . ....@.........  │
  00000130: 0600 0000 0000 0000 0600 0000 0000 0000  ................  │
  00000140: 0060 0000 0004 0000 0000 0000 0300 4081  .`............@.  │
- 00000150: 0000 1000 0010 0000 0000 1000 0010 0000  ................  │─ PE Header
+ 00000150: 0000 1000 0010 0000 0000 1000 0010 0000  ................  │
  00000160: 0000 0000 1000 0000 0000 0000 0000 0000  ................  │
  00000170: 8c26 0000 a000 0000 0040 0000 e001 0000  .&.......@......  │
  00000180: 0000 0000 0000 0000 0000 0000 0000 0000  ................  │
@@ -79,13 +79,13 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
  ───────────────────────────────────────────────────────────────────
  ───────────────────────────────────────────────────────────────────
  000001e0: 0000 0000 0000 0000 2e74 6578 7400 0000  .........text... ─┐
- 000001f0: 110e 0000 0010 0000 0010 0000 0004 0000  ................  │
+ 000001f0: 110e 0000 0010 0000 0010 0000 0004 0000  ................  │───── Sections
  00000200: 0000 0000 0000 0000 0000 0000 2000 0060  ............ ..`  │
  00000210: 2e72 6461 7461 0000 340c 0000 0020 0000  .rdata..4.... ..  │
  00000220: 000e 0000 0014 0000 0000 0000 0000 0000  ................  │
  00000230: 0000 0000 4000 0040 2e64 6174 6100 0000  ....@..@.data...  │
  00000240: 8803 0000 0030 0000 0002 0000 0022 0000  .....0......."..  │
- 00000250: 0000 0000 0000 0000 0000 0000 4000 00c0  ............@...  │───── Sections
+ 00000250: 0000 0000 0000 0000 0000 0000 4000 00c0  ............@...  │
  00000260: 2e72 7372 6300 0000 e001 0000 0040 0000  .rsrc........@..  │
  00000270: 0002 0000 0024 0000 0000 0000 0000 0000  .....$..........  │
  00000280: 0000 0000 4000 0040 2e72 656c 6f63 0000  ....@..@.reloc..  │
@@ -103,9 +103,10 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 # Full PE structure breakdown
 
 ## DOS Header
-  - Offset: `0x0`
-    - `e_magic`: The signature that the system recognizes as a valid DOS executable: 0x0000
-    - `e_lfanew`: The pointer to the PE header location: 0x003C
+  - `e_magic`: The signature that the system recognizes as a valid DOS executable
+    - Offset: `0x0000`
+  - `e_lfanew`: The pointer to the PE header location
+    - Offset: `0x003C`
 
 ![e_magic](../.github/winpe/header_1.png)
 
@@ -113,14 +114,15 @@ The purpose of the DOS header is to maintain backwards compatibility with older 
 
 ## DOS Stub
   - Offset: `0x0040`
-    - Usually contains the message: `This program cannot be run in DOS mode.`
+    - Small program that runs DOS mode, usually contains the message: `This program cannot be run in DOS mode.`
 
 ![DOS Stub](../.github/winpe/header_3.png)
 
 ## PE Signature
   - Offset is specified by `e_lfanew` header.
-    - For example if `e_lfanew` is 0x000080 the signature is at 0x80
-  - The signature is always `\x50\x45\x00\x00` in ASCII: `PE\0\0`
+    - Marks the start of the PE file
+      - For example if `e_lfanew` is 0x000080 the signature is at 0x80
+      - The signature is always `\x50\x45\x00\x00` in ASCII: `PE\0\0`
 
 ![PE Signature](../.github/winpe/header_4.png)
 
