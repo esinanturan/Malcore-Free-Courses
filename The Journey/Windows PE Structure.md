@@ -34,7 +34,7 @@ You can also support us by buying us a coffee
 
 # What is a Windows PE file?
 
-The Windows Portable Executable (PE) file format is a structure used by Windows binary files. It is derived from the Common Object File Format (COFF) used in Unix systems, it is fundamental for Windows systems.
+The Windows Portable Executable (PE) file format is a structure used by Windows binary files. It is derived from the Common Object File Format (COFF) used in Unix systems; it is fundamental for Windows systems.
 
 In this course we will break down the Windows PE structure thoroughly. 
 
@@ -213,7 +213,7 @@ In this course we will break down the Windows PE structure thoroughly.
 
 ## OptionalHeader
 
-Despite it's name this is required for executable images and DLL files. It contains a bunch of information that is needed to properly load the PE file and execute the file in memory. You can see a lot of this information pulled out of a real file and visualize it here: [https://m4lc.io/course/winpe/info](https://m4lc.io/course/winpe/info)
+Despite its name this is required for executable images and DLL files. It contains a bunch of information that is needed to properly load the PE file and execute the file in memory. You can see a lot of this information pulled out of a real file and visualize it here: [https://m4lc.io/course/winpe/info](https://m4lc.io/course/winpe/info)
 
 | Offset (PE32) | Offset (PE32+) | Size | Field Name                      | Description                                                                                                     |
 |---------------|----------------|------|---------------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -223,7 +223,7 @@ Despite it's name this is required for executable images and DLL files. It conta
 | 0x04          | 0x04           | 4    | **SizeOfCode**                  | Total size of all code sections when loaded in memory.                                                          |
 | 0x08          | 0x08           | 4    | **SizeOfInitializedData**       | Total size of all initialized data sections when loaded in memory.                                              |
 | 0x0C          | 0x0C           | 4    | **SizeOfUninitializedData**     | Total size of all uninitialized data sections when loaded in memory.                                            |
-| 0x10          | 0x10           | 4    | **AddressOfEntryPoint**         | RVA (Relative Virutal Address) of the entry point function                                                      |
+| 0x10          | 0x10           | 4    | **AddressOfEntryPoint**         | RVA (Relative Virtual Address) of the entry point function                                                      |
 | 0x14          | 0x14           | 4    | **BaseOfCode**                  | RVA of the start of the code section.                                                                           |
 | 0x18          | N/A            | 4    | **BaseOfData**                  | (PE32 only) RVA of the start of the data section.                                                               |
 | 0x1C          | 0x18           | 4/8  | **ImageBase**                   | Preferred address of the image when loaded in memory.                                                           |
@@ -247,6 +247,7 @@ Despite it's name this is required for executable images and DLL files. It conta
 | 0x54          | 0x60           | 4/8  | **SizeOfHeapCommit**            | Size of the heap to commit initially.                                                                           |
 | 0x58          | 0x68           | 4    | **LoaderFlags**                 | Reserved, usually set to 0.                                                                                     |
 | 0x5C          | 0x6C           | 4    | **NumberOfRvaAndSizes**         | Number of data directories in the Optional Header.                                                              |
+
 
 1. **Magic**
    - **Offset**: 0x00 (PE32 and PE32+)
@@ -417,7 +418,7 @@ Despite it's name this is required for executable images and DLL files. It conta
     - **Size**: 4 bytes
     - **Description**: 
         - The alignment of sections in memory.
-        - Typically `0x1000` (4KB), but must be greater than or equal to **FileAlignment**.
+        - Typically `0x1000` (4KB) but must be greater than or equal to **FileAlignment**.
 
 ![SectionAlignment](../.github/winpe/img_19.png)
 
@@ -426,7 +427,7 @@ Despite it's name this is required for executable images and DLL files. It conta
     - **Size**: 4 bytes
     - **Description**: 
         - The alignment of sections in the file on disk.
-        - Usually set to `0x200` (512 bytes), but can vary based on the file format.
+        - Usually set to `0x200` (512 bytes) but can vary based on the file format.
 
 ![FileAlignment](../.github/winpe/img_18.png)
 
@@ -844,4 +845,9 @@ in further detail or to ask questions.
 You can also support us by buying us a coffee
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/malcoreio)
+
+Tools used for this course:
+- Malcore: [https://malcore.io](https://malcore.io)
+- ImHex: [https://github.com/WerWolv/ImHex](https://github.com/WerWolv/ImHex)
+- Malcat: [https://malcat.fr/](https://malcat.fr/)
 
