@@ -1,5 +1,3 @@
-# THIS IS A WORK IN PROGRESS AND IS NOT PUBLICLY RELEASED
-
 <p align="center">
     <img src="../.github/winpe_struct_logo.png">
 </p>
