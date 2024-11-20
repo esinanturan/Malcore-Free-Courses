@@ -2,6 +2,8 @@
     <img src="../.github/idapro-cheatsheet.png">
 </p>
 
+<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
+
 ##### Shameless plug
 
 This cheatsheet is given to you for free by the Malcore team: [https://m4lc.io/cs/idapro/register](https://m4lc.io/cs/idapro/register)
@@ -266,3 +268,6 @@ You can also support us by buying us a coffee
 | Change stack pointer | <img src="../.github/keys/alt-key-48.png" height="20" width="20">+K  |
 | Rename register      | V                                                                    |
 | Set function type    | Y                                                                    |
+
+
+<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>

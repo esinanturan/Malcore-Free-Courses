@@ -4,6 +4,8 @@
 
 <!--# NOTE: THIS IS A WORK IN PROGRESS AND IS NOT RELEASED YET-->
 
+<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
+
 **Shameless plug**
 
 This course is given to you for free by the Malcore team: [https://m4lc.io/course/c/register](https://m4lc.io/course/c/register)
@@ -1030,6 +1032,8 @@ salty@Loki:/tmp$
 What did we just do? Well, we used the gcc compiler in order to compile the C file into an executable that we can call after compilation is finished. We used the `-Wall` to show all warnings that seen during compilation.
 
 ---
+
+<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
 
 # That's all!
 

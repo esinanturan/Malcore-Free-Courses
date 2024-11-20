@@ -2,6 +2,8 @@
     <img src="../.github/img_4.png"/>
 </p>
 
+<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
+
 **Shameless plug**
 
 This course is given to you for free by the Malcore team: [https://m4lc.io/course/python/register](https://m4lc.io/course/python/register)
@@ -749,6 +751,8 @@ def calculator():
 ...
 ```
 This function is the main logic of the program and has the control flow for the entire program. It has an infinite `while` loop that will never end that wraps all the other logic. The first thing it does is display the help menu and take the users input to take the appropriate action.
+
+<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
 
 # That's all there is to it
 

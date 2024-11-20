@@ -6,6 +6,8 @@
 
 </div>
 
+<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
+
 ***
 
 **Shameless plug**
@@ -206,6 +208,8 @@ int main (void) {
 The above C code calls the `unsigned char` variable as a function and runs it directly, in a nutshell this part of the function: `(*(void(*)()) code)();` is a type cast to treat the code as a function pointer without any arguments. This allows us to execute the shellcode without need for injection into a vulnerable process.
 
 ***
+
+<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
 
 ## In closing
 

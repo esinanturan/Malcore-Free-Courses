@@ -2,6 +2,8 @@
     <img src="../.github/winapi.png" height="256" width="256">
 </p>
 
+<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
+
 # What is this?
 
 This is an attempt to add all exported functions from the Windows DLL files located in `System32` and `sysWOW64`. This
