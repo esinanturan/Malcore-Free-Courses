@@ -1,9 +1,6 @@
 {
-  "plugins": ["google-adsense", "theme-api"],
+  "plugins": ["google-adsense"],
   "pluginsConfig": {
-    "theme-api": {
-      "theme": "dark"
-    },
     "google-adsense": {
       "client": "ca-pub-1149091889206166",
       "slot": "1109038003",
