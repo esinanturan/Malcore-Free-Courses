@@ -1,10 +1,6 @@
 {
-  "plugins": ["google-adsense", "theme-darkmode"],
+  "plugins": ["google-adsense", "theme-dark"],
   "pluginsConfig": {
-    "theme-darkmode": {
-      "button": true,
-      "default": true
-    },
     "google-adsense": {
       "client": "ca-pub-1149091889206166",
       "slot": "1109038003",
