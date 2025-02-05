@@ -14,6 +14,13 @@ Remember: "To conquer your enemy, walk in the shadow of their thoughts, and let 
 
 ---
 
-Consider supporting these free courses by buying us a coffee
+This course is given to you for free by The Perkins Cybersecurity Educational Fund: [https://perkinsfund.org/](https://perkinsfund.org/) in collaboration with the Malcore team: [https://m4lc.io/courses/register](https://m4lc.io/courses/register)
+
+Please consider donating to The Perkins Cybersecurity Educational Fund, buying them a coffee, or registering for Malcore. You can also join the Malcore Discord server here: [https://m4lc.io/courses/discord](https://m4lc.io/courses/discord)
+
+Malcore offers free threat intel in our Discord via their custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
+
+Support The Perkins Cybersecurity Educational Fund by buying them a coffee or donating to them:
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/perkinsfund)
+<link rel="stylesheet" type="text/css" href="https://donorbox.org/animate-popup-donate-button.css"><a class="dbox-donation-page-button" href="https://donorbox.org/malware-bible-fund?default_interval=o" style="background: rgb(6, 41, 73); color: rgb(255, 255, 255); text-decoration: none; font-family: Verdana, sans-serif; display: flex; font-size: 16px; padding: 8px 24px; border-radius: 5px; gap: 8px; width: fit-content; line-height: 24px;"><img src="https://donorbox.org/images/white_logo.svg" style="">Donate</a>
