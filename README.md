@@ -18,7 +18,7 @@ This course is given to you for free by The Perkins Cybersecurity Educational Fu
 
 Please consider donating to The Perkins Cybersecurity Educational Fund, buying them a coffee, or registering for Malcore. You can also join the Malcore Discord server here: [https://m4lc.io/courses/discord](https://m4lc.io/courses/discord)
 
-Malcore offers free threat intel in our Discord via their custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
+Malcore offers free threat intel in our Discord via their custom designed Discord bot. Join the Discord to discuss these courses in further detail or to ask questions.
 
 Support The Perkins Cybersecurity Educational Fund by buying them a coffee or donating to them:
 
