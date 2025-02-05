@@ -2,7 +2,7 @@
   "plugins": ["google-adsense"],
   "pluginsConfig": {
     "google-adsense": {
-      "client": "ca-pub-1149091889206166",
+      "client": "",
       "slot": "1109038003",
       "ads": [
         {
