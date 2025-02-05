@@ -2,8 +2,6 @@
     <img src="../.github/radare2-cheatsheet.jpg" height="73" width="171">
 </p>
 
-<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
-
 **Shameless plug**
 
 This course is given to you for free by The Perkins Cybersecurity Educational Fund: [https://perkinsfund.org/](https://perkinsfund.org/) in collaboration with the Malcore team: [https://m4lc.io/courses/register](https://m4lc.io/courses/register)
@@ -365,4 +363,3 @@ You can also support The Perkins Cybersecurity Educational Fund by buying them a
 
 ---
 
-<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>

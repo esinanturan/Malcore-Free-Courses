@@ -2,7 +2,7 @@
     <img src="../.github/idapro-cheatsheet.png">
 </p>
 
-<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
+
 
 **Shameless plug**
 
@@ -270,4 +270,3 @@ You can also support The Perkins Cybersecurity Educational Fund by buying them a
 | Set function type    | Y                                                                    |
 
 
-<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>

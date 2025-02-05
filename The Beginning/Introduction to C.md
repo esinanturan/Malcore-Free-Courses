@@ -1029,7 +1029,7 @@ What did we just do? Well, we used the gcc compiler in order to compile the C fi
 
 ---
 
-<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
+
 
 # That's all!
 

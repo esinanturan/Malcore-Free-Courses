@@ -205,7 +205,7 @@ The above C code calls the `unsigned char` variable as a function and runs it di
 
 ***
 
-<iframe src="https://penetrumllc.github.io/Ads/ads.html" width="100%" height="50px" style="border:none;overflow:hidden;" scrolling="no" frameborder="0"></iframe>
+
 
 ## In closing
 
