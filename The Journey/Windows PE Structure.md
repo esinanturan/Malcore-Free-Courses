@@ -832,20 +832,20 @@ A lot of this information can be visualized and seen done during analysis by fol
 - [https://m4lc.io/course/winpe/full](https://m4lc.io/course/winpe/full)
 - [https://m4lc.io/course/winpe/timestamp](https://m4lc.io/course/winpe/timestamp)
 
-Also, please remember that this course is provided to you for free by the Malcore team: [https://m4lc.io/course/winpe/register](https://m4lc.io/course/winpe/register)
-
-Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can
-also join our Discord server here: [https://m4lc.io/course/winpe/discord](https://m4lc.io/course/winpe/discord)
-
-We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course
-in further detail or to ask questions.
-
-You can also support us by buying us a coffee
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/malcoreio)
-
 Tools used for this course:
 - Malcore: [https://malcore.io](https://malcore.io)
 - ImHex: [https://github.com/WerWolv/ImHex](https://github.com/WerWolv/ImHex)
 - Malcat: [https://malcat.fr/](https://malcat.fr/)
 
+#### Support the Bible
+
+Once again, this course is offered for free by The Perkins Cybersecurity Educational Fund in collaboration with Malcore! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
+- Donating to the Malware Bible Fund → [Donate Here](https://donorbox.org/malware-bible-fund)
+- Registering for Malcore → [Sign Up](https://m4lc.io/courses/register)
+- Joining the Malcore Discord → [Join Today](https://m4lc.io/courses/discord) 
+
+#### Become a sponsor
+
+These courses reach thousands of cybersecurity professionals, researchers, students, and teachers worldwide who actively engage in learning and advancing the field. Sponsoring our educational initiative not only supports free cybersecurity education but also places your brand in front of a highly technical and security-conscious audience.
+
+Interested in partnering? Let's talk about how your organization can be featured in our future courses: [Contact us today!](https://perkinsfund.org/) Please view our [Sponsorship Packages](../.github/sponsorships/sponsorship_package.md) for more details!

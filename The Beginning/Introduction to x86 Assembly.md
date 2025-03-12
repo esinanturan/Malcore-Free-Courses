@@ -377,8 +377,15 @@ Once all these are done you will be able to call your output file by running it 
 # In Closing
 That's all there is to it! Assembly code can be daunting at times but is pretty simple once you get the grasp of it. In this course we have gone through the stack, the registers, building a simple program, and compiling that program successfully. We hope that this course has been useful to you and that you have learned something from it. Once again:
 
-This course is given to you for free by the Malcore team: [https://m4lc.io/course/assembly/register](https://m4lc.io/course/assembly/register)
+#### Support the Bible
 
-Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can also join our Discord server here: [https://m4lc.io/course/assembly/discord](https://m4lc.io/course/assembly/discord)
+Once again, this course is offered for free by The Perkins Cybersecurity Educational Fund in collaboration with Malcore! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
+- Donating to the Malware Bible Fund → [Donate Here](https://donorbox.org/malware-bible-fund)
+- Registering for Malcore → [Sign Up](https://m4lc.io/courses/register)
+- Joining the Malcore Discord → [Join Today](https://m4lc.io/courses/discord) 
 
-We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
+#### Become a sponsor
+
+These courses reach thousands of cybersecurity professionals, researchers, students, and teachers worldwide who actively engage in learning and advancing the field. Sponsoring our educational initiative not only supports free cybersecurity education but also places your brand in front of a highly technical and security-conscious audience.
+
+Interested in partnering? Let's talk about how your organization can be featured in our future courses: [Contact us today!](https://perkinsfund.org/) Please view our [Sponsorship Packages](../.github/sponsorships/sponsorship_package.md) for more details!
