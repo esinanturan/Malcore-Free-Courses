@@ -750,7 +750,17 @@ def calculator():
 ```
 This function is the main logic of the program and has the control flow for the entire program. It has an infinite `while` loop that will never end that wraps all the other logic. The first thing it does is display the help menu and take the users input to take the appropriate action.
 
+#### Sponsor
 
+Special thanks to the sponsor of this course! Guided Hacking!
+
+<p align="center">
+    <img src="../.github/sponsor_images/gh.png">
+</p>
+
+GH is a website devoted to producing high quality educational content related to game hacking, reverse engineering & ethical hacking.
+
+---
 
 # That's all there is to it
 
