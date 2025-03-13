@@ -1029,18 +1029,32 @@ What did we just do? Well, we used the gcc compiler in order to compile the C fi
 
 ---
 
+#### Sponsor
+
+Special thanks to the sponsor of this course! Skip2 Networks!
+
+<p align="center">
+    <img src="../.github/sponsor_images/s2.svg">
+</p>
+
+Web Acceleration Platform: DNS, CDN, and WAF solutions for the modern web. Building faster internet infrastructure for scale.
+
+---
 
 
 # That's all!
 
 Now you have finished the course! We hope you got enough out of this to start writing in C and be confident in what you're doing. We have taught you the bare basics of C and how it works. This course is designed to provide beginners the information they need in order to start writing C code. Please keep in mind:
 
-This course is given to you for free by the Malcore team: [https://m4lc.io/course/c/register](https://m4lc.io/course/c/register)
+#### Support the Bible
 
-Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can also join our Discord server here: [https://m4lc.io/course/c/discord](https://m4lc.io/course/c/discord)
+Once again, this course is offered for free by The Perkins Cybersecurity Educational Fund in collaboration with Malcore! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
+- Donating to the Malware Bible Fund → [Donate Here](https://donorbox.org/malware-bible-fund)
+- Registering for Malcore → [Sign Up](https://m4lc.io/courses/register)
+- Joining the Malcore Discord → [Join Today](https://m4lc.io/courses/discord) 
 
-We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
+#### Become a sponsor
 
-You can also support us by buying us a coffee
+These courses reach thousands of cybersecurity professionals, researchers, students, and teachers worldwide who actively engage in learning and advancing the field. Sponsoring our educational initiative not only supports free cybersecurity education but also places your brand in front of a highly technical and security-conscious audience.
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/malcoreio)
+Interested in partnering? Let's talk about how your organization can be featured in our future courses: [Contact us today!](https://perkinsfund.org/) Please view our [Sponsorship Packages](../.github/sponsorships/sponsorship_package.md) for more details!

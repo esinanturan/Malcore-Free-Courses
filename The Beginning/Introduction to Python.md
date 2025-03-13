@@ -750,16 +750,33 @@ def calculator():
 ```
 This function is the main logic of the program and has the control flow for the entire program. It has an infinite `while` loop that will never end that wraps all the other logic. The first thing it does is display the help menu and take the users input to take the appropriate action.
 
+---
 
+#### Sponsor
+
+Special thanks to the sponsor of this course! Guided Hacking!
+
+<p align="center">
+    <img src="../.github/sponsor_images/gh.png">
+</p>
+
+GH is a website devoted to producing high quality educational content related to game hacking, reverse engineering & ethical hacking.
+
+---
 
 # That's all there is to it
 
 That's all there is to it! You have learned the basics of Python and successfully built your own calculator program. We hope this course has given you the basic understandings of programming in Python and you have learned something.
 
-Please remember that this course is provided for free by the Malcore team. Please consider following one of the below links:
+#### Support the Bible
 
-Register for Malcore: [https://m4lc.io/course/python/register](https://m4lc.io/course/python/register)
-Join our Discord to discuss: [https://m4lc.io/course/python/discord](https://m4lc.io/course/python/discord)
+Once again, this course is offered for free by The Perkins Cybersecurity Educational Fund in collaboration with Malcore! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
+- Donating to the Malware Bible Fund → [Donate Here](https://donorbox.org/malware-bible-fund)
+- Registering for Malcore → [Sign Up](https://m4lc.io/courses/register)
+- Joining the Malcore Discord → [Join Today](https://m4lc.io/courses/discord) 
 
+#### Become a sponsor
 
+These courses reach thousands of cybersecurity professionals, researchers, students, and teachers worldwide who actively engage in learning and advancing the field. Sponsoring our educational initiative not only supports free cybersecurity education but also places your brand in front of a highly technical and security-conscious audience.
 
+Interested in partnering? Let's talk about how your organization can be featured in our future courses: [Contact us today!](https://perkinsfund.org/) Please view our [Sponsorship Packages](../.github/sponsorships/sponsorship_package.md) for more details!
