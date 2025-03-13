@@ -7,6 +7,7 @@
     * [Introduction to Python](<The Beginning/Introduction to Python.md>)
     * [Introduction to C](<The Beginning/Introduction to C.md>)
     * [So You Want to Write Malware?](<The Beginning/Introduction to Malware.md>)
+    * [Introduction to Exploit Development](<../../The Beginning/Intro to Exploit Dev.md>)
   * [The Journey](the-malware-bible/the-journey/README.md)
     * [Windows PE File Structure](<The Journey/Windows PE Structure.md>)
     * [ELF Structures](<The Journey/ELF PE Structure.md>)
