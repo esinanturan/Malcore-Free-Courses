@@ -3,16 +3,6 @@
 </p>
 
 
-# What will be covered?
-- [What is x86 Assembly?](#what-is-x86-assembly)
-- [Breakdown of the Registers](#registers)
-- [Breakdown of the Stack](#the-stack)
-- [Writing Code in x86 Assembly](#writing-code-in-x86-assembly)
-- [Compiling x86 Assembly Files](#compiling-assembly-code)
-- [That's all Folks](#in-closing)
-
----
-
 **Shameless plug**
 
 This course is given to you for free by The Perkins Cybersecurity Educational Fund: [https://perkinsfund.org/](https://perkinsfund.org/) in collaboration with the Malcore team: [https://m4lc.io/courses/register](https://m4lc.io/courses/register)
@@ -26,6 +16,28 @@ You can also support The Perkins Cybersecurity Educational Fund by buying them a
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/perkinsfund)
 
 ##### NOTE: This course assumes that you are using Linux and have nasm installed.
+
+---
+
+#### Sponsor
+
+Special thanks to the sponsor of this course: [Maldev Acadmeny](https://maldevacademy.com/)!
+
+<p align="center">
+    <img src="../.github/sponsor_images/MD.png" width="554" height="217"">
+</p>
+
+Offensive security and malware development training academy
+
+---
+
+# What will be covered?
+- [What is x86 Assembly?](#what-is-x86-assembly)
+- [Breakdown of the Registers](#registers)
+- [Breakdown of the Stack](#the-stack)
+- [Writing Code in x86 Assembly](#writing-code-in-x86-assembly)
+- [Compiling x86 Assembly Files](#compiling-assembly-code)
+- [That's all Folks](#in-closing)
 
 ---
 
@@ -383,6 +395,7 @@ Once again, this course is offered for free by The Perkins Cybersecurity Educati
 - Donating to the Malware Bible Fund → [Donate Here](https://donorbox.org/malware-bible-fund)
 - Registering for Malcore → [Sign Up](https://m4lc.io/courses/register)
 - Joining the Malcore Discord → [Join Today](https://m4lc.io/courses/discord) 
+- Exploring our incredible sponsor [Maldev Acadmeny](https://maldevacademy.com/)!
 
 #### Become a sponsor
 
