@@ -6,19 +6,17 @@
 
 </div>
 
-***
-
 **Shameless plug**
 
-This course is given to you for free by the Malcore team: [https://m4lc.io/course/shellcode/register](https://m4lc.io/course/shellcode/register)
+This course is given to you for free by The Perkins Cybersecurity Educational Fund: [https://perkinsfund.org/](https://perkinsfund.org/) in collaboration with the Malcore team: [https://m4lc.io/courses/register](https://m4lc.io/courses/register)
 
-Consider registering, and using Malcore, so we can continue to provide free content for the entire community. You can also join our Discord server here: [https://m4lc.io/course/shellcode/discord](https://m4lc.io/course/shellcode/discord)
+Please consider donating to [The Perkins Cybersecurity Educational](https://donorbox.org/malware-bible-fund) Fund and registering for Malcore. You can also join the Malcore Discord server here: [https://m4lc.io/courses/discord](https://m4lc.io/courses/discord)
 
-We offer free threat intel in our Discord via our custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
+Malcore offers free threat intel in our Discord via their custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
 
-You can also support us by buying us a coffee
+You can also support The Perkins Cybersecurity Educational Fund by buying them a coffee
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/malcoreio)
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/perkinsfund)
 
 **NOTE: This course assumes that you understand the basics of x86 assembly and C code.**
 
@@ -207,16 +205,23 @@ The above C code calls the `unsigned char` variable as a function and runs it di
 
 ***
 
+
+
 ## In closing
 
 This course has provided you with the basics of how shellcode works, how to compile it, and how to launch it from within a C program. This course was designed specifically for starters to understand the basic concepts of shellcode and what it does. We hope you have found this course useful and understand it.
 
 There is a high probability that this shellcode will not launch calc.exe on your system, that is most likely because the hardcoded address of WinExec (`0x76c76360`) is incorrect. To fix this you will need to perform actions such as `LoadLibraryA` and find the correct location of the addresses. Unfortunately, that is out of scope for this introduction and will need to be shown later. We encourage readers to try and figure this out themselves.
 
-Once again, this course is brought to you by the Malcore team for free.
+#### Support the Bible
 
-* Register here: [https://m4lc.io/course/shellcode/register](https://m4lc.io/course/shellcode/register)
-* Join our Discord here: [https://m4lc.io/course/shellcode/discord](https://m4lc.io/course/shellcode/register)
-* See how Malcore analyzed the file created from this course here: [https://m4lc.io/course/shellcode/upload](https://m4lc.io/course/shellcode/upload)
+Once again, this course is offered for free by The Perkins Cybersecurity Educational Fund in collaboration with Malcore! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
+- Donating to the Malware Bible Fund → [Donate Here](https://donorbox.org/malware-bible-fund)
+- Registering for Malcore → [Sign Up](https://m4lc.io/courses/register)
+- Joining the Malcore Discord → [Join Today](https://m4lc.io/courses/discord) 
 
-Please consider registering/joining as it allows us to keep producing free courses for you all.
+#### Become a sponsor
+
+These courses reach thousands of cybersecurity professionals, researchers, students, and teachers worldwide who actively engage in learning and advancing the field. Sponsoring our educational initiative not only supports free cybersecurity education but also places your brand in front of a highly technical and security-conscious audience.
+
+Interested in partnering? Let's talk about how your organization can be featured in our future courses: [Contact us today!](https://perkinsfund.org/) Please view our [Sponsorship Packages](../.github/sponsorships/sponsorship_package.md) for more details!
