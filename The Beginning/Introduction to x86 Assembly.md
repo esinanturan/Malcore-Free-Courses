@@ -21,7 +21,7 @@ You can also support The Perkins Cybersecurity Educational Fund by buying them a
 
 #### Sponsor
 
-Special thanks to the sponsor of this course: [Maldev Acadmeny](https://maldevacademy.com/)!
+Special thanks to the sponsor of this course: [Maldev Academy](https://maldevacademy.com/)!
 
 <p align="center">
     <img src="../.github/sponsor_images/MD.png" width="554" height="217"">
