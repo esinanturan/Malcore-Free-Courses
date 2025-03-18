@@ -384,7 +384,27 @@ Once all these are done you will be able to call your output file by running it 
 
 ---
 
+#### Sponsor
 
+Special thanks to the sponsor of this course: [Maldev Academy](https://maldevacademy.com/)!
+
+<p align="center">
+    <img src="../.github/sponsor_images/MD.png" width="554" height="217">
+</p>
+
+Offensive security and malware development training academy
+
+#### Sponsor
+
+Special thanks to the sponsor of this course: [TorGuard](https://torguard.net/)!
+
+<p align="center">
+    <img href="https://torguard.net/" src="../.github/sponsor_images/TG_Netflow_Ad_300_250.gif">
+</p>
+
+Offensive security and malware development training academy
+
+---
 
 # In Closing
 That's all there is to it! Assembly code can be daunting at times but is pretty simple once you get the grasp of it. In this course we have gone through the stack, the registers, building a simple program, and compiling that program successfully. We hope that this course has been useful to you and that you have learned something from it. Once again:
