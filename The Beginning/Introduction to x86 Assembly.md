@@ -392,7 +392,7 @@ Special thanks to the sponsor of this course: [TorGuard](https://torguard.net/)!
     <img href="https://torguard.net/" src="../.github/sponsor_images/TG_Netflow_Ad_300_250.gif">
 </p>
 
-Offensive security and malware development training academy
+Learn more [here](https://torguard.net/)
 
 ---
 
