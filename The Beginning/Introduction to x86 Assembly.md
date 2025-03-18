@@ -386,16 +386,6 @@ Once all these are done you will be able to call your output file by running it 
 
 #### Sponsor
 
-Special thanks to the sponsor of this course: [Maldev Academy](https://maldevacademy.com/)!
-
-<p align="center">
-    <img src="../.github/sponsor_images/MD.png" width="554" height="217">
-</p>
-
-Offensive security and malware development training academy
-
-#### Sponsor
-
 Special thanks to the sponsor of this course: [TorGuard](https://torguard.net/)!
 
 <p align="center">
