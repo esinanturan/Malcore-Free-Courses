@@ -12,6 +12,20 @@ Malcore offers free threat intel in our Discord via their custom designed Discor
 
 You can also support The Perkins Cybersecurity Educational Fund by buying them a coffee
 
+---
+
+#### Sponsor
+
+Special thanks to the sponsor of this course: [QuantAIRAS](https://www.linkedin.com/in/cybertechexec)!
+
+<p align="center">
+    <img src="../.github/sponsor_images/qai.png" width="512" height="512">
+</p>
+
+QuantAIRAS merges AI and Quantum Computing. Delivering real-time, adaptive cybersecurity to detect threats, counter APT’s, and use social behavior analysis, providing unmatched defense.
+
+---
+
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/perkinsfund)
 
 # What will be covered?
