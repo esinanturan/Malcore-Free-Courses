@@ -29,13 +29,13 @@ You can also support The Perkins Cybersecurity Educational Fund by buying them a
 
 ```
 ┌───────────────────────────── Rule Header ───────────────────────────────┐
-│    ┌──────────────── Imports ────────────────┐                          
+│    ┌──────────────── Imports ───────────────┐                          
 │    │  import "pe"                             <- Import modules        
 │    └─────────────────────────────────────────┘                          
 │                                                                         
 │    rule <rule_name> : <tag1> <tag2> ...                                 
 │    { [ Start the rule with a open bracket ]                             
-│     ┌──────────────── Section: Meta ─────────────┐                      
+│     ┌──────────────── Section: Meta ────────────┐                      
 │     │ meta:                                                            
 │     │   description = "..."                       <- Freeform comments 
 │     │   author = "..."                                                 
@@ -49,7 +49,7 @@ You can also support The Perkins Cybersecurity Educational Fund by buying them a
 │     │   $re1   = /evil[\d]+/                     <- Regex pattern      
 │     └───────────────────────────────────────────┘                       
 │                                                                         
-│     ┌───────────── Section: Condition ──────────┐                       
+│     ┌───────────── Section: Condition ────────┐                       
 │     │ condition:                                                       
 │     │   any of them                              <- Trigger logic      
 │     │   // other examples:                                             
