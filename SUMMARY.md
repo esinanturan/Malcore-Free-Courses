@@ -18,6 +18,7 @@
     * [Malware Obfuscation Techniques](<The Rituals/Basics of Malware Obfuscation.md>)
     * [Malware Evasion Techniques](<The Rituals/Malware Evasion Techniques.md>)
   * [The Scriptures](the-malware-bible/the-scriptures/README.md)
+    * [Yara Rules](<The Scriptures/yara_rules.md>)  
     * [Malcore](<The Scriptures/malcore.md>) 
     * [Radare2](<The Scriptures/radare2.md>)
     * [IDAPro](<The Scriptures/idapro.md>)
