@@ -30,31 +30,31 @@ You can also support The Perkins Cybersecurity Educational Fund by buying them a
 ```
 ┌───────────────────────────── Rule Header ───────────────────────────────┐
 │    ┌──────────────── Imports ────────────────┐                          
-│    │  import "pe"                            │ <- Import modules        
+│    │  import "pe"                             <- Import modules        
 │    └─────────────────────────────────────────┘                          
 │                                                                         
 │    rule <rule_name> : <tag1> <tag2> ...                                 
 │    { [ Start the rule with a open bracket ]                             
 │     ┌──────────────── Section: Meta ─────────────┐                      
-│     │ meta:                                      │                      
-│     │   description = "..."                      │ <- Freeform comments 
-│     │   author = "..."                           │                      
-│     │   date = "YYYY-MM-DD"                      │                      
+│     │ meta:                                                            
+│     │   description = "..."                       <- Freeform comments 
+│     │   author = "..."                                                 
+│     │   date = "YYYY-MM-DD"                                            
 │     └────────────────────────────────────────────┘                      
 │                                                                         
-│     ┌──────────────── Section: Strings ─────────┐                       
-│     │ strings:                                  │                       
-│     │   $text1 = "malicious string"             │ <- Plaintext          
-│     │   $hex1  = { 6D 61 6C 77 61 72 65 }       │ <- Hex pattern        
-│     │   $re1   = /evil[\d]+/                    │ <- Regex pattern      
+│     ┌──────────────── Section: Strings ───────┐                       
+│     │ strings:                                                         
+│     │   $text1 = "malicious string"              <- Plaintext          
+│     │   $hex1  = { 6D 61 6C 77 61 72 65 }        <- Hex pattern        
+│     │   $re1   = /evil[\d]+/                     <- Regex pattern      
 │     └───────────────────────────────────────────┘                       
 │                                                                         
 │     ┌───────────── Section: Condition ──────────┐                       
-│     │ condition:                                │                       
-│     │   any of them                             │ <- Trigger logic      
-│     │   // other examples:                      │                       
-│     │   all of ($text1, $hex1)                  │                       
-│     │   $re1 and filesize < 1MB                 │                       
+│     │ condition:                                                       
+│     │   any of them                              <- Trigger logic      
+│     │   // other examples:                                             
+│     │   all of ($text1, $hex1)                                         
+│     │   $re1 and filesize < 1MB                                        
 │     └───────────────────────────────────────────┘                       
 │   } [ End the rule with a close bracket ]                               
 └─────────────────────────────────────────────────────────────────────────┘
