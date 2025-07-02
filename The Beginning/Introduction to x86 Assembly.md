@@ -2,18 +2,16 @@
     <img src="../.github/img_3.png"/>
 </p>
 
-
 **Shameless plug**
 
-This course is given to you for free by The Perkins Cybersecurity Educational Fund: [https://perkinsfund.org/](https://perkinsfund.org/) in collaboration with the Malcore team: [https://m4lc.io/courses/register](https://m4lc.io/courses/register)
+This course is given to you for free by The Perkins Cybersecurity Educational Fund: [https://perkinsfund.org/](https://perkinsfund.org/)
 
-Please consider donating to [The Perkins Cybersecurity Educational](https://donorbox.org/malware-bible-fund) Fund and registering for Malcore. You can also join the Malcore Discord server here: [https://m4lc.io/courses/discord](https://m4lc.io/courses/discord)
-
-Malcore offers free threat intel in our Discord via their custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
+Please consider donating to [The Perkins Cybersecurity Educational](https://donorbox.org/malware-bible-fund) Fund 
 
 You can also support The Perkins Cybersecurity Educational Fund by buying them a coffee
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/perkinsfund)
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/perkinsfund)**
+
 
 ##### NOTE: This course assumes that you are using Linux and have nasm installed.
 
@@ -401,11 +399,9 @@ That's all there is to it! Assembly code can be daunting at times but is pretty 
 
 #### Support the Bible
 
-Once again, this course is offered for free by The Perkins Cybersecurity Educational Fund in collaboration with Malcore! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
+Once again, this course is offered for free by The Perkins Cybersecurity Educational Fund! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
 - Donating to the Malware Bible Fund → [Donate Here](https://donorbox.org/malware-bible-fund)
-- Registering for Malcore → [Sign Up](https://m4lc.io/courses/register)
-- Joining the Malcore Discord → [Join Today](https://m4lc.io/courses/discord) 
-- Exploring our incredible sponsor [Maldev Acadmeny](https://maldevacademy.com/)!
+- Explore our incredible sponsor [Maldev Academy](https://maldevacademy.com/?referrer=perkinsfund)!
 
 #### Become a sponsor
 
