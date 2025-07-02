@@ -40,7 +40,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 #### Support the Bible
 
-Once again, this course is offered for free by The Perkins Cybersecurity Educational Fund in collaboration with Malcore! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
+Once again, this course is offered for free by The Perkins Cybersecurity Educational Fund! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
 - Donating to the Malware Bible Fund → [Donate Here](https://donorbox.org/malware-bible-fund)
 - Registering for Malcore → [Sign Up](https://m4lc.io/courses/register)
 - Joining the Malcore Discord → [Join Today](https://m4lc.io/courses/discord)

@@ -4,15 +4,13 @@
 
 **Shameless plug**
 
-This course is given to you for free by The Perkins Cybersecurity Educational Fund: [https://perkinsfund.org/](https://perkinsfund.org/) in collaboration with the Malcore team: [https://m4lc.io/courses/register](https://m4lc.io/courses/register)
+This course is given to you for free by The Perkins Cybersecurity Educational Fund: [https://perkinsfund.org/](https://perkinsfund.org/)
 
-Please consider donating to [The Perkins Cybersecurity Educational](https://donorbox.org/malware-bible-fund) Fund and registering for Malcore. You can also join the Malcore Discord server here: [https://m4lc.io/courses/discord](https://m4lc.io/courses/discord)
-
-Malcore offers free threat intel in our Discord via their custom designed Discord bot. Join the Discord to discuss this course in further detail or to ask questions.
+Please consider donating to [The Perkins Cybersecurity Educational](https://donorbox.org/malware-bible-fund) Fund 
 
 You can also support The Perkins Cybersecurity Educational Fund by buying them a coffee
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/perkinsfund)
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/perkinsfund)**
 
 ---
 
@@ -34,9 +32,7 @@ You can also support The Perkins Cybersecurity Educational Fund by buying them a
 
 The Windows Portable Executable (PE) file format is a structure used by Windows binary files. It is derived from the Common Object File Format (COFF) used in Unix systems; it is fundamental for Windows systems.
 
-In this course we will break down the Windows PE structure thoroughly. 
-
-**NOTE**: To help visualize some of this information you can see a full analysis of this file done by Malcore here: [https://m4lc.io/course/winpe/full](https://m4lc.io/course/winpe/full)
+In this course we will break down the Windows PE structure thoroughly.
 
 ---
 
@@ -169,7 +165,6 @@ In this course we will break down the Windows PE structure thoroughly.
    - **Offset**: `0x04`
    - **Description**: Contains the timestamp of the file creation or last modified time.
    - **Usage**: This can be used to analyze when a PE file was compiled or built.
-   - You can see a timestamp after compilation being retrieved from the file here: [https://m4lc.io/course/winpe/timestamp](https://m4lc.io/course/winpe/timestamp)
 
 ![Timestamp](../.github/winpe/header_7.png)
 
@@ -211,7 +206,7 @@ In this course we will break down the Windows PE structure thoroughly.
 
 ## OptionalHeader
 
-Despite its name this is required for executable images and DLL files. It contains a bunch of information that is needed to properly load the PE file and execute the file in memory. You can see a lot of this information pulled out of a real file and visualize it here: [https://m4lc.io/course/winpe/info](https://m4lc.io/course/winpe/info)
+Despite its name this is required for executable images and DLL files. It contains a bunch of information that is needed to properly load the PE file and execute the file in memory. 
 
 | Offset (PE32) | Offset (PE32+) | Size | Field Name                      | Description                                                                                                     |
 |---------------|----------------|------|---------------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -625,7 +620,6 @@ Let’s break down each directory in detail:
    - **Fields**:
        - **RVA**: Pointer to the start of the Import Table.
        - **Size**: Size of the Import Table data.
-   - You can see a visualization of the import table of this file here: [https://m4lc.io/course/winpe/imports](https://m4lc.io/course/winpe/imports)
 
 3. **Resource Table**
    - **Offset (PE32)**: `0x70`, **Offset (PE32+)**: `0x80`
@@ -653,7 +647,6 @@ Let’s break down each directory in detail:
    - **Fields**:
        - **RVA**: Pointer to the start of the Certificate Table (points to a file offset, not an RVA).
        - **Size**: Size of the certificate data.
-   - You can see what it looks like when certificates are pulled from a file here: [https://m4lc.io/course/winpe/certs](https://m4lc.io/course/winpe/certs)
 
 6. **Base Relocation Table**
    - **Offset (PE32)**: `0x88`, **Offset (PE32+)**: `0x98`
@@ -734,8 +727,6 @@ Let’s break down each directory in detail:
 ## Sections
 
 A section in a PE file represents different parts of the file the contain code, data, and other resources that make the file execute. Each section is defined by a header that describes its properties, size, and memory alignment.
-
-You can see a visualization of the sections of the file used for this course here: [https://m4lc.io/course/winpe/sections](https://m4lc.io/course/winpe/sections)
 
 Common sections in PE files include:
 - `.text`
@@ -822,27 +813,15 @@ Each section is 40 bytes long and contains multiple pieces to it. As you can see
 
 That's really all there is to it. In this course we have broken down the PE file format and provided you with visualizations of how the format works. We appreciate you taking the time to read through this course and hope you got something out of it.
 
-Once again:
-
-A lot of this information can be visualized and seen done during analysis by following these links:
-- [https://m4lc.io/course/winpe/sections](https://m4lc.io/course/winpe/sections)
-- [https://m4lc.io/course/winpe/imports](https://m4lc.io/course/winpe/imports)
-- [https://m4lc.io/course/winpe/certs](https://m4lc.io/course/winpe/certs)
-- [https://m4lc.io/course/winpe/info](https://m4lc.io/course/winpe/info)
-- [https://m4lc.io/course/winpe/full](https://m4lc.io/course/winpe/full)
-- [https://m4lc.io/course/winpe/timestamp](https://m4lc.io/course/winpe/timestamp)
-
 Tools used for this course:
-- Malcore: [https://malcore.io](https://malcore.io)
 - ImHex: [https://github.com/WerWolv/ImHex](https://github.com/WerWolv/ImHex)
 - Malcat: [https://malcat.fr/](https://malcat.fr/)
 
 #### Support the Bible
 
-Once again, this course is offered for free by The Perkins Cybersecurity Educational Fund in collaboration with Malcore! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
+Once again, this course is offered for free by The Perkins Cybersecurity Educational Fund! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
 - Donating to the Malware Bible Fund → [Donate Here](https://donorbox.org/malware-bible-fund)
-- Registering for Malcore → [Sign Up](https://m4lc.io/courses/register)
-- Joining the Malcore Discord → [Join Today](https://m4lc.io/courses/discord) 
+- Explore our incredible sponsor [Maldev Academy](https://maldevacademy.com/?referrer=perkinsfund)!
 
 #### Become a sponsor
 

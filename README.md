@@ -6,20 +6,18 @@
 
 </div>
 
-Welcome to the Malware Bible. Brought to you in a collaboration between The Perkins Cybersecurity Educational Fund and Malcore. 
+Welcome to the Malware Bible. Brought to you by The Perkins Cybersecurity Educational Fund. 
 
 This sacred text was created specifically to guide you on your journey into the realm of malware. Whether you are seeking to understand, master, or dominate this craft, these sacred texts have been forged from the fires below to bestow this forbidden knowledge upon thee.
 
 Remember: "To conquer your enemy, walk in the shadow of their thoughts, and let their mind become as your own."
 
----
+-**-**-
 
 #### Support the Bible
 
-These courses are provided for free by The Perkins Cybersecurity Educational Fund in collaboration with Malcore! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
+These courses are provided for free by The Perkins Cybersecurity Educational Fund! If you found this information valuable and want to support the continued development of the Malware Bible please consider:
 - Donating to the Malware Bible Fund → [Donate Here](https://donorbox.org/malware-bible-fund)
-- Registering for Malcore → [Sign Up](https://m4lc.io/courses/register)
-- Joining the Malcore Discord → [Join Today](https://m4lc.io/courses/discord)
 - Or buy us a coffee → [Coffee](https://ko-fi.com/perkinsfund)
 
 #### Become a sponsor
