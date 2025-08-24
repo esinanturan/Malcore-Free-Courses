@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="../.github/idapro-cheatsheet.png">
+    <img src="../.github/idapro-cheatsheet.jpg">
 </p>
 
 **Shameless plug**
