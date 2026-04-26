@@ -62,7 +62,7 @@ void no_length_check_function(char *input) {
 int main(int argc, char *argv[]) {
     // pass the first argv (argv[1]) which will be the second argument IE: file.exe ARGUMENT1 to the vulnerable function
     no_length_check_function(argv[1]);
-    // return becuase it's an int
+    // return because it's an int
     return 0;
 }
 ```
@@ -93,76 +93,122 @@ It is important to note this explanation will most likely not be able to be comp
 
 ***
 
-## Let's write some shellcode!
+## Let's write some Windows x86 assembly
 
-Now that you have got the basic idea, we will start writing our own. We will write a basic assembly program to launch calc.exe. We will then convert the assembly into shellcode and call it through a C program. Let's get started:
+Now that you have the basic idea, we will write a small Windows x86 assembly program that launches `calc.exe`. This version uses Windows API imports instead of hardcoded function addresses.
 
 ```asm
 section .text
     global _start
 
+    extern _WinExec@8
+    extern _ExitProcess@4
+
 _start:
-    ; push a null terminated string containing 'calc.exe' onto the stack
-    xor    eax, eax
-    push   eax 
-    push   0x6578652e  ; "exe."
-    push   0x636c6163  ; "calc"
-    mov    ebx, esp
+    xor eax, eax
+    push eax
+    push 0x6578652e     ; "exe."
+    push 0x636c6163     ; "calc"
+    mov ebx, esp
 
-    ; get WinExec address from kernel32.dll (typical system might be different for your system)
-    mov    eax, 0x76c76360
-    
-    push   1
-    push   ebx  ; "calc.exe"
-    call   eax  ; call WinExec(lpCmdLine="calc.exe", SW_SHOWNORMAL)
+    push 1              ; SW_SHOWNORMAL
+    push ebx            ; "calc.exe"
+    call _WinExec@8
 
-    ; exit cleanly
-    xor    eax, eax
-    push   eax
-    mov    al, 0x1
-    int    0x80 
+    push 0
+    call _ExitProcess@4
 ```
 
-Now that we have this shellcode what we need to do is compile it. To do so you will need two things:
+To compile this, you will need two tools:
 
-1. [NASM](https://www.nasm.us/) -> NASM is an assembler/disassembler for the Intel x86 architecture.
-2. [MinGW](https://www.mingw-w64.org/downloads/) -> MinGW is "Minimalist Gnu for Windows" and provides you with commands like gcc on Windows.
+1. [NASM](https://www.nasm.us/) — an assembler for Intel x86 and x86-64 assembly.
+2. [MinGW-w64](https://www.mingw-w64.org/downloads/) — provides GCC and Windows import libraries.
 
-You can download both using Chocolatey or the respective links included above. Once you have these installed make sure to add them both to your ENV Path.
+You can install both using Chocolatey or download them from their official websites. After installation, make sure both tools are available in your system `PATH`.
 
-***
+This example is written for **32-bit Windows**, so you need a 32-bit MinGW-w64 toolchain. Your GCC target should look like this:
 
-## Compiling it!
+```bash
+i686-w64-mingw32
+```
 
-Now that you have what you need, we can continue with the compilation. What we need to do first is compile the shellcode into an object (`.o`) file. Save the above code into `test_calc.asm` and follow the below steps:
+You can check your current GCC target with:
 
-1. Compile the assembly using the `nasm` command:
+```bash
+gcc -dumpmachine
+```
+
+If it shows this instead:
+
+```bash
+x86_64-w64-mingw32
+```
+
+then you are using a 64-bit MinGW-w64 toolchain. That will not link this 32-bit object file unless you also have the 32-bit libraries installed.
+
+---
+
+## Compiling it
+
+Save the assembly code as:
+
+```text
+test_calc.asm
+```
+
+Then assemble it with NASM:
 
 ```bash
 nasm -f win32 .\test_calc.asm -o test_calc.o
 ```
 
-You should get no output from this command indicating that you just compiled assembly successfully. What we just did was compile the raw assembly file into `win32` (`-f win32`) format and create the object file named `test_calc.o` (`-o test_calc.o`).
+NASM should produce no output if the command succeeds. This creates a 32-bit Windows object file named:
 
-2. Link the object file using the `gcc` command:
-
-**NOTE: This command may be different dependent on your system and architecture**
-
-```bash
-gcc -m32 -o test_calc.exe .\test_calc.o "-Wl,-e,_start" -nostdlib
+```text
+test_calc.o
 ```
 
-What the above commands does is tells the `gcc` compiler to link the output as a 32bit (`-m32`) application, specifies the entrypoint to the `_start` section (`-Wl,_-e,_start`), and prevents us from including standard libraries (`-nostdlib`). Congratulations! You have successfully compiled your own shellcode!
+The `-f win32` option tells NASM to generate a 32-bit PE/COFF object file.
 
-***
-
-## Adding shellcode to your attack
-
-If this is the first time you've done this, you're probably thinking: "Well that's cool but it's not in the normal '\xnn' format I see all the time" and you are completely right! That is because we have not taken our shellcode and turned it into the correct format we need! If you see the above you notice that we compiled the shellcode into an `exe` file at the end which is great and awesome! But we don't need to complete that step in order to get the shellcode. What we need is the `object` file, and the disassembly of that file. We can get this using something like `objdump` on the object file:
+Next, link the object file with GCC:
 
 ```bash
-PS C:\Users\xxx> objdump -d .\test_calc.o
+gcc -m32 -o test_calc.exe .\test_calc.o -nostdlib -lkernel32 "-Wl,-e,_start"
+```
 
+This command does the following:
+
+* `-m32` tells GCC to create a 32-bit executable.
+* `-o test_calc.exe` sets the output file name.
+* `.\test_calc.o` is the object file produced by NASM.
+* `-nostdlib` prevents GCC from linking the normal C runtime startup files.
+* `-lkernel32` links against `kernel32.dll`, which provides `WinExec` and `ExitProcess`.
+* `"-Wl,-e,_start"` tells the linker to use `_start` as the program entry point.
+
+The quotes around `"-Wl,-e,_start"` are important in PowerShell because commas can be parsed specially.
+
+If you get an error like this:
+
+```text
+skipping incompatible ... libkernel32.a
+cannot find -lkernel32
+```
+
+then you are trying to link a 32-bit object file with a 64-bit MinGW-w64 toolchain. Use a 32-bit MinGW-w64 toolchain instead.
+
+---
+
+## Inspecting the object file
+
+You can inspect the object file with `objdump`:
+
+```bash
+objdump -d .\test_calc.o
+```
+
+Example output:
+
+```asm
 .\test_calc.o:     file format pe-i386
 
 
@@ -174,43 +220,146 @@ Disassembly of section .text:
    3:   68 2e 65 78 65          push   $0x6578652e
    8:   68 63 61 6c 63          push   $0x636c6163
    d:   89 e3                   mov    %esp,%ebx
-   f:   b8 60 63 c7 76          mov    $0x76c76360,%eax
-  14:   6a 01                   push   $0x1
-  16:   53                      push   %ebx
-  17:   ff d0                   call   *%eax
-  19:   31 c0                   xor    %eax,%eax
-  1b:   50                      push   %eax
-  1c:   b0 01                   mov    $0x1,%al
-  1e:   cd 80                   int    $0x80
+   f:   6a 01                   push   $0x1
+  11:   53                      push   %ebx
+  12:   e8 00 00 00 00          call   17 <_start+0x17>
+  17:   6a 00                   push   $0x0
+  19:   e8 00 00 00 00          call   1e <_start+0x1e>
 ```
 
-Now we can convert the above to the correct format by copying the opcodes and converting them into the `\xnn` format like so:
+The two `call` instructions may appear as:
+
+```asm
+e8 00 00 00 00
+```
+
+This is normal in an object file. The calls have not been resolved yet because `_WinExec@8` and `_ExitProcess@4` are external symbols. The linker resolves these references when it creates the final executable.
+
+You can view the relocation entries with:
 
 ```bash
-\x31\xc0\x50\x68\x2e\x65\x78\x65\x68\x63\x61\x6c\x63\x89\xe3\xb8\x60\x63\xc7\x76\x6a\x01\x53\xff\xd0\x31\xc0\x50\xb0\x01\xb0\x01\xcd\x80
+objdump -r .\test_calc.o
 ```
 
-You're probably thinking: "my fucking God there has to be a better way" and yes there is! However, it is important that you understand how all this takes place before looking for the shortcuts. Now that we have the correct format the most common way to run shellcode is by inserting it into a file call. We will use C for this:
+Example output:
 
-```c
-unsigned char code[] = "\x31\xc0\x50\x68\x2e\x65\x78\x65\x68\x63\x61\x6c\x63\x89\xe3\xb8\x60\x63\xc7\x76\x6a\x01\x53\xff\xd0\x31\xc0\x50\xb0\x01\xb0\x01\xcd\x80";
-
-int main (void) {
-    (*(void(*)()) code)();
-}
+```text
+RELOCATION RECORDS FOR [.text]:
+OFFSET   TYPE              VALUE
+00000013 DISP32            _WinExec@8
+0000001a DISP32            _ExitProcess@4
 ```
 
-The above C code calls the `unsigned char` variable as a function and runs it directly, in a nutshell this part of the function: `(*(void(*)()) code)();` is a type cast to treat the code as a function pointer without any arguments. This allows us to execute the shellcode without need for injection into a vulnerable process.
+These relocation entries show that the object file contains references to imported Windows API functions that still need to be resolved during linking.
 
-***
+---
+
+## Inspecting the final executable
+
+After linking, inspect the executable with:
+
+```bash
+objdump -p .\test_calc.exe
+```
+
+Look for the import table. You should see imports from `KERNEL32.dll`, including:
+
+```text
+WinExec
+ExitProcess
+```
+
+You can also disassemble the final executable:
+
+```bash
+objdump -d .\test_calc.exe
+```
+
+At this stage, the linker has produced a valid Windows PE executable that imports the required functions from `kernel32.dll`.
+
+---
+
+## Important note
+
+This example is Windows x86 assembly that builds into a PE executable. It is not standalone position-independent shellcode.
+
+Because the code uses imported symbols:
+
+```asm
+extern _WinExec@8
+extern _ExitProcess@4
+```
+
+If you still want to view the raw instruction bytes from the object file, you can use `objdump`:
+
+```bash
+objdump -d .\test_calc.o
+```
+
+Example output:
+
+```asm
+.\test_calc.o:     file format pe-i386
 
 
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:   31 c0                   xor    %eax,%eax
+   2:   50                      push   %eax
+   3:   68 2e 65 78 65          push   $0x6578652e
+   8:   68 63 61 6c 63          push   $0x636c6163
+   d:   89 e3                   mov    %esp,%ebx
+   f:   6a 01                   push   $0x1
+  11:   53                      push   %ebx
+  12:   e8 00 00 00 00          call   17 <_start+0x17>
+  17:   6a 00                   push   $0x0
+  19:   e8 00 00 00 00          call   1e <_start+0x1e>
+```
+
+You can manually convert the opcode bytes into `\xNN` format:
+
+```text
+\x31\xc0\x50\x68\x2e\x65\x78\x65\x68\x63\x61\x6c\x63\x89\xe3\x6a\x01\x53\xe8\x00\x00\x00\x00\x6a\x00\xe8\x00\x00\x00\x00
+```
+
+However, this byte string is **not valid standalone shellcode**. The two calls are unresolved linker placeholders:
+
+```asm
+e8 00 00 00 00
+```
+
+Those calls refer to external symbols:
+
+```asm
+_WinExec@8
+_ExitProcess@4
+```
+
+The object file does not contain the final addresses for those imports. The linker resolves them when it builds the final PE executable.
+
+You can confirm this by checking the relocations:
+
+```bash
+objdump -r .\test_calc.o
+```
+
+Example output:
+
+```text
+.\test_calc.o:     file format pe-i386
+
+RELOCATION RECORDS FOR [.text]:
+OFFSET   TYPE              VALUE
+00000013 DISP32            _WinExec@8
+0000001a DISP32            _ExitProcess@4
+```
+
+So while you can extract the bytes from the object file, those bytes cannot be dropped into a C shellcode runner and expected to work. They depend on relocation and import resolution during linking.
 
 ## In closing
 
 This course has provided you with the basics of how shellcode works, how to compile it, and how to launch it from within a C program. This course was designed specifically for starters to understand the basic concepts of shellcode and what it does. We hope you have found this course useful and understand it.
-
-There is a high probability that this shellcode will not launch calc.exe on your system, that is most likely because the hardcoded address of WinExec (`0x76c76360`) is incorrect. To fix this you will need to perform actions such as `LoadLibraryA` and find the correct location of the addresses. Unfortunately, that is out of scope for this introduction and will need to be shown later. We encourage readers to try and figure this out themselves.
 
 #### Support the Bible
 
