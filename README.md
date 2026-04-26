@@ -24,4 +24,4 @@ These courses are provided for free by The Perkins Cybersecurity Educational Fun
 
 These courses reach thousands of cybersecurity professionals, researchers, students, and teachers worldwide who actively engage in learning and advancing the field. Sponsoring our educational initiative not only supports free cybersecurity education but also places your brand in front of a highly technical and security-conscious audience.
 
-Interested in partnering? Let's talk about how your organization can be featured in our future courses: [Contact us today!](https://perkinsfund.org/) Please view our [Sponsorship Packages](.github/sponsorships/sponsorship_package.md) for more details!
+Interested in partnering? Let's talk about how your organization can be featured in our future courses: [Contact us today!](https://perkinsfund.org/#contact-us) Please view our [Sponsorship Packages](https://perkinsfund.org/donations#support-recognition) for more details!
