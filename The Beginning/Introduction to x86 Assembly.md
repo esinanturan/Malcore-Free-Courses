@@ -10,7 +10,7 @@ Please consider donating to [The Perkins Cybersecurity Educational](https://dono
 
 You can also support The Perkins Cybersecurity Educational Fund by buying them a coffee
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/perkinsfund)**
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://ko-fi.com/perkinsfund)
 
 
 ##### NOTE: This course assumes that you are using Linux and have nasm installed.
