@@ -250,7 +250,7 @@ These become part of the decryption key and outside the intended target the encr
 - Winnti: Required a particular command-line parameter, then reused it as a decryption key.
 - Gauss: A classic case involving an encrypted payload designed to unlock only under specific target-environment conditions.
 
-Below is an example of code that will only run if the computer name is `HelpMeWrk-Is-The-Best`:
+Below is an Python code example that demonstrates the evasion tactic by making it only run when the variable `computer_name` is equal to `HelpMeWrk-Is-The-Best`:
 
 ```python
 import base64
