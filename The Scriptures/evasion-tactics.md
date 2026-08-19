@@ -233,3 +233,58 @@ fn main() -> io::Result<()> {
 ```bash 
 cargo run -- --file PATH --url URL
 ```
+
+## Environmental Keying
+
+This evasion tactic is a way that malware encrypts payloads using victim specific details. Such as:
+
+- Machine name
+- Domain
+
+These become part of the decryption key and outside the intended target the encrypted blob will not be able to decrypt itself. This makes it so that these attacks will only work on certain environments and analysis is much harder to perform. Real world examples include:
+
+- InvisiMole: Uses Windows DPAPI so components can only be decrypted on the specific compromised computer.
+- APT41 malware: Derived part of an encryption key from the machine’s disk-volume serial number.
+- PowerPunch: Generated a unique next-stage key from the victim’s volume serial number.
+- ROKRAT: Required an expected hostname before executing and decrypting important strings.
+- Winnti: Required a particular command-line parameter, then reused it as a decryption key.
+- Gauss: A classic case involving an encrypted payload designed to unlock only under specific target-environment conditions.
+
+Below is an Python code example that demonstrates the evasion tactic by making it only run when the variable `computer_name` is equal to `HelpMeWrk-Is-The-Best`:
+
+```python
+import base64
+import hashlib
+import socket
+import sys
+
+from cryptography.fernet import Fernet, InvalidToken
+
+
+ENCRYPTED_BLOB = (
+    b"gAAAAABqhGjaRhLj7lZ3cT4GMdEyWQc_Sv_HMRZr7vW0vzhz2IKUShPfy5nUGs3"
+    b"l4BUvSeBiC-Nmxdx2e8I0oclyKBvV_8wNbQ8zBGhVpMwmWXWme0Tmmoo="
+)
+
+
+def derive_environment_key(computer_name):
+    normalized_name = computer_name.casefold().encode("utf-8")
+    digest = hashlib.sha256(normalized_name).digest()
+    return base64.urlsafe_b64encode(digest)
+
+
+def main():
+    computer_name = socket.gethostname()
+    environment_key = derive_environment_key(computer_name)
+
+    try:
+        plaintext = Fernet(environment_key).decrypt(ENCRYPTED_BLOB)
+    except InvalidToken:
+        sys.exit(
+            f"Decryption failed: {computer_name!r} is not the intended computer."
+        )
+
+    print("Decrypted blob:", plaintext.decode("utf-8"))
+```
+
+This is a very narrow example but provides the basic understanding of how easily malware can be environmentally keyed. When the hostname for the above example is `HelpMeWrk-Is-The-Best` the encrypted blob can be decrypted and will output a message.
