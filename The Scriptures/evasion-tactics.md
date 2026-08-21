@@ -412,3 +412,5 @@ int main(void)
     return 0;
 }
 ```
+
+This example shows a custom "VM" with bytecode that provides instructions such as loading, adding, XORing, printing, and halting. Instead of executing directly, the program runs its own interpreter and this gives each bytecode value meaning.
