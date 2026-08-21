@@ -288,3 +288,127 @@ def main():
 ```
 
 This is a very narrow example but provides the basic understanding of how easily malware can be environmentally keyed. When the hostname for the above example is `HelpMeWrk-Is-The-Best` the encrypted blob can be decrypted and will output a message.
+
+## Custom VM Obfuscation
+
+This is a technique where the malware author translates its instructions into proprietary bytecode. It will then embed an interpreter that executes it. 
+
+Real world examples include:
+- FinFisher/FinSpy: used its own tiny fake CPU. The real instructions were turned into custom bytecode, and an embedded interpreter executed them.
+- KoiVM malware: used KoiVM to convert normal .NET instructions into a custom virtual instruction set.
+- VMProtect: can turn functions into proprietary bytecode that only VMProtect's embedded virtual machine understands.
+
+This technique becomes interesting during reverse engineering because instead of seeing something like:
+```nasm
+mov
+xor
+call
+jmp
+```
+
+The reverse engineer may see something along the lines of:
+```nasm
+BYTECODE_47
+BYTECODE_A2
+BYTECODE_19
+BYTECODE_D1
+```
+
+This will force the RE to recreate the VM's instruction set to understand the protected program. An example of this:
+
+```c
+#include <stdio.h>
+#include <stdint.h>
+
+enum {
+    OP_LOAD  = 0x01,
+    OP_ADD   = 0x02,
+    OP_XOR   = 0x03,
+    OP_PRINT = 0x04,
+    OP_HALT  = 0xFF
+};
+
+typedef struct {
+    uint8_t *code;
+    size_t ip;
+    int reg;
+} VM;
+
+void run_vm(VM *vm)
+{
+    while (1) {
+
+        // Fetch the next virtual opcode.
+        uint8_t opcode = vm->code[vm->ip++];
+
+        // Dispatch the opcode to its handler.
+        switch (opcode) {
+
+            // Load the next byte into the virtual register.
+            case OP_LOAD: {
+                uint8_t value = vm->code[vm->ip++];
+                vm->reg = value;
+                break;
+            }
+
+            // Add the next byte to the virtual register.
+            case OP_ADD: {
+                uint8_t value = vm->code[vm->ip++];
+                vm->reg += value;
+                break;
+            }
+
+            // XOR the virtual register with the next byte.
+            case OP_XOR: {
+                uint8_t value = vm->code[vm->ip++];
+                vm->reg ^= value;
+                break;
+            }
+
+            // Print the current virtual register value.
+            case OP_PRINT:
+                printf("VM register = %d\n", vm->reg);
+                break;
+
+            // Stop the virtual machine.
+            case OP_HALT:
+                return;
+
+            default:
+                printf("Unknown opcode: 0x%02X\n", opcode);
+                return;
+        }
+    }
+}
+
+int main(void)
+{
+    /*
+     * Equivalent normal logic:
+     *
+     * int x = 10;
+     * x += 5;
+     * x ^= 3;
+     * printf("%d\n", x);
+     */
+
+    uint8_t bytecode[] = {
+        OP_LOAD, 10,
+        OP_ADD,   5,
+        OP_XOR,   3,
+        OP_PRINT,
+        OP_HALT
+    };
+
+    // Initialize the VM and start at the first bytecode instruction.
+    VM vm = {
+        .code = bytecode,
+        .ip = 0,
+        .reg = 0
+    };
+
+    run_vm(&vm);
+
+    return 0;
+}
+```
