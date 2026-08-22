@@ -414,3 +414,60 @@ int main(void)
 ```
 
 This example shows a custom "VM" with bytecode that provides instructions such as loading, adding, XORing, printing, and halting. Instead of executing directly, the program runs its own interpreter and this gives each bytecode value meaning.
+
+## Audio Fingerprinting Browsers
+
+This one isn't exactly an evasion tactic, but it was interesting enough that I thought it should be added here as a related concept. AliExpress has _reportedly_ been observed performing browser audio fingerprinting using the Web Audio API. The technique generates a waveform (such as a sawtooth) processes it through the browser's audio pipeline, and measures the resulting output. It does not need to be audible to the user. Small differences in how each browser, operating system, CPU, and audio implementations process the signal can contribute to a more significant browser fingerprint. The original post can be found [here](https://x.com/IntCyberDigest/status/2090959077736149389?s=20)
+
+A benign fingerprinting example that uses `OfflineAudioContext` without attaching a live audio stream to the output device would look like this:
+
+```javascript
+async function getAudioFingerprint() {
+    // Offline context:
+    // 1 channel
+    // 44,100 samples
+    // 44.1 kHz sample rate
+    const ctx = new OfflineAudioContext(1, 44100, 44100);
+
+    // Generate a deterministic sawtooth waveform.
+    const oscillator = ctx.createOscillator();
+    oscillator.type = "sawtooth";
+    oscillator.frequency.value = 1000;
+
+    // Add DSP operations whose floating-point behavior can differ
+    // slightly between implementations/platforms.
+    const compressor = ctx.createDynamicsCompressor();
+
+    compressor.threshold.value = -50;
+    compressor.knee.value = 40;
+    compressor.ratio.value = 12;
+    compressor.attack.value = 0;
+    compressor.release.value = 0.25;
+
+    oscillator.connect(compressor);
+    compressor.connect(ctx.destination);
+
+    oscillator.start(0);
+
+    // Render the graph entirely in memory.
+    const rendered = await ctx.startRendering();
+
+    const samples = rendered.getChannelData(0);
+
+    // Reduce the output to a deterministic numeric fingerprint.
+    // Real fingerprinting systems usually hash/quantize this afterward.
+    let fingerprint = 0;
+
+    for (let i = 0; i < samples.length; i++) {
+        fingerprint += Math.abs(samples[i]);
+    }
+
+    return fingerprint;
+}
+
+getAudioFingerprint().then(fp => {
+    console.log("Audio fingerprint:", fp);
+});
+```
+
+An example of the fingerprinting above can be found on JSFiddle [here](https://jsfiddle.net/45ozatb0/). This does not exploit the machine in any way, or work because the machine "plays a unique sound." What it does is take advantage of small differences in the processing pipeline. Floating point math, oscillator generation, compression & filtering, sample conversion, and browser specific audio implementations can all slightly affect the rendered output. Those are then reduced into a numeric value or cryptographic hash. On its own the fingerprint most likely will not uniquely identify a user. However, when combined with other methods like: WebGL, fonts, screen characteristics, timezones, and hardware concurrency, it can contribute entropy to a much larger browser fingerprint.
